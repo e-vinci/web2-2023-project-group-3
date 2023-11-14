@@ -56,9 +56,19 @@
     font-size: 40px;
     width: 40%;
     font-family: 'Julius Sans One';
-
-   
 }
+
+.title3{
+    position: absolute;
+    top: 3%;
+    right: 43%;
+    text-align: right;
+    color: #343A40;
+    font-size: 40px;
+    width: 40%;
+    font-family: 'Julius Sans One';
+}
+
 .images{
     position: relative;
     top: -100%;
@@ -100,7 +110,7 @@
     margin-top: 30px;
     padding: 10px 30px;
     border-radius: 20px;
-    background-color: #E88735;
+    background-color: #343A40;
     color: #fff;
     border: none;
     
@@ -169,5 +179,36 @@
     display: block;
     position: absolute;
     top: 38%;
-   margin-left: 410px;
+    margin-left: 410px;
+  }
+
+  #bloc3{
+    position: relative;
+    margin-top: 30px;
+
+  }
+
+  #cardBox{
+    position: relative;
+    top: 90px;
+    left: 15%;
+  }
+
+  #cardBoxContent{
+    position: relative;
+    left: 35px;
+    font-size: x-large;
+    text-align: center;
+    margin-top: 35px;
+  }
+
+  #buttonBox{
+    position: absolute;
+    top: 150px;
+    right: 100px;
+    padding: 10px 30px;
+    border-radius: 20px;
+    background-color: #C69751;
+    color: #fff;
+    border: none;
   }
