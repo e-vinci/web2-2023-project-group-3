@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import { Navbar as BootstrapNavbar } from 'bootstrap';
+import logo from '../../img/logo.jpg';
 
 /**
  * Render the Navbar which is styled by using Bootstrap
@@ -25,6 +26,11 @@ import { Navbar as BootstrapNavbar } from 'bootstrap';
 const Navbar = () => {
   const navbarWrapper = document.querySelector('#navbarWrapper');
   const navbar = `
+
+  <div id="headerLogo">
+    <img id="imgHeader" src="${logo}" alt="" style="width:15%; height:auto"></a>
+  </div>
+
   <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
         <div class="container-fluid">
           
