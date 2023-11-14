@@ -87,7 +87,7 @@ const HomePage = () => {
   const bloc3 = `
   <div id="bloc3">
     <div class="title">
-    <h2 class="hr-lines">NOTRE MENU</h2>
+    <h2 class="hr-lines">VOTRE BOXE</h2>
     </div>
 
     <div id="cardBox">
