@@ -5,13 +5,16 @@ const router = express.Router();
 // eslint-disable-next-line import/extensions
 const Client = require('../models/Client.js');
 
-router.post('/add', (req, res) => {
+// register
+router.post('/add', async (req, res) => {
   const nom = req?.body?.nom?.length !== 0 ? req.body.nom : undefined;
   const prenom = req?.body?.prenom?.length !== 0 ? req.body.prenom : undefined;
   const adresse = req?.body?.adresse?.length !== 0 ? req.body.adresse : undefined;
   const email = req?.body?.email?.length !== 0 ? req.body.email : undefined;
   const mdp = req?.body?.mdp?.length !== 0 ? req.body.mdp : undefined;
 
+  if(!nom || !prenom || !adresse || !email || !mdp) return res.sendStatus(400); //400 bad request
+  
   const createdclient = Client.add({ nom, prenom, adresse, email, mdp });
   return res.json(createdclient);
 });
@@ -20,5 +23,7 @@ router.post('/add', (req, res) => {
 router.get('/', (req, res) => {
   res.json({ users: [{ name: 'e-baron' }] });
 });
+
+
 
 module.exports = router;
