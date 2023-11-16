@@ -13,9 +13,15 @@ router.post('/add', async (req, res) => {
   const email = req?.body?.email?.length !== 0 ? req.body.email : undefined;
   const mdp = req?.body?.mdp?.length !== 0 ? req.body.mdp : undefined;
 
-  if(!nom || !prenom || !adresse || !email || !mdp) return res.sendStatus(400); //400 bad request
-  
-  const createdclient = Client.add({ nom, prenom, adresse, email, mdp });
+  if (!nom || !prenom || !adresse || !email || !mdp) return res.sendStatus(400); // 400 bad request
+
+  const createdclient = Client.add({
+    nom,
+    prenom,
+    adresse,
+    email,
+    mdp,
+  });
   return res.json(createdclient);
 });
 
@@ -23,7 +29,5 @@ router.post('/add', async (req, res) => {
 router.get('/', (req, res) => {
   res.json({ users: [{ name: 'e-baron' }] });
 });
-
-
 
 module.exports = router;
