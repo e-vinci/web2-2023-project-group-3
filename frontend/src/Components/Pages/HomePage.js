@@ -87,7 +87,7 @@ const HomePage = () => {
   const bloc3 = `
   <div id="bloc3">
     <div class="title">
-    <h2 class="hr-lines">VOTRE BOXE</h2>
+    <h2 class="hr-lines">VOTRE BOX</h2>
     </div>
 
     <div id="cardBox">
@@ -102,7 +102,7 @@ const HomePage = () => {
               C’est possible chez nous. Composez votre délicieux repas </p>
               
             </div>
-            <button id="buttonBox" href="#" data-uri="/creationBox" >Je crée ma boxe</button>
+            <button id="buttonBox" href="#" data-uri="/creationBox" >Je crée ma box</button>
           </div>
        </div>
     </div>

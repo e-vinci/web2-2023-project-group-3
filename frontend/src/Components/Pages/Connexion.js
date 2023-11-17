@@ -1,6 +1,8 @@
 const Connexion = () => {
+    // eslint-disable-next-line no-unused-vars
     const main = document.querySelector('main');
-    main.innerHTML = 'Deal with the content of your HomePage';
+
+
   };
   
   export default Connexion;

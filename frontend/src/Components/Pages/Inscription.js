@@ -1,6 +1,56 @@
 const Inscription = () => {
     const main = document.querySelector('main');
-    main.innerHTML = 'Deal with the content of your HomePage';
+    const bloc1= `
+    <!-- Section: Design Block -->
+   
+  
+  <section class="text-center">
+  <div class="title">
+  <h2>NOTRE MENU</h2>
+  </div>
+  <div class="formInscription">
+    <form>
+            <!-- 2 column grid layout with text inputs for the first and last names -->
+            <div class="row">
+              <div class="col-md-6 mb-4">
+                <div class="form-outline">
+                  <input type="text" id="form3Example1" class="form-control" />
+                  <label class="form-label" for="form3Example1">First name</label>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4">
+                <div class="form-outline">
+                  <input type="text" id="form3Example2" class="form-control" />
+                  <label class="form-label" for="form3Example2">Last name</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+              <input type="email" id="form3Example3" class="form-control" />
+              <label class="form-label" for="form3Example3">Email address</label>
+            </div>
+
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+              <input type="password" id="form3Example4" class="form-control" />
+              <label class="form-label" for="form3Example4">Password</label>
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-block mb-4">
+              Sign up
+            </button>
+
+            </div>
+            </section>
+          </form>
+          
+          </div>
+
+    `
+    main.innerHTML = bloc1;
   };
   
   export default Inscription;
