@@ -2,7 +2,7 @@
 const db = require('./db_conf.js');
 
 module.exports.add = (login) => {
-  console.log('je passe par le modÃ¨le');
+  console.log('je passe par le modele');
   const stmtInsert = db.prepare(
     'INSERT INTO clients (nom,prenom,email,adresse,mdp) VALUES (?,?,?,?,?)',
   );
