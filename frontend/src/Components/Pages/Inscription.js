@@ -1,3 +1,7 @@
+import sushiLogo from '../../img/logoSushi.png'
+import baguettes from '../../img/baguettes.png'
+import sushis from '../../img/someSushis.png'
+
 const Inscription = () => {
     const main = document.querySelector('main');
     const bloc1= `
@@ -5,23 +9,24 @@ const Inscription = () => {
    
   
   <section class="text-center">
-  <div class="title">
-  <h2>NOTRE MENU</h2>
-  </div>
-  <div class="formInscription">
+  <div class="formInscriptionConnexion">
+  <h2 class="titleInscriptionConnexionPage">S'inscrire <img src="${sushiLogo}" alt="" style="width:10%; height:auto"></h2>
+  <img id="baguette" src="${baguettes}" alt="" style="width:30%; height:auto">
+
+
     <form>
             <!-- 2 column grid layout with text inputs for the first and last names -->
             <div class="row">
               <div class="col-md-6 mb-4">
                 <div class="form-outline">
                   <input type="text" id="form3Example1" class="form-control" />
-                  <label class="form-label" for="form3Example1">First name</label>
+                  <label class="form-label" for="form3Example1">Prénom</label>
                 </div>
               </div>
               <div class="col-md-6 mb-4">
                 <div class="form-outline">
                   <input type="text" id="form3Example2" class="form-control" />
-                  <label class="form-label" for="form3Example2">Last name</label>
+                  <label class="form-label" for="form3Example2">Nom</label>
                 </div>
               </div>
             </div>
@@ -29,26 +34,25 @@ const Inscription = () => {
             <!-- Email input -->
             <div class="form-outline mb-4">
               <input type="email" id="form3Example3" class="form-control" />
-              <label class="form-label" for="form3Example3">Email address</label>
+              <label class="form-label" for="form3Example3">Email</label>
             </div>
 
             <!-- Password input -->
             <div class="form-outline mb-4">
               <input type="password" id="form3Example4" class="form-control" />
-              <label class="form-label" for="form3Example4">Password</label>
+              <label class="form-label" for="form3Example4">Mot de passe</label>
             </div>
 
             <!-- Submit button -->
-            <button type="submit" class="btn btn-primary btn-block mb-4">
-              Sign up
+            <button type="submit" class="goldButton">
+              Inscription
             </button>
 
             </div>
             </section>
           </form>
-          
-          </div>
 
+          <img id="someSushis" src="${sushis}" alt="" style="width:15%; height:auto">
     `
     main.innerHTML = bloc1;
   };

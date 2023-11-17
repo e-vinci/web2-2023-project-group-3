@@ -186,17 +186,19 @@
     position: relative;
     margin-top: 30px;
 
+
   }
 
   #cardBox{
-    position: relative;
+    position: absolute;
     top: 90px;
     left: 15%;
+
   }
 
   #cardBoxContent{
     position: relative;
-    left: 35px;
+    left: 30px;
     font-size: x-large;
     text-align: center;
     margin-top: 35px;
@@ -213,8 +215,39 @@
     border: none;
   }
 
-  .formInscription{
+  .formInscriptionConnexion{
     margin-top: 5%;
     margin-left: 30%;
     margin-right: 30%;
+  }
+
+  .titleInscriptionConnexionPage{
+    font-family: 'Julius Sans One';
+    margin-bottom: 5%;
+    margin-left: 5%;
+  }
+
+  .goldButton{
+    padding: 10px 120px;
+    border-radius: 20px;
+    background-color: #C69751;
+    color: #fff;
+    border: none;
+    margin-bottom: 5%;
+  }
+
+  .footer{
+    background-color: #343A40;
+   
+  }
+  #baguette{
+    position: absolute;
+    left: -14%;
+    top: 27%;
+  }
+
+  #someSushis{
+    position: absolute;
+    right: 0%;
+    top: 45%;
   }
