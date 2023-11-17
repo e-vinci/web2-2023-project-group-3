@@ -8,5 +8,3 @@ module.exports.add = (login) => {
   );
   const info = stmtInsert.run(login.nom, login.prenom, login.email, login.adresse, login.mdp);
 };
-
-
