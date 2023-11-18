@@ -185,7 +185,7 @@
   #bloc3{
     position: relative;
     margin-top: 30px;
-
+    margin-bottom: 30%;
 
   }
 
@@ -219,6 +219,7 @@
     margin-top: 5%;
     margin-left: 30%;
     margin-right: 30%;
+    margin-bottom: 15%;
   }
 
   .titleInscriptionConnexionPage{
@@ -250,4 +251,9 @@
     position: absolute;
     right: 0%;
     top: 45%;
+  }
+
+  .footerButton{
+    padding: 10px 30px;
+    border-radius: 20px;
   }
