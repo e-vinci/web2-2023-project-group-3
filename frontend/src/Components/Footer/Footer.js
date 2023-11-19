@@ -32,7 +32,7 @@ const Footer = () => {
                   </li>
                   <br>
                   <li>
-                  <a href="#!" class="text-white">adresse</a>
+                  <a href="#!" class="text-white">Rue du soja 3, 1234 Corée du Sud</a>
                   </li>
                   <br>
                   <li>
