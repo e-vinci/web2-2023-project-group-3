@@ -10,16 +10,16 @@ router.get('/', (req, res) => {
   return res.json(allOrders());
 });
 
-router.get('/add', (req, res) => {
-  const add = addSushi();
-  const createSushi = {
-    nom: nom,
-    description: description,
-    prix_unitaire: prix_unitaire,
-    type: type,
-  };
+router.post('/add', (req, res) => {
+  console.log('test');
+  const name = req?.body?.name?.length !== 0 ? req.body.name : undefined;
+  const description = req?.body?.description?.length !== 0 ? req.body.description : undefined;
+  const prixUnitaire = req?.body?.prix_unitaire?.length !== 0 ? req.body.prix_unitaire : undefined;
+  const type = req?.body?.type?.length !== 0 ? req.body.type : undefined;
 
-  return res.json(allOrders());
+  const add = addSushi(name, description, prixUnitaire, type);
+  console.log(add);
+  return res.json(add);
 });
 
 module.exports = router;

@@ -6,10 +6,10 @@ function allOrders() {
   return allOrder;
 }
 
-function addSushi(orders) {
+function addSushi(sushi) {
   return db
     .prepare('INSERT INTO sushis (nom, description, prix_unitaire, type) VALUES (?, ?, ?, ?);')
-    .run(orders.user, orders.fabric, orders.height, orders.width, orders.price);
+    .run(sushi.nom, sushi.description, sushi.prix_unitaire, sushi.type);
 }
 
 module.exports = { allOrders, addSushi };
