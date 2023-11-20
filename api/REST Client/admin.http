@@ -3,7 +3,7 @@
 @baseUrl = http://localhost:3000
 
 ### Read all sushis
-GET {{{baseUrl}}}/admin
+GET {{{baseUrl}}}/admin/
 
 
 
