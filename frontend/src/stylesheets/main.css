@@ -280,6 +280,7 @@
     padding-top: 50px;
     font-size: large;
   }
+
   .filter-card a{
     color: #D9D9D9;
     font-family: 'Julius Sans One';
@@ -302,6 +303,7 @@
     color: #fff;
     border: none;
   }
+
   #buttonBox3{
     position: absolute;
     top: 130px;
@@ -311,4 +313,28 @@
     background-color: #343A40;
     color: #fff;
     border: none;
+  }
+
+  .profil{
+    background-color: #fff;
+    width: auto;
+    height: 80vh;
+    margin-top: 5%;
+  }
+
+  .infos{
+    margin-top: 5%;
+  }
+
+  .profilAvatar{
+    border-right: 3px #C69751 double;
+  }
+
+  #logOut{
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #343A40;
+    color: #ffffff;
+    border-color: #343A40 ;
+    margin-top: 50%;
   }
