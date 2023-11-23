@@ -338,3 +338,27 @@
     border-color: #343A40 ;
     margin-top: 50%;
   }
+  .titleUsers{
+
+    margin-top:4%;
+    margin-left: 30%;
+    text-align: center;
+    color: #343A40;
+    font-size: 40px;
+    width: 40%;
+    font-family: 'Julius Sans One';
+}
+
+.tab{
+
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 2%;
+  border-radius: 5% !important;
+}
+
+.retour{
+  position: absolute;
+  top: 25%;
+  left: 1%;
+}
