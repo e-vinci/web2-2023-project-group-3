@@ -1,0 +1,27 @@
+GET http://localhost:3000/creationBox
+
+### Read all pizzas with File variable
+@baseUrl = http://localhost:3000
+
+GET {{baseUrl}}/creationBox
+
+###Create box 
+POST {{baseUrl}}/creationBox/add
+Content-Type: application/json
+
+{
+    "quantite":2,
+    "sushi": 1,
+    "box" : 1
+}
+
+### Create a film
+POST http://localhost:3000/films
+Content-Type: application/json
+
+{
+    "title": " Le roi Lion ",
+    "duration": 300,
+    "budget": 80,
+    "link": "https://en.wikipedia.org/wiki/Zack_Snyder%27s_Justice_League"
+}

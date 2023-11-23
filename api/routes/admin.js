@@ -3,12 +3,11 @@ const express = require('express');
 const router = express.Router();
 
 const adminModel = require('../models/Admin');
-const allOrders = adminModel.allOrders;
-const addSushi = adminModel.addSushi;
 
-router.get('/', (req, res) => {
-  return res.json(allOrders());
-});
+const { allOrders } = adminModel;
+const { addSushi } = adminModel;
+
+router.get('/', (req, res) => res.json(allOrders()));
 
 router.post('/add', (req, res) => {
   console.log('test');
