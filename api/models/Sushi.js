@@ -1,9 +1,21 @@
-/* eslint-disable no-unused-vars */
-const db = require('./db_conf');
+// eslint-disable-next-line import/extensions
+const db = require('./db_conf.js');
 
-module.exports.readAllTypeSushi = () => {
-  const sushis = db.prepare('SELECT * FROM sushis su ');
-  return sushis.all();
+/* get all sushis */
+module.exports.read_all = () => {
+  console.log('je passe par le modele de sushi read_all');
+  const stmtSelect = db.prepare('SELECT * FROM sushis');
+  const result = stmtSelect.all(); // Utilisez all() pour récupérer toutes les lignes
+
+  return result;
+};
+/* get all the sushis from one type */
+module.exports.read_by_type = (type) => {
+  console.log('je passe par le modele de sushi read_by_type ');
+  const stmtSelect = db.prepare('SELECT * FROM sushis WHERE type=?');
+  const result = stmtSelect.all(type);
+
+  return result;
 };
 
 module.exports.compositionBox = () => {

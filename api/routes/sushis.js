@@ -1,33 +1,26 @@
 const express = require('express');
-const {
-  readAllPizzas,
-  readOnePizza,
-  createOnePizza,
-  deleteOnePizza,
-  updateOnePizza,
-} = require('../models/pizzas');
-const { authorize, isAdmin } = require('../utils/auths');
 
 const router = express.Router();
 
-/* Read all the pizzas from the menu
-   GET /pizzas?order=title : ascending order by title
-   GET /pizzas?order=-title : descending order by title
-*/
+// eslint-disable-next-line import/extensions
+const Sushi = require('../models/Sushi.js');
+
+/* Read all the sushis from the menu */
 router.get('/', (req, res) => {
-  const allPizzasPotentiallyOrdered = readAllPizzas(req?.query?.order);
-
-  return res.json(allPizzasPotentiallyOrdered);
+  const allSushis = Sushi.read_all(req?.query?.type);
+  return res.json(allSushis);
 });
 
-// Read the pizza identified by an id in the menu
-router.get('/:id', (req, res) => {
-  const foundPizza = readOnePizza(req.params.id);
+// Read the sushi identified by an type in the menu
+router.get('/:type', (req, res) => {
+  const sushiType = Sushi.read_by_type(req.params.type);
 
-  if (!foundPizza) return res.sendStatus(404);
+  if (!sushiType) return res.sendStatus(404);
 
-  return res.json(foundPizza);
+  return res.json(sushiType);
 });
+
+/*
 
 // Create a pizza to be added to the menu.
 router.post('/', authorize, isAdmin, (req, res) => {
@@ -65,5 +58,7 @@ router.patch('/:id', authorize, isAdmin, (req, res) => {
 
   return res.json(updatedPizza);
 });
+
+*/
 
 module.exports = router;
