@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import { Navbar as BootstrapNavbar } from 'bootstrap';
 import logo from '../../img/logo.jpg';
+import { isAuthenticated } from '../../utils/auth';
 
 /**
  * Render the Navbar which is styled by using Bootstrap
@@ -50,9 +51,6 @@ const Navbar = () => {
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#" data-uri="/menu">Menu</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" data-uri="/creationBox">Création boxe</a>
               </li>  
               <li class="nav-item">
                 <a class="nav-link" href="#" data-uri="/profil">Mon profil</a>
@@ -62,7 +60,36 @@ const Navbar = () => {
         </div>
       </nav>
   `;
-  navbarWrapper.innerHTML = navbar;
+  const navbarAuth = `
+
+  <div id="headerLogo">
+    <img id="imgHeader" src="${logo}" alt="" style="width:15%; height:auto"></a>
+    <button id="connexion" href="#" data-uri="/deconnexion">Se deconnecter</button>
+    </div>
+
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #343A40;">
+        <div class="container-fluid">
+          
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#" data-uri="/">Accueil</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-uri="/menu">Menu</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-uri="/creationBox">Création box</a>
+              </li>  
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-uri="/profil">Mon profil</a>
+              </li>                       
+            </ul>
+          </div>
+        </div>
+      </nav>
+  `;
+  navbarWrapper.innerHTML = isAuthenticated() ? navbarAuth: navbar;
 };
 
 export default Navbar;

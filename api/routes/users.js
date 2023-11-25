@@ -5,7 +5,6 @@ const router = express.Router();
 // eslint-disable-next-line import/extensions
 const Client = require('../models/Client.js');
 
-
 // register
 router.post('/add', async (req, res) => {
   const nom = req?.body?.nom?.length !== 0 ? req.body.nom : undefined;
@@ -18,7 +17,7 @@ router.post('/add', async (req, res) => {
 
   if(Client.emailExists(email))     return res.status(400).json({ message: 'Cette adresse mail est déjà utilisée.' });
 
-  const createdclient = Client.add({
+  const createdclient = await Client.createOneUser({
     nom,
     prenom,
     adresse,

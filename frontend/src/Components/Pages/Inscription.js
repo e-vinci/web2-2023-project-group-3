@@ -1,6 +1,10 @@
 import sushiLogo from '../../img/logoSushi.png'
 import baguettes from '../../img/baguettes.png'
 import sushis from '../../img/someSushis.png'
+import Navbar from '../Navbar/Navbar';
+import Navigate from '../Router/Navigate';
+import { setAuthenticatedUser } from '../../utils/auth';
+
 
 const validateForm = () => {
   const form = document.getElementById('inscriptionForm');
@@ -49,7 +53,10 @@ const handleSubmit = async (event) => {
   const errorMessage = document.getElementById('error-message');
 
   if (reponse.ok) {
-    successMessage.innerHTML = 'Inscription réussie!';
+    const authenticatedUser = await reponse.json();
+    setAuthenticatedUser(authenticatedUser);
+    Navbar();
+    Navigate('/');
     successMessage.style.display = 'block';
     errorMessage.style.display = 'none';
   } else {
@@ -81,7 +88,7 @@ const Inscription = () => {
 
             <!--  afficher le message d'erreur -->
             <div id="error-message" class="alert alert-danger" role="alert" style="display: none;"></div>
-            
+
             <div class="row">
               <div class="col-md-6 mb-4">
                 <div class="form-outline">
