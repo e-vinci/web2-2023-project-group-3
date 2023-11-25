@@ -37,3 +37,9 @@ module.exports.emailExists = (email) => {
   const emailExists = stmtCheckEmail.get(email);
   return emailExists.count > 0;
 }
+
+module.exports.getOneUser = (email) => {
+  const stmtGetUser = db.prepare('SELECT * FROM clients WHERE email = ?');
+  const user = stmtGetUser.get(email);
+  return user;
+}
