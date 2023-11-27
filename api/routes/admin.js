@@ -3,11 +3,11 @@ const { authorize, isAdmin } = require('../utils/auths');
 const router = express.Router();
 
 const adminModel = require('../models/Admin');
-const allOrders = adminModel.allOrders;
-const addSushi = adminModel.addSushi;
+
+const { allOrders } = adminModel;
+const { addSushi } = adminModel;
 
 router.get('/', (req, res) => {
-  console.log('test');
   return res.json(allOrders());
 });
 

@@ -1,11 +1,11 @@
 ######### NORMAL OPERATION  ###########
 
 ### Read all pizzas
-GET http://localhost:3000/pizzas
+GET http://localhost:3000/sushis
 
 ### Read all pizzas with File variable
 @baseUrl = http://localhost:3000
-GET {{baseUrl}}/pizzas
+GET {{baseUrl}}/sushis
 
 ### Read all pizzas sorted by title (ascending)
 GET {{baseUrl}}/pizzas/?order=+title
@@ -14,7 +14,8 @@ GET {{baseUrl}}/pizzas/?order=+title
 GET {{baseUrl}}/pizzas/?order=-title
 
 ### Read pizza identified by 2
-GET {{baseUrl}}/pizzas/2
+GET {{baseUrl}}/sushis/Maki
+
 
 ### Create a pizza by using the admin account
 #### First login as the admin
@@ -50,8 +51,6 @@ Authorization: {{admin.response.body.token}}
 {
     "title":"Magic Green 2"
 }
-
-
 
 
 ######### ERROR OPERATION  ###########

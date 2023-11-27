@@ -4,7 +4,9 @@ import Menu from'../Pages/Menu';
 import CreationBox from'../Pages/CreationBox';
 import Profil from'../Pages/Profil';
 import Inscription from '../Pages/Inscription';
-import Connexion from '../Pages/Connexion'
+import Connexion from '../Pages/Connexion';
+import Users from '../Pages/UsersPageAdmin';
+
 
 
 
@@ -15,6 +17,7 @@ const routes = {
   '/menu': Menu,
   '/creationBox': CreationBox,
   '/profil': Profil,
+  '/users' : Users,
 
   '/new': NewPage,
 };

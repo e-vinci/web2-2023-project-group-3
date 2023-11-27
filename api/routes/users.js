@@ -15,7 +15,9 @@ router.post('/add', async (req, res) => {
 
   if (!nom || !prenom || !adresse || !email || !mdp) return res.sendStatus(400); // 400 bad request
 
-  const createdclient = Client.add({
+  if(Client.emailExists(email))     return res.status(400).json({ message: 'Cette adresse mail est déjà utilisée.' });
+
+  const createdclient = await Client.createOneUser({
     nom,
     prenom,
     adresse,

@@ -46,6 +46,7 @@ function readAllPizzas(orderBy) {
 function readOnePizza(id) {
   const idNumber = parseInt(id, 10);
   const pizzas = parse(jsonDbPath, defaultPizzas);
+  // chargement de la liste de pizzas stp a partir de jsonDbpath
   const indexOfPizzaFound = pizzas.findIndex((pizza) => pizza.id === idNumber);
   if (indexOfPizzaFound < 0) return undefined;
 

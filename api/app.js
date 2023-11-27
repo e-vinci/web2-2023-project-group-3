@@ -8,9 +8,10 @@ const corsOptions = {
 };
 
 const usersRouter = require('./routes/users');
-const pizzaRouter = require('./routes/pizzas');
+const sushisRouter = require('./routes/sushis');
 const adminRouter = require('./routes/admin');
 const authsRouter = require('./routes/auths');
+const boxesRouter = require('./routes/creationBox');
 
 const app = express();
 
@@ -22,8 +23,9 @@ app.use(cookieParser());
 app.use(cors(corsOptions));
 
 app.use('/users', usersRouter);
-app.use('/pizzas', pizzaRouter);
+app.use('/sushis', sushisRouter);
 app.use('/admin', adminRouter);
 app.use('/auths', authsRouter);
+app.use('/creationBox', boxesRouter);
 
 module.exports = app;
