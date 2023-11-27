@@ -8,7 +8,7 @@ function allOrders() {
 
 function addSushi(sushi) {
   return db
-    .prepare('INSERT INTO sushis (nom, description, prix_unitaire, type) VALUES (?, ?, ?, ?);')
+    .prepare('INSERT INTO sushis (nom, description, prix_unitaire, type) VALUES (?, ?, ?, ?)')
     .run(sushi.nom, sushi.description, sushi.prix_unitaire, sushi.type);
 }
 
