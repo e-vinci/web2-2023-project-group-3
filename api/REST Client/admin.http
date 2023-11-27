@@ -2,8 +2,27 @@
 
 @baseUrl = http://localhost:3000
 
-### Read all sushis
-GET {{{baseUrl}}}/admin/
+
+
+### Show all orders
+GET {{baseUrl}}/admin
+
+
+
+
+### Add sushi
+POST {{baseUrl}}/admin/add
+Content-Type: application/json
+
+{
+    "name":"French Touch",
+    "description":"Sushi avec foies gras",
+    "prix_unitaire": 1
+}
+
+
+
+
 
 
 
