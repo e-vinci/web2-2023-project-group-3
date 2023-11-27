@@ -21,7 +21,7 @@ const HomePage = () => {
   <div id="bloc2">
   <div class="slider">
     <div class="title">
-    <h2 class="hr-lines">NOTRE MENU</h2>
+    <h2 >NOTRE MENU</h2>
         
     </div>
     <div class="images">
@@ -81,13 +81,14 @@ const HomePage = () => {
 </div>
 
   </div>
+  
  
   `
 
   const bloc3 = `
   <div id="bloc3">
-    <div class="title">
-    <h2 class="hr-lines">VOTRE BOX</h2>
+    <div class="title3">
+    <h2>VOTRE BOX</h2>
     </div>
 
     <div id="cardBox">
@@ -96,7 +97,7 @@ const HomePage = () => {
           <div class="col-md-4">
             <img src="${box}" class="img-fluid rounded-start" alt="...">
           </div>
-          <div class="col-md-4">
+          <div class="col-md-8">
             <div class="card-body">
               <p id="cardBoxContent">Vous souhaitez personnaliser votre box en choisissant vos propres sushis ? 
               C’est possible chez nous. Composez votre délicieux repas </p>
