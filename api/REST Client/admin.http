@@ -17,7 +17,8 @@ Content-Type: application/json
 {
     "name":"French Touch",
     "description":"Sushi avec foies gras",
-    "prix_unitaire": 1
+    "prix_unitaire": 1,
+    "type": "Maki"
 }
 
 
