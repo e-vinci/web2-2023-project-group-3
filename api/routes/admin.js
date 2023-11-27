@@ -1,5 +1,5 @@
 const express = require('express');
-
+const { authorize, isAdmin } = require('../utils/auths');
 const router = express.Router();
 
 const adminModel = require('../models/Admin');
@@ -7,6 +7,7 @@ const allOrders = adminModel.allOrders;
 const addSushi = adminModel.addSushi;
 
 router.get('/', (req, res) => {
+  console.log('test');
   return res.json(allOrders());
 });
 
@@ -16,7 +17,6 @@ router.post('/add', (req, res) => {
   const description = req?.body?.description?.length !== 0 ? req.body.description : undefined;
   const prixUnitaire = req?.body?.prix_unitaire?.length !== 0 ? req.body.prix_unitaire : undefined;
   const type = req?.body?.type?.length !== 0 ? req.body.type : undefined;
-
   const add = addSushi(name, description, prixUnitaire, type);
   console.log(add);
   return res.json(add);
