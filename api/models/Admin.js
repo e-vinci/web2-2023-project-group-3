@@ -20,4 +20,22 @@ function deleteSushiById(id) {
   return result;
 }
 
-module.exports = { allOrders, addSushi, deleteSushiById };
+function deleteBoxById(id) {
+  console.log(`Deleting Box : ${id}`);
+  const stmt = db.prepare('DELETE FROM boxes WHERE id_box = ?');
+  const result = stmt.run(id);
+
+  deleteCompositionBoxById(id);
+
+  return result;
+}
+
+function deleteCompositionBoxById(id) {
+  console.log(`Deleting Box : ${id}`);
+  const stmt = db.prepare('DELETE FROM compositions_box WHERE box = ?');
+  const result = stmt.run(id);
+
+  return result;
+}
+
+module.exports = { allOrders, addSushi, deleteSushiById, deleteBoxById };

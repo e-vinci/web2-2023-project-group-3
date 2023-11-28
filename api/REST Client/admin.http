@@ -26,7 +26,20 @@ Content-Type: application/json
 DELETE {{baseUrl}}/admin/delete/11
 
 
+### Add box
+POST {{baseUrl}}/admin/addbox
+Content-Type: application/json
 
+{
+    "name":"French Touch",
+    "description":"Sushi avec foies gras",
+    "prix_unitaire": 1,
+    "type": "Maki"
+}
+
+
+### Delete box by ID
+DELETE {{baseUrl}}/admin/deletebox/1
 
 
 
