@@ -21,11 +21,12 @@ function deleteSushiById(id) {
 }
 
 function deleteBoxById(id) {
+  deleteCompositionBoxById(id);
   console.log(`Deleting Box : ${id}`);
   const stmt = db.prepare('DELETE FROM boxes WHERE id_box = ?');
   const result = stmt.run(id);
 
-  deleteCompositionBoxById(id);
+  
 
   return result;
 }
@@ -38,9 +39,28 @@ function deleteCompositionBoxById(id) {
   return result;
 }
 
+function addBox(prixtotal) {
+  console.log('création box');
+  const insert = db.prepare('INSERT INTO boxes (prix_total) VALUES (?)');
+  const info = insert.run(prixtotal);
+
+  const boxId = info.lastInsertRowid;
+
+  return boxId;
+}
+
+function addComposition(quantite, sushi, box) {
+  console.log('Ajout sushis dans la boxe');
+  return db
+    .prepare('INSERT INTO compositions_box (quantite, sushi, box) VALUES (?, ?,?);')
+    .run(quantite, sushi, box);
+}
+
 module.exports = {
   allOrders,
   addSushi,
   deleteSushiById,
   deleteBoxById,
+  addBox,
+  addComposition,
 };

@@ -8,6 +8,8 @@ const { allOrders } = adminModel;
 const { addSushi } = adminModel;
 const { deleteSushiById } = adminModel;
 const { deleteBoxById } = adminModel;
+const { addBox } = adminModel;
+const { addComposition } = adminModel;
 
 router.get('/', (req, res) => {
   return res.json(allOrders());
@@ -46,6 +48,18 @@ router.delete('/deletebox/:id', (req, res) => {
 
   const result = deleteBoxById(boxId);
   return res.json(result);
+});
+
+router.post('/addBox', (req, res) => {
+  //Crée la boxe avec le prix
+  const box = addBox(req?.body?.prix_total);
+
+  //Mettre les sushis dans la boxe
+  const quantite = req?.body?.quantite;
+  const sushi = req?.body?.sushi;
+  const addComp = addComposition(quantite, sushi, box);
+
+  return res.json(addComp);
 });
 
 module.exports = router;
