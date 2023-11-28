@@ -19,6 +19,8 @@ router.post('/creationBox', (req, res) => {
   box.forEach((element) => {
     Sushi.addSushiBox(element.quantity, element.idSushi, emptyBox);
   });
+  console.log(Sushi.updatePriceBox(emptyBox));
+  Sushi.updatePriceBox(emptyBox);
   return res.json(emptyBox);
 });
 
