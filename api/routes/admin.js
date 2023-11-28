@@ -6,6 +6,7 @@ const adminModel = require('../models/Admin');
 
 const { allOrders } = adminModel;
 const { addSushi } = adminModel;
+const { deleteSushiById } = adminModel;
 
 router.get('/', (req, res) => {
   return res.json(allOrders());
@@ -20,6 +21,18 @@ router.post('/add', (req, res) => {
   const add = addSushi(nom, description, prixUnitaire, type);
 
   return res.json(add);
+});
+
+router.delete('/delete/:id', (req, res) => {
+  console.log('Delete');
+  const sushiId = req.params.id;
+
+  if (!sushiId) {
+    return res.status(400).json({ error: 'Invalid ID provided' });
+  }
+
+  const result = deleteSushiById(sushiId);
+  return res.json(result);
 });
 
 module.exports = router;

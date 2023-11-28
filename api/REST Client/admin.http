@@ -22,6 +22,11 @@ Content-Type: application/json
 }
 
 
+### Delete sushi by ID
+DELETE {{baseUrl}}/admin/delete/11
+
+
+
 
 
 

@@ -12,4 +12,12 @@ function addSushi(nom, description, prixUnitaire, type) {
     .run(nom, description, prixUnitaire, type);
 }
 
-module.exports = { allOrders, addSushi };
+function deleteSushiById(id) {
+  console.log(`Deleting sushi : ${id}`);
+  const stmt = db.prepare('DELETE FROM sushis WHERE id_sushi = ?');
+  const result = stmt.run(id);
+
+  return result;
+}
+
+module.exports = { allOrders, addSushi, deleteSushiById };
