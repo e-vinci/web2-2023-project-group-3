@@ -18,9 +18,12 @@ module.exports.read_by_type = (type) => {
   return result;
 };
 
-module.exports.compositionBox = () => {
-  const boxes = db.prepare('SELECT * FROM compositions_box cb WHERE su.id_sushi=cb.sushi ');
-  return boxes.all();
+module.exports.createEmptyBox = () => {
+  console.log('je passe par createEmptyBox');
+  const result = db.prepare('INSERT INTO boxes DEFAULT VALUES;').run(); // Utilisez .run() pour exécuter la requête
+  const lastInsertedId = result.lastInsertRowid;
+
+  return lastInsertedId;
 };
 
 /* function readAllTypeSushi() {
@@ -31,9 +34,13 @@ module.exports = {
     readAllTypeSushi
 }; */
 
-module.exports.addSushiBox = (sushi) => {
-  const sushisInsert = db.prepare('INSERT INTO sushis (nom, description, prix_unitaire, type) VALUES (?,?,?,?) RETURNING id_sushi;');
-  return sushisInsert.get(sushi.nom, sushi.description, sushi.prix_unitaire, sushi.type);
+module.exports.addSushiBox = (quantity, sushi, box) => {
+  console.log('je passe par addSushiBox');
+  console.log('quantity:', quantity);
+  console.log('sushi:', sushi);
+  console.log('box:', box);
+  const sushisInsert = db.prepare('INSERT INTO compositions_box (quantite ,sushi , box) VALUES (?,?,?);');
+  return sushisInsert.run(quantity, sushi, box);
 };
 
 module.exports.addSushiToBox = (id) => {

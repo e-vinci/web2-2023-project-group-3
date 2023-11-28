@@ -8,10 +8,10 @@ GET http://localhost:3000/sushis
 GET {{baseUrl}}/sushis
 
 ### Read all pizzas sorted by title (ascending)
-GET {{baseUrl}}/pizzas/?order=+title
+GET {{baseUrl}}/sushis/?order=+title
 
 ### Read all pizzas sorted by title (descending)
-GET {{baseUrl}}/pizzas/?order=-title
+GET {{baseUrl}}/sushis/?order=-title
 
 ### Read pizza identified by 2
 GET {{baseUrl}}/sushis/Maki
