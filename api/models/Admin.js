@@ -38,4 +38,9 @@ function deleteCompositionBoxById(id) {
   return result;
 }
 
-module.exports = { allOrders, addSushi, deleteSushiById, deleteBoxById };
+module.exports = {
+  allOrders,
+  addSushi,
+  deleteSushiById,
+  deleteBoxById,
+};
