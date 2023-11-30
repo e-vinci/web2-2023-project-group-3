@@ -6,15 +6,6 @@
 
 ### Create payment 
 POST {{baseUrl}}/checkout/
-Content-Type: application/json
 
-{
-    "name":"French Touch",
-    "description":"Sushi avec foies gras",
-    "prix_unitaire": 1,
-    "type": "Maki"
-}
-
-
-### Create payment 
+### Create test
 GET {{baseUrl}}/test
