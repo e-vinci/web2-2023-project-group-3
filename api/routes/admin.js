@@ -12,6 +12,7 @@ const { deleteBoxById } = adminModel;
 const { addBox } = adminModel;
 const { addComposition } = adminModel;
 const { allOrdersFromUser } = Payment;
+
 router.get('/', (req, res) => {
   return res.json(allOrders());
 });
@@ -23,7 +24,6 @@ router.post('/add', (req, res) => {
   const type = req?.body?.type?.length !== 0 ? req.body.type : undefined;
 
   const add = addSushi(nom, description, prixUnitaire, type);
-  
   return res.json(add);
 });
 
