@@ -11,7 +11,7 @@ const usersRouter = require('./routes/users');
 const sushisRouter = require('./routes/sushis');
 const adminRouter = require('./routes/admin');
 const authsRouter = require('./routes/auths');
-const boxesRouter = require('./routes/creationBox');
+const boxesRouter = require('./routes/boxes');
 const paymentRouter = require('./routes/payment');
 
 const app = express();
@@ -28,6 +28,6 @@ app.use('/payment', paymentRouter);
 app.use('/sushis', sushisRouter);
 app.use('/admin', adminRouter);
 app.use('/auths', authsRouter);
-app.use('/creationBox', boxesRouter);
+app.use('/boxes', boxesRouter);
 
 module.exports = app;

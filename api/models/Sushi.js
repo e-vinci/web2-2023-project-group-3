@@ -18,9 +18,33 @@ module.exports.read_by_type = (type) => {
   return result;
 };
 
-module.exports.compositionBox = () => {
-  const boxes = db.prepare('SELECT * FROM compositions_box cb WHERE su.id_sushi=cb.sushi ');
-  return boxes.all();
+module.exports.createEmptyBox = () => {
+  console.log('je passe par createEmptyBox');
+  const result = db.prepare('INSERT INTO boxes DEFAULT VALUES;').run(); // Utilisez .run() pour exécuter la requête
+  const lastInsertedId = result.lastInsertRowid;
+
+  return lastInsertedId;
+};
+
+module.exports.addSushiBox = (quantity, sushi, box) => {
+  console.log('je passe par addSushiBox');
+  console.log('quantity:', quantity);
+  console.log('sushi:', sushi);
+  console.log('box:', box);
+  const sushisInsert = db.prepare('INSERT INTO compositions_box (quantite ,sushi , box) VALUES (?,?,?);');
+  return sushisInsert.run(quantity, sushi, box);
+};
+
+module.exports.updatePriceBox = (idBox) => {
+  const totalPriceQuery = db.prepare('SELECT SUM(cb.quantite * s.prix_unitaire) as total_price FROM compositions_box cb, sushis s WHERE cb.box = ? AND s.id_sushi = cb.sushi');
+  const totalPriceResult = totalPriceQuery.get(idBox);
+
+  const totalPrice = Number(totalPriceResult.total_price);
+  // Utilisez run() pour exécuter la requête UPDATE
+  const updatePriceQuery = db.prepare('UPDATE boxes SET prix_total = ? WHERE id_box = ?');
+  const updateResult = updatePriceQuery.run(totalPrice, idBox);
+
+  return updateResult;
 };
 
 /* function readAllTypeSushi() {
@@ -30,13 +54,7 @@ module.exports.compositionBox = () => {
 module.exports = {
     readAllTypeSushi
 }; */
-
-module.exports.addSushiBox = (sushi) => {
-  const sushisInsert = db.prepare('INSERT INTO sushis (nom, description, prix_unitaire, type) VALUES (?,?,?,?) RETURNING id_sushi;');
-  return sushisInsert.get(sushi.nom, sushi.description, sushi.prix_unitaire, sushi.type);
-};
-
-module.exports.addSushiToBox = (id) => {
+/* module.exports.addSushiToBox = (id) => {
   const idNumber = parseInt(id, 10);
   // chargement de la liste de pizzas stp a partir de jsonDbpath
   const indexOfSushiFound = this.readAllTypeSushi.findIndex((sushi) => sushi.id === idNumber);
@@ -44,4 +62,4 @@ module.exports.addSushiToBox = (id) => {
   if (indexOfSushiFound < 0) return undefined;
 
   return boxes.push(indexOfSushiFound);
-};
+}; */

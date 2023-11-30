@@ -25,23 +25,23 @@ const HomePage = () => {
         
     </div>
     <div class="images">
-        <div class="item" style="--i: 1;">
-            <img src="${sushi3}">
-        </div>
-        <div class="item" style="--i: 2;">
-            <img src="${sushi2}">
-        </div>
-        <div class="item" style="--i: 3;">
+        <div class="item active" >
             <img src="${sushi1}">
         </div>
-        <div class="item" style="--i: 4;">
-            <img src="${sushi3}">
-        </div>
-        <div class="item" style="--i: 5;">
+        <div class="item" >
             <img src="${sushi2}">
         </div>
-        <div class="item" style="--i: 6;">
+        <div class="item" >
+            <img src="${sushi3}">
+        </div>
+        <div class="item" >
             <img src="${sushi1}">
+        </div>
+        <div class="item" >
+            <img src="${sushi2}">
+        </div>
+        <div class="item" >
+            <img src="${sushi3}">
         </div>
     </div>
     <div class="content">
