@@ -36,9 +36,11 @@ const Navbar = () => {
   const navbar = `
 
   <div id="headerLogo">
-    <img id="imgHeader" src="${logo}" alt="" style="width:15%; height:auto"></a>
-    <button id="connexion" href="#" data-uri="/connexion">Se connecter</button>
-    <button id="inscription" href="#" data-uri="/inscription">S'inscrire</button> 
+      <img id="imgHeader" src="${logo}" alt="" style="width:15%; height:auto"></a>
+  
+        <button id="connexion" href="#" data-uri="/connexion">Se connecter</button>
+        <button id="inscription" href="#" data-uri="/inscription">S'inscrire</button> 
+  
     </div>
 
   <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #343A40;">
