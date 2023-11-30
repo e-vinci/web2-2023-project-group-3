@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/extensions
-const db = require('./db_conf.js');
+const db = require('./db_conf');
 
 function allOrders() {
   const allOrder = db.prepare('SELECT * FROM commandes').all();
@@ -25,8 +25,6 @@ function deleteBoxById(id) {
   console.log(`Deleting Box : ${id}`);
   const stmt = db.prepare('DELETE FROM boxes WHERE id_box = ?');
   const result = stmt.run(id);
-
-  
 
   return result;
 }
