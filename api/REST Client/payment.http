@@ -1,0 +1,20 @@
+######### NORMAL OPERATION  ###########
+
+@baseUrl = http://localhost:3000/payment
+
+
+
+### Create payment 
+POST {{baseUrl}}/checkout/
+Content-Type: application/json
+
+{
+    "name":"French Touch",
+    "description":"Sushi avec foies gras",
+    "prix_unitaire": 1,
+    "type": "Maki"
+}
+
+
+### Create payment 
+GET {{baseUrl}}/test
