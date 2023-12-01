@@ -4,6 +4,7 @@ import sushi1 from '../../img/sushis/1.png';
 import sushi2 from '../../img/sushis/2.png';
 import sushi3 from '../../img/sushis/3.png';
 import box from '../../img/sushis/box.jpg';
+import about from '../../img/about.png';
 
 const item1 = document.getElementsByClassName('item 1');
 const item2 = document.getElementsByClassName('item 2');
@@ -130,12 +131,26 @@ const HomePage = () => {
     </div>
   </div>
   `
-  
+  const bloc4 = `
+  <div id="bloc4">
+    <h1 class="title4">A propos de nous</h1>
+    <img src="${about}" alt="" style="width:50%; height:auto; display: flexbox;">
+    <div class="aboutUs" >
+        <h1 style="border: 3px; font-size: xx-large;">Vous êtes entre de bonnes mains.</h1>
+        <br>
+        Notre professionalisme et notre expérience acquis 
+        fait de nous une entreprise hors du commun. 
+        Notre objectif est d'aider le client en lui offrant 
+        des services de qualités tout en gardant notre touche d'originalité.
+    </div>
+  </div>
+  `
 
   main.innerHTML=bloc1 + bloc2 + bloc3;
 
   const button = document.getElementById('next')
   button.addEventListener("click",ShowImages); 
+  main.innerHTML=bloc1 + bloc2 + bloc3 + bloc4;
   
 };
 

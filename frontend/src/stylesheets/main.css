@@ -61,6 +61,14 @@
     width: 40%;
     font-family: 'Julius Sans One';
 }
+.title4{
+  margin-left: 40%;
+  color: #343A40;
+  font-size: 40px;
+  width: 40%;
+  font-family: 'Julius Sans One';
+  margin-bottom: 3%;
+}
 
 .images{
     position: relative;
@@ -199,8 +207,18 @@
   #bloc3{
     position: relative;
     margin-top: 30px;
-    margin-bottom: 30%;
+    margin-bottom: 10%;
 
+  }
+
+  #bloc4{
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 10%;
+    background-color: #D9D9D9;
+    width: 100%;
+    height: auto;
+    padding-top: 10px;
   }
 
   #cardBox{
@@ -374,4 +392,14 @@
   position: absolute;
   top: 25%;
   left: 1%;
+}
+
+.aboutUs{
+  width: 35%;
+  height: auto;
+  float: left;
+  text-align: center;
+  margin-top: 2%;
+  margin-right: 5%;
+  margin-left: 2%;
 }

@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 const adminModel = require('../models/Admin');
+const Payment = require('../models/Payment');
 
 const { allOrders } = adminModel;
 const { addSushi } = adminModel;
@@ -10,6 +11,7 @@ const { deleteSushiById } = adminModel;
 const { deleteBoxById } = adminModel;
 const { addBox } = adminModel;
 const { addComposition } = adminModel;
+const { allOrdersFromUser } = Payment;
 
 router.get('/', (req, res) => {
   return res.json(allOrders());
@@ -22,7 +24,6 @@ router.post('/add', (req, res) => {
   const type = req?.body?.type?.length !== 0 ? req.body.type : undefined;
 
   const add = addSushi(nom, description, prixUnitaire, type);
-
   return res.json(add);
 });
 

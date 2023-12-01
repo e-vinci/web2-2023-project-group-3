@@ -1,13 +1,12 @@
 import HomePage from '../Pages/HomePage';
-import NewPage from '../Pages/NewPage';
 import Menu from'../Pages/Menu';
 import CreationBox from'../Pages/CreationBox';
 import Profil from'../Pages/Profil';
 import Inscription from '../Pages/Inscription';
 import Connexion from '../Pages/Connexion';
 import Users from '../Pages/UsersPageAdmin';
-
-
+import Paiement from '../Pages/Paiement';
+import Card from '../Pages/CardPage';
 
 
 const routes = {
@@ -18,8 +17,8 @@ const routes = {
   '/creationBox': CreationBox,
   '/profil': Profil,
   '/users' : Users,
-
-  '/new': NewPage,
+  '/paiement' : Paiement,
+  '/card': Card,
 };
 
 export default routes;
