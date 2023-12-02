@@ -1,11 +1,25 @@
 ######### NORMAL OPERATION  ###########
 
-### Read all pizzas
+### Read all sushis
 GET http://localhost:3000/sushis
 
-### Read all pizzas with File variable
+### Read all sushis with File variable
 @baseUrl = http://localhost:3000
 GET {{baseUrl}}/sushis
+
+### Login to the application
+# @name admin
+POST {{baseUrl}}/auths/login
+Content-Type: application/json
+
+{
+    "email":"didia@fjid",
+    "mdp":"didia"
+}
+
+### Get sushi when login
+GET {{baseUrl}}/sushis
+Authorization: {{admin.response.body.token}}
 
 ### Read all pizzas sorted by title (ascending)
 GET {{baseUrl}}/sushis/?order=+title
@@ -15,19 +29,6 @@ GET {{baseUrl}}/sushis/?order=-title
 
 ### Read pizza identified by 2
 GET {{baseUrl}}/sushis/Maki
-
-
-### Create a pizza by using the admin account
-#### First login as the admin
-##### Define a request variable nammed admin
-# @name admin
-POST {{baseUrl}}/auths/login
-Content-Type: application/json
-
-{
-    "username":"admin",
-    "password":"admin"
-}
 
 #### Create a pizza with the admin token
 POST {{baseUrl}}/pizzas
