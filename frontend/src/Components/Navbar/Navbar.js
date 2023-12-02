@@ -66,7 +66,7 @@ const Navbar = () => {
 
   <div id="headerLogo">
     <img id="imgHeader" src="${logo}" alt="" style="width:15%; height:auto"></a>
-    <button id="connexion" href="#" data-uri="/deconnexion">Se deconnecter</button>
+    <button id="connexion" href="#" data-uri="/logout">Se deconnecter</button>
     </div>
 
   <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #343A40;">
