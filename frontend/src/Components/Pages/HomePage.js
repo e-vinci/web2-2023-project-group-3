@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import imgBloc1 from '../../img/bloc1.png';
 import sushi1 from '../../img/sushis/1.png';
 import sushi2 from '../../img/sushis/2.png';
@@ -5,8 +6,42 @@ import sushi3 from '../../img/sushis/3.png';
 import box from '../../img/sushis/box.jpg';
 import about from '../../img/about.png';
 
+const item1 = document.getElementsByClassName('item 1');
+const item2 = document.getElementsByClassName('item 2');
+const item3 = document.getElementsByClassName('item 3');
+const item4 = document.getElementsByClassName('item 4');
+const item5 = document.getElementsByClassName('item 5');
+const sequences =[sushi1,sushi2,sushi3,sushi1,sushi2];
+let index = 0;
 
+const delayInSeconds = 4;
+const delayInMiliSeconds = delayInSeconds * 1000;
 
+/*         <div class="item active" >
+            <img class="itemImg" src="${sushi2}">
+        </div>
+        <div class="item active" >
+            <img class="itemImg" src="${sushi3}">
+        </div>
+        <div class="item" >
+            <img class="itemImg" src="${sushi1}">
+        </div>
+        <div class="item" >
+            <img class="itemImg" src="${sushi2}">
+        </div>
+        <div class="item" >
+            <img class="itemImg" src="${sushi3}">
+        </div> */
+
+function ShowImages () {
+  
+  const itemActive = document.getElementsByClassName('itemImg');
+  const select = sequences[index];
+    itemActive.src = select;
+    index = (index + 1) % sequences.length;
+  console.log(itemActive.src)
+  
+}
 
 
 const HomePage = () => {
@@ -27,23 +62,9 @@ const HomePage = () => {
     </div>
     <div class="images">
         <div class="item active" >
-            <img src="${sushi1}">
+            <img class="itemImg" src="${sushi1}">
         </div>
-        <div class="item" >
-            <img src="${sushi2}">
-        </div>
-        <div class="item" >
-            <img src="${sushi3}">
-        </div>
-        <div class="item" >
-            <img src="${sushi1}">
-        </div>
-        <div class="item" >
-            <img src="${sushi2}">
-        </div>
-        <div class="item" >
-            <img src="${sushi3}">
-        </div>
+
     </div>
     <div class="content">
         <div class="item active">
@@ -125,9 +146,15 @@ const HomePage = () => {
   </div>
   `
 
+  main.innerHTML=bloc1 + bloc2 + bloc3;
+
+  const button = document.getElementById('next')
+  button.addEventListener("click",ShowImages); 
   main.innerHTML=bloc1 + bloc2 + bloc3 + bloc4;
   
 };
+
+
 
 
 
