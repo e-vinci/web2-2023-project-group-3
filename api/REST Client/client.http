@@ -11,3 +11,6 @@ Content-Type: application/json
 "email":"raph.baroro@gmail.com",
 "mdp":"je suis vegan"
 }
+
+### See profile users
+GET {{baseUrl}}/users/profile/1
