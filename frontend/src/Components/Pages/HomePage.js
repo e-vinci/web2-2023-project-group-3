@@ -10,13 +10,13 @@ import box from '../../img/sushis/box.jpg';
 import about from '../../img/about.png';
 
 
-const main = document.querySelector('main');
+
 
 
 
 const HomePage = () => {
-  render3d()
-
+  
+const main = document.querySelector('main');
   const bloc1 = `
   <div id="bloc1">
     <img id="" src="${imgBloc1}" alt="" style="width:100%; height:auto"></a>
@@ -27,7 +27,54 @@ const HomePage = () => {
   
   </div>
    `
+  const camera = new THREE.OrthographicCamera(window.innerWidth / - 2, window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / - 2,  -50000, 50000);
+  camera.position.set(0, 0, 1000);
+  camera.quaternion.setFromEuler(new THREE.Euler(0, 0, 0));
   
+  // scene
+  const scene = new THREE.Scene();
+  
+  // spline scene
+  const loader = new SplineLoader();
+  loader.load(
+    'https://prod.spline.design/NKK52eT7OjU7W8b8/scene.splinecode',
+    (splineScene) => {
+      scene.add(splineScene);
+    }
+  );
+  
+  // renderer
+  const renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setAnimationLoop(animate);
+  document.body.appendChild(renderer.domElement);
+  
+  // scene settings
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFShadowMap;
+  
+  scene.background = new THREE.Color('#878480');
+  renderer.setClearAlpha(1);
+  
+  // orbit controls
+  const controls = new OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;
+  controls.dampingFactor = 0.125;
+  
+  window.addEventListener('resize', onWindowResize);
+  function onWindowResize() {
+    camera.left = window.innerWidth / - 2;
+    camera.right = window.innerWidth / 2;
+    camera.top = window.innerHeight / 2;
+    camera.bottom = window.innerHeight / - 2;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  }
+  
+  function animate() {
+
+    renderer.render(scene, camera);
+  }
 
 
   const bloc2 = `
@@ -144,56 +191,6 @@ const HomePage = () => {
   
 };
 
-function render3d() {
-  const camera = new THREE.OrthographicCamera(window.innerWidth / - 2, window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / - 2,  -50000, 50000);
-  camera.position.set(0, 0, 1000);
-  camera.quaternion.setFromEuler(new THREE.Euler(0, 0, 0));
-  
-  // scene
-  const scene = new THREE.Scene();
-  
-  // spline scene
-  const loader = new SplineLoader();
-  loader.load(
-    'https://prod.spline.design/NKK52eT7OjU7W8b8/scene.splinecode',
-    (splineScene) => {
-      scene.add(splineScene);
-    }
-  );
-  
-  // renderer
-  const renderer = new THREE.WebGLRenderer({ antialias: true });
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  renderer.setAnimationLoop(animate);
-  main.appendChild(renderer.domElement);
-  
-  // scene settings
-  renderer.shadowMap.enabled = true;
-  renderer.shadowMap.type = THREE.PCFShadowMap;
-  
-  scene.background = new THREE.Color('#878480');
-  renderer.setClearAlpha(1);
-  
-  // orbit controls
-  const controls = new OrbitControls(camera, renderer.domElement);
-  controls.enableDamping = true;
-  controls.dampingFactor = 0.125;
-  
-  window.addEventListener('resize', onWindowResize);
-  function onWindowResize() {
-    camera.left = window.innerWidth / - 2;
-    camera.right = window.innerWidth / 2;
-    camera.top = window.innerHeight / 2;
-    camera.bottom = window.innerHeight / - 2;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-  }
-  
-  function animate() {
-
-    renderer.render(scene, camera);
-  }
-}
 
 
 
