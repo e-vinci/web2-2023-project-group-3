@@ -8,6 +8,7 @@ import Connexion from '../Pages/Connexion';
 import Users from '../Pages/UsersPageAdmin';
 import Paiement from '../Pages/Paiement';
 import Card from '../Pages/CardPage';
+import Logout from '../Logout/Logout';
 
 
 const routes = {
@@ -20,6 +21,7 @@ const routes = {
   '/users' : Users,
   '/paiement' : Paiement,
   '/card': Card,
+  '/logout': Logout,
 };
 
 export default routes;

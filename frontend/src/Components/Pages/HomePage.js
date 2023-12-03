@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import * as THREE from "three";
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import SplineLoader from '@splinetool/loader';
@@ -7,7 +8,6 @@ import sushi2 from '../../img/sushis/2.png';
 import sushi3 from '../../img/sushis/3.png';
 import box from '../../img/sushis/box.jpg';
 import about from '../../img/about.png';
-
 
 
 const main = document.querySelector('main');
@@ -39,23 +39,9 @@ const HomePage = () => {
     </div>
     <div class="images">
         <div class="item active" >
-            <img src="${sushi1}">
+            <img class="itemImg" src="${sushi1}">
         </div>
-        <div class="item" >
-            <img src="${sushi2}">
-        </div>
-        <div class="item" >
-            <img src="${sushi3}">
-        </div>
-        <div class="item" >
-            <img src="${sushi1}">
-        </div>
-        <div class="item" >
-            <img src="${sushi2}">
-        </div>
-        <div class="item" >
-            <img src="${sushi3}">
-        </div>
+
     </div>
     <div class="content">
         <div class="item active">
@@ -148,12 +134,13 @@ const HomePage = () => {
     </div>
   </div>
   ` 
- 
-  main.innerHTML=bloc1;
 
 
+  main.innerHTML=bloc1 + bloc2 + bloc3;
 
-  main.innerHTML= bloc2 + bloc3 + bloc4;
+  const button = document.getElementById('next')
+  // button.addEventListener("click",ShowImages); 
+  main.innerHTML=bloc1 + bloc2 + bloc3 + bloc4;
   
 };
 
@@ -207,6 +194,8 @@ function render3d() {
     renderer.render(scene, camera);
   }
 }
+
+
 
 
 

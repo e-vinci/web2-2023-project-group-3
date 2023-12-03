@@ -1,7 +1,8 @@
 const jwt = require('jsonwebtoken');
 const { readOneUserFromUsername } = require('../models/users');
+const Client = require('../models/Client.js');
 
-const jwtSecret = 'ilovemypizza!';
+const jwtSecret = 'ilovemysushi!';
 
 const authorize = (req, res, next) => {
   const token = req.get('authorization');
@@ -10,9 +11,9 @@ const authorize = (req, res, next) => {
   try {
     const decoded = jwt.verify(token, jwtSecret);
     console.log('decoded', decoded);
-    const { username } = decoded;
+    const { email } = decoded;
 
-    const existingUser = readOneUserFromUsername(username);
+    const existingUser = Client.getOneUser(email);
 
     if (!existingUser) return res.sendStatus(401);
 

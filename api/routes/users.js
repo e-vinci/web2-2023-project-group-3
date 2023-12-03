@@ -1,9 +1,11 @@
+/* eslint-disable no-trailing-spaces */
 const express = require('express');
 
 const router = express.Router();
 
 // eslint-disable-next-line import/extensions
 const Client = require('../models/Client.js');
+const e = require('express');
 
 // register
 router.post('/add', async (req, res) => {
@@ -15,7 +17,7 @@ router.post('/add', async (req, res) => {
 
   if (!nom || !prenom || !adresse || !email || !mdp) return res.sendStatus(400); // 400 bad request
 
-  if(Client.emailExists(email))     return res.status(400).json({ message: 'Cette adresse mail est déjà utilisée.' });
+  if (Client.emailExists(email)) return res.status(400).json({ message: 'Cette adresse mail est déjà utilisée.' });
 
   const createdclient = await Client.createOneUser({
     nom,
@@ -30,6 +32,17 @@ router.post('/add', async (req, res) => {
 /* GET users listing. */
 router.get('/', (req, res) => {
   res.json({ users: [{ name: 'e-baron' }] });
+});
+
+/* GET profil user */
+// eslint-disable-next-line consistent-return
+router.get('/profile/:id', (req, res) => {
+  const idClient = req.params.id;
+  const profile = Client.seeProfile(idClient);
+
+  if (!profile) return res.status(400).json({ message: 'Ce client n existe pas' });
+
+  res.json(profile);
 });
 
 module.exports = router;

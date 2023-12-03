@@ -45,6 +45,7 @@ const Navbar = () => {
   `;
   const navbarAuth = `
 
+<<<<<<< HEAD
   <div id="headerLogo" >
   <nav class="navbar navbar-expand-lg style="background-color: #e3f2fd;"">
   <div class="container-fluid">
@@ -66,6 +67,11 @@ const Navbar = () => {
   </div>
 </nav>
   
+=======
+  <div id="headerLogo">
+    <img id="imgHeader" src="${logo}" alt="" style="width:15%; height:auto"></a>
+    <button id="connexion" href="#" data-uri="/logout">Se deconnecter</button>
+>>>>>>> ff1972efa42abfbc477306a5d07d516d86711483
     </div>
 
   <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #343A40;">
