@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-named-as-default
 import HomePage from '../Pages/HomePage';
 import Menu from'../Pages/Menu';
 import CreationBox from'../Pages/CreationBox';

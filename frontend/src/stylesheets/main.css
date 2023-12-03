@@ -27,8 +27,8 @@
     border-color: #343A40 ;
 }
 
-.nav-item{
-    margin-left: 250px;
+#connexionForm{
+  padding-bottom: 20%;
 }
 
 /* css slider 
@@ -67,7 +67,7 @@
   font-size: 40px;
   width: 40%;
   font-family: 'Julius Sans One';
-  margin-bottom: 3%;
+  padding-top: 2%;
 }
 
 .images{
@@ -185,23 +185,23 @@
 
 .hr-lines:after{
     content:" ";
-    height: 5px;
-    width: 40px;
+    height: 4px;
+    width: 260px;
     background: #C69751;
     display: block;
-    position: absolute;
-    top: 38%;
-   margin-left: 640px;
+    position: relative;
+
+   margin-left: 20px;
   }
   .hr-lines::before{
     content:" ";
-    height: 5px;
-    width: 40px;
+    height: 4px;
+    width: 260px;
     background: #C69751;
     display: block;
-    position: absolute;
-    top: 38%;
-    margin-left: 380px;
+    position: relative;
+    
+    margin-left: 20px;
   }
 
   #bloc3{
@@ -214,11 +214,10 @@
   #bloc4{
     position: relative;
     margin-top: 30px;
-    margin-bottom: 10%;
     background-color: #D9D9D9;
     width: 100%;
-    height: auto;
-    padding-top: 10px;
+   
+    padding-top: 15px;
   }
 
   #cardBox{
@@ -275,7 +274,8 @@
   #baguette{
     position: absolute;
     left: -14%;
-    top: 27%;
+    top: 47%;
+    
   }
 
   #someSushis{
@@ -402,4 +402,5 @@
   margin-top: 2%;
   margin-right: 5%;
   margin-left: 2%;
+  margin-bottom: 20%;
 }
