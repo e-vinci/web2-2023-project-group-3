@@ -1,3 +1,4 @@
+/* eslint-disable comma-spacing */
 /* eslint-disable no-trailing-spaces */
 const express = require('express');
 
@@ -6,6 +7,7 @@ const router = express.Router();
 // eslint-disable-next-line import/extensions
 const Client = require('../models/Client.js');
 const e = require('express');
+const { authorize } = require('../utils/auths.js');
 
 // register
 router.post('/add', async (req, res) => {
@@ -36,7 +38,7 @@ router.get('/', (req, res) => {
 
 /* GET profil user */
 // eslint-disable-next-line consistent-return
-router.get('/profile/:id', (req, res) => {
+router.get('/profile/:id' , (req, res) => {
   const idClient = req.params.id;
   const profile = Client.seeProfile(idClient);
 

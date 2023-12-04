@@ -13,4 +13,6 @@ Content-Type: application/json
 }
 
 ### See profile users
-GET {{baseUrl}}/users/profile/1
+GET {{baseUrl}}/users/profile/3
+
+
