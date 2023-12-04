@@ -113,24 +113,26 @@
     display: inline-block;
     margin-top: 3%;
     margin-left: 10%;
+    text-align: center;
 }
 .content .item2{
   display: inline-block;
   margin-top: 3%;
-  margin-left: 5%;
+  margin-left: 7%;
   text-align: center;
 
 }
 .content .item3{
   display: inline-block;
   margin-top: 3%;
-  margin-left: 5%;
-
+  margin-left: 7%;
+  text-align: center;
 }
 .content .item4{
   display: inline-block;
-  margin-top: 3%;
-  margin-left: 5%;
+  margin-top: 1%;
+  margin-left: 10%;
+  text-align: center;
 }
 
 
@@ -466,6 +468,7 @@
 }
 
 .itemImg2{
+  margin-left: 2%;
   animation-name: bounceIn;
   animation-duration: 3s;
   animation-fill-mode: forwards;
@@ -474,6 +477,7 @@
 }
 
 .itemImg3{
+  margin-left: 9%;
   animation-name: bounceIn;
   animation-duration: 3s;
   animation-delay: 5s;
@@ -481,6 +485,7 @@
 }
 
 .itemImg4{
+  margin-top: 2%;
   animation-name: bounceIn;
   animation-duration: 3s;
   animation-delay: 7s;

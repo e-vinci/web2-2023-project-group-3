@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 /* eslint-disable no-unused-vars */
 import * as THREE from "three";
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
@@ -102,22 +103,22 @@ const main = document.querySelector('main');
     </div>
     <div class="content">
         <div class="item1">
-            <h1>DES MAKIS</h1>
+            <h1> MAKIS</h1>
            
             <button>VOIR PLUS</button>
         </div>
         <div class="item2">
-            <h1>DES CALIFORNIAS ROLLS</h1>
+            <h1> CALIFORNIA ROLLS</h1>
          
             <button>VOIR PLUS</button>
         </div>
         <div class="item3">
-            <h1>DES SAUMONS ROLLS</h1>
+            <h1> SALMON ROLLS</h1>
            
             <button>VOIR PLUS</button>
         </div>
         <div class="item4">
-            <h1>DES CRUSTYS</h1>
+            <h1> CRUSTYS</h1>
           
             <button>VOIR PLUS</button>
         </div>
