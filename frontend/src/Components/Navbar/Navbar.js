@@ -57,7 +57,7 @@ const Navbar = () => {
     
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-        <button id="connexion" href="#" data-uri="/deconnexion"> Se deconnecter</button> 
+        <button id="connexion" href="#" data-uri="/logout"> Se deconnecter</button> 
       
       </div>
       </div>
