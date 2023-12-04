@@ -6,6 +6,7 @@ import imgBloc1 from '../../img/bloc1.png';
 import sushi1 from '../../img/sushis/1.png';
 import sushi2 from '../../img/sushis/2.png';
 import sushi3 from '../../img/sushis/3.png';
+import sushi4 from '../../img/sushis/4.png';
 import box from '../../img/sushis/box.jpg';
 import about from '../../img/about.png';
 
@@ -27,7 +28,7 @@ const main = document.querySelector('main');
   
   </div>
    `
-  /* const camera = new THREE.OrthographicCamera(window.innerWidth / - 2, window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / - 2,  -50000, 50000);
+  const camera = new THREE.OrthographicCamera(window.innerWidth / - 2, window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / - 2,  -50000, 50000);
   camera.position.set(0, 0, 1000);
   camera.quaternion.setFromEuler(new THREE.Euler(0, 0, 0));
   
@@ -74,7 +75,7 @@ const main = document.querySelector('main');
   function animate() {
 
     renderer.render(scene, camera);
-  } */
+  }
 
 
   const bloc2 = `
@@ -85,45 +86,44 @@ const main = document.querySelector('main');
         
     </div>
     <div class="images">
-        <div class="item active" >
-            <img class="itemImg" src="${sushi1}">
+        <div class="item " >
+            <img class="itemImg1" src="${sushi1}">
         </div>
+        <div class="item " >
+        <img class="itemImg2" src="${sushi2}">
+    </div>
+    <div class="item " >
+    <img class="itemImg3" src="${sushi3}">
+    </div>
+    <div class="item " >
+    <img class="itemImg4" src="${sushi4}">
+    </div>
 
     </div>
     <div class="content">
-        <div class="item active">
+        <div class="item1">
             <h1>DES MAKIS</h1>
            
             <button>VOIR PLUS</button>
         </div>
-        <div class="item">
+        <div class="item2">
             <h1>DES CALIFORNIAS ROLLS</h1>
          
-            <button>See more</button>
+            <button>VOIR PLUS</button>
         </div>
-        <div class="item">
+        <div class="item3">
             <h1>DES SAUMONS ROLLS</h1>
            
             <button>VOIR PLUS</button>
         </div>
-        <div class="item">
-            <h1>PRODUCT NAME 4</h1>
+        <div class="item4">
+            <h1>DES CRUSTYS</h1>
           
-            <button>See more</button>
+            <button>VOIR PLUS</button>
         </div>
-        <div class="item">
-            <h1>PRODUCT NAME 5</h1>
-           
-            <button>See more</button>
-        </div>
-        <div class="item">
-            <h1>PRODUCT NAME 6</h1>
-           
-            <button>See more</button>
-        </div>
+        
     </div>
-  <button id="prev"><</button>
-  <button id="next">></button>
+
 </div>
 
   </div>
@@ -182,11 +182,6 @@ const main = document.querySelector('main');
   </div>
   ` 
 
-
-  main.innerHTML=bloc1 + bloc2 + bloc3;
-
-  const button = document.getElementById('next')
-  // button.addEventListener("click",ShowImages); 
   main.innerHTML=bloc1 + bloc2 + bloc3 + bloc4;
   
 };
