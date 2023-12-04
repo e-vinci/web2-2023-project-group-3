@@ -27,7 +27,7 @@ const main = document.querySelector('main');
   
   </div>
    `
-  const camera = new THREE.OrthographicCamera(window.innerWidth / - 2, window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / - 2,  -50000, 50000);
+  /* const camera = new THREE.OrthographicCamera(window.innerWidth / - 2, window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / - 2,  -50000, 50000);
   camera.position.set(0, 0, 1000);
   camera.quaternion.setFromEuler(new THREE.Euler(0, 0, 0));
   
@@ -74,7 +74,7 @@ const main = document.querySelector('main');
   function animate() {
 
     renderer.render(scene, camera);
-  }
+  } */
 
 
   const bloc2 = `
