@@ -23,10 +23,3 @@ router.post('/creationBox', (req, res) => {
   Sushi.updatePriceBox(emptyBox);
   return res.json(emptyBox);
 });
-
-// ADD sushi on box
-router.post('/add', (req, res) => {
-  const addSushi = Sushi.addSushiToBox;
-  res.json(addSushi);
-});
-module.exports = router;
