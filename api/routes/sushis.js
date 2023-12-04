@@ -21,6 +21,19 @@ router.get('/:type', (req, res) => {
   return res.json(sushiType);
 });
 
+router.post('/creationBox', authorize, (req, res) => {
+  const box = req?.body?.box;
+  console.log(req?.body?.box);
+  const emptyBox = Sushi.createEmptyBox();
+  console.log(emptyBox);
+  box.forEach((element) => {
+    Sushi.addSushiBox(element.quantity, element.idSushi, emptyBox);
+  });
+  console.log(Sushi.updatePriceBox(emptyBox));
+  Sushi.updatePriceBox(emptyBox);
+  return res.json(emptyBox);
+});
+
 /*
 
 // Create a pizza to be added to the menu.
