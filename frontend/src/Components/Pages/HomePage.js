@@ -1,57 +1,82 @@
 /* eslint-disable no-unused-vars */
+import * as THREE from "three";
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import SplineLoader from '@splinetool/loader';
 import imgBloc1 from '../../img/bloc1.png';
 import sushi1 from '../../img/sushis/1.png';
 import sushi2 from '../../img/sushis/2.png';
 import sushi3 from '../../img/sushis/3.png';
+import sushi4 from '../../img/sushis/4.png';
 import box from '../../img/sushis/box.jpg';
 import about from '../../img/about.png';
 
-const item1 = document.getElementsByClassName('item 1');
-const item2 = document.getElementsByClassName('item 2');
-const item3 = document.getElementsByClassName('item 3');
-const item4 = document.getElementsByClassName('item 4');
-const item5 = document.getElementsByClassName('item 5');
-const sequences =[sushi1,sushi2,sushi3,sushi1,sushi2];
-let index = 0;
 
-const delayInSeconds = 4;
-const delayInMiliSeconds = delayInSeconds * 1000;
 
-/*         <div class="item active" >
-            <img class="itemImg" src="${sushi2}">
-        </div>
-        <div class="item active" >
-            <img class="itemImg" src="${sushi3}">
-        </div>
-        <div class="item" >
-            <img class="itemImg" src="${sushi1}">
-        </div>
-        <div class="item" >
-            <img class="itemImg" src="${sushi2}">
-        </div>
-        <div class="item" >
-            <img class="itemImg" src="${sushi3}">
-        </div> */
 
-function ShowImages () {
-  
-  const itemActive = document.getElementsByClassName('itemImg');
-  const select = sequences[index];
-    itemActive.src = select;
-    index = (index + 1) % sequences.length;
-  console.log(itemActive.src)
-  
-}
 
 
 const HomePage = () => {
-  const main = document.querySelector('main');
-
+  
+const main = document.querySelector('main');
   const bloc1 = `
   <div id="bloc1">
     <img id="" src="${imgBloc1}" alt="" style="width:100%; height:auto"></a>
   </div>
-  `
+  
+
+  <div class="canva">
+  
+  </div>
+   `
+  const camera = new THREE.OrthographicCamera(window.innerWidth / - 2, window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / - 2,  -50000, 50000);
+  camera.position.set(0, 0, 1000);
+  camera.quaternion.setFromEuler(new THREE.Euler(0, 0, 0));
+  
+  // scene
+  const scene = new THREE.Scene();
+  
+  // spline scene
+  const loader = new SplineLoader();
+  loader.load(
+    'https://prod.spline.design/NKK52eT7OjU7W8b8/scene.splinecode',
+    (splineScene) => {
+      scene.add(splineScene);
+    }
+  );
+  
+  // renderer
+  const renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setAnimationLoop(animate);
+  document.body.appendChild(renderer.domElement);
+  
+  // scene settings
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFShadowMap;
+  
+  scene.background = new THREE.Color('#878480');
+  renderer.setClearAlpha(1);
+  
+  // orbit controls
+  const controls = new OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;
+  controls.dampingFactor = 0.125;
+  
+  window.addEventListener('resize', onWindowResize);
+  function onWindowResize() {
+    camera.left = window.innerWidth / - 2;
+    camera.right = window.innerWidth / 2;
+    camera.top = window.innerHeight / 2;
+    camera.bottom = window.innerHeight / - 2;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  }
+  
+  function animate() {
+
+    renderer.render(scene, camera);
+  }
+
 
   const bloc2 = `
   <div id="bloc2">
@@ -61,45 +86,44 @@ const HomePage = () => {
         
     </div>
     <div class="images">
-        <div class="item active" >
-            <img class="itemImg" src="${sushi1}">
+        <div class="item " >
+            <img class="itemImg1" src="${sushi1}">
         </div>
+        <div class="item " >
+        <img class="itemImg2" src="${sushi2}">
+    </div>
+    <div class="item " >
+    <img class="itemImg3" src="${sushi3}">
+    </div>
+    <div class="item " >
+    <img class="itemImg4" src="${sushi4}">
+    </div>
 
     </div>
     <div class="content">
-        <div class="item active">
+        <div class="item1">
             <h1>DES MAKIS</h1>
            
             <button>VOIR PLUS</button>
         </div>
-        <div class="item">
+        <div class="item2">
             <h1>DES CALIFORNIAS ROLLS</h1>
          
-            <button>See more</button>
+            <button>VOIR PLUS</button>
         </div>
-        <div class="item">
+        <div class="item3">
             <h1>DES SAUMONS ROLLS</h1>
            
             <button>VOIR PLUS</button>
         </div>
-        <div class="item">
-            <h1>PRODUCT NAME 4</h1>
+        <div class="item4">
+            <h1>DES CRUSTYS</h1>
           
-            <button>See more</button>
+            <button>VOIR PLUS</button>
         </div>
-        <div class="item">
-            <h1>PRODUCT NAME 5</h1>
-           
-            <button>See more</button>
-        </div>
-        <div class="item">
-            <h1>PRODUCT NAME 6</h1>
-           
-            <button>See more</button>
-        </div>
+        
     </div>
-  <button id="prev"><</button>
-  <button id="next">></button>
+
 </div>
 
   </div>
@@ -133,26 +157,35 @@ const HomePage = () => {
   `
   const bloc4 = `
   <div id="bloc4">
-    <h1 class="title4">A propos de nous</h1>
-    <img src="${about}" alt="" style="width:50%; height:auto; display: flexbox;">
-    <div class="aboutUs" >
-        <h1 style="border: 3px; font-size: xx-large;">Vous êtes entre de bonnes mains.</h1>
-        <br>
-        Notre professionalisme et notre expérience acquis 
-        fait de nous une entreprise hors du commun. 
-        Notre objectif est d'aider le client en lui offrant 
-        des services de qualités tout en gardant notre touche d'originalité.
+  <div class="title4">
+  <h2 class="hr-lines">À PROPOS DE NOUS</h2>
+  </div>
+  
+<div class="bg-grey py-5">
+<div class="container py-5">
+  <div class="row align-items-center mb-5">
+    <div class="col-lg-6 order-2 order-lg-1"><i class="fa fa-bar-chart fa-2x mb-3 text-primary"></i>
+      <h2 class="font-weight-light">Vous êtes entre de bonnes mains.</h2>
+      <p class="font-italic text-muted ">Notre professionalisme et notre expérience acquis 
+      fait de nous une entreprise hors du commun. 
+      Notre objectif est d'aider le client en lui offrant 
+      des services de qualités tout en gardant notre touche d'originalité.</p>
+      <a href="#" class="btn btn-dark px-5 rounded-pill shadow-sm">Découvrez les boxs confectionnés par notre équipe</a>
+    </div>
+    <div class="col-lg-6 px-5 mx-auto order-1 order-lg-2"><img src="${about}" alt="" class="img-fluid mb-lg-0" style=" border-radius: 40px 0px 40px 0px;"></div>
+  </div>
+</div>
+</div>
+
+        
     </div>
   </div>
-  `
+  ` 
 
-  main.innerHTML=bloc1 + bloc2 + bloc3;
-
-  const button = document.getElementById('next')
-  button.addEventListener("click",ShowImages); 
   main.innerHTML=bloc1 + bloc2 + bloc3 + bloc4;
   
 };
+
 
 
 

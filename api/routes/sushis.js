@@ -4,6 +4,7 @@ const router = express.Router();
 
 // eslint-disable-next-line import/extensions
 const Sushi = require('../models/Sushi.js');
+const { authorize } = require('../utils/auths.js');
 
 /* Read all the sushis from the menu */
 router.get('/', (req, res) => {
@@ -18,6 +19,19 @@ router.get('/:type', (req, res) => {
   if (!sushiType) return res.sendStatus(404);
 
   return res.json(sushiType);
+});
+
+router.post('/creationBox', authorize, (req, res) => {
+  const box = req?.body?.box;
+  console.log(req?.body?.box);
+  const emptyBox = Sushi.createEmptyBox();
+  console.log(emptyBox);
+  box.forEach((element) => {
+    Sushi.addSushiBox(element.quantity, element.idSushi, emptyBox);
+  });
+  console.log(Sushi.updatePriceBox(emptyBox));
+  Sushi.updatePriceBox(emptyBox);
+  return res.json(emptyBox);
 });
 
 /*
