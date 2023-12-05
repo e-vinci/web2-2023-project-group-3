@@ -2,14 +2,15 @@ import avatar from '../../img/avatar.png'
 // setAuthenticatedUser
 import { getAuthenticatedUser } from '../../utils/auth'
 
-const authenticatedUser = getAuthenticatedUser();
 
-// if (!authenticatedUser || !authenticatedUser.token) {
-  // throw new Error('Le token d` accès n `est pas disponible. ');
- // }
+
  
 
   function profile () {
+    const authenticatedUser = getAuthenticatedUser();
+ if (!authenticatedUser || !authenticatedUser.token) {
+   throw new Error('Le token d` accès n `est pas disponible. ');
+  }
      fetch('http://localhost:3000/users/profile/:id',{
       headers: {
         'Content-Type' : 'application/json',
@@ -18,11 +19,11 @@ const authenticatedUser = getAuthenticatedUser();
     })
     .then((response) => response.json ()  )
     .then(() => {
+
       const userEmailClient = authenticatedUser.email;
-     // const userFirstnameClient = authenticatedUser.prenom;
+      const userFirstnameClient = authenticatedUser.prenom;
       document.getElementById('emailPlaceholder').textContent = userEmailClient;
-      
-    //  document.getElementById('firstnamePlaceholder').textContent = userFirstnameClient;
+      document.getElementById('firstnamePlaceholder').textContent = userFirstnameClient;
     })
     .catch((error) => {
       console.log(error);
