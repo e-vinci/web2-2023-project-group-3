@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable comma-spacing */
 /* eslint-disable no-trailing-spaces */
 const express = require('express');
@@ -38,12 +39,14 @@ router.get('/', (req, res) => {
 
 /* GET profil user */
 // eslint-disable-next-line consistent-return
-router.get('/profile/:id' , (req, res) => {
-  const idClient = req.params.id;
-  const profile = Client.seeProfile(idClient);
+router.get('/profile/:email' , (req, res) => {
+  const emailClient = req.params.email;
+  console.log(emailClient);
+
+  const profile = Client.seeProfile(emailClient);
 
   if (!profile) return res.status(400).json({ message: 'Ce client n existe pas' });
-
+  console.log(profile);
   res.json(profile);
 });
 
