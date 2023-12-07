@@ -2,7 +2,6 @@
 /* eslint-disable no-unused-vars */
 import * as THREE from "three";
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import SplineLoader from '@splinetool/loader';
 import imgBloc1 from '../../img/bloc1.png';
 import sushi1 from '../../img/sushis/1.png';
