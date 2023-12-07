@@ -131,8 +131,8 @@
 }
 .content .item4{
   display: inline-block;
-  margin-top: 1%;
-  margin-left: 10%;
+  margin-top: 3%;
+  margin-left: 6%;
   text-align: center;
 }
 
@@ -491,4 +491,10 @@
   animation-duration: 3s;
   animation-delay: 7s;
   animation-fill-mode: forwards;
+}
+
+#canva{
+  
+  height: 60vh;
+  overflow: hidden;
 }

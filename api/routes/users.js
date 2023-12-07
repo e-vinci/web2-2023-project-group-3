@@ -17,7 +17,11 @@ router.post('/add', async (req, res) => {
   const adresse = req?.body?.adresse?.length !== 0 ? req.body.adresse : undefined;
   const email = req?.body?.email?.length !== 0 ? req.body.email : undefined;
   const mdp = req?.body?.mdp?.length !== 0 ? req.body.mdp : undefined;
-
+  console.log(nom);
+  console.log(prenom);
+  console.log(adresse);
+  console.log(email);
+  console.log(mdp);
   if (!nom || !prenom || !adresse || !email || !mdp) return res.sendStatus(400); // 400 bad request
 
   if (Client.emailExists(email)) return res.status(400).json({ message: 'Cette adresse mail est déjà utilisée.' });
@@ -29,6 +33,7 @@ router.post('/add', async (req, res) => {
     email,
     mdp,
   });
+  console.log(createdclient);
   return res.json(createdclient);
 });
 
