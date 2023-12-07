@@ -41,41 +41,83 @@ const main = document.querySelector('main');
         
     </div>
     <div class="images">
-        <div class="item " >
-            <img class="itemImg1" src="${sushi1}">
-        </div>
-        <div class="item " >
-        <img class="itemImg2" src="${sushi2}">
-    </div>
-    <div class="item " >
-    <img class="itemImg3" src="${sushi3}">
-    </div>
-    <div class="item " >
-    <img class="itemImg4" src="${sushi4}">
-    </div>
+    
+    <div class="container">
+      <div class="row">
+
+              <div class="col">
+                <div class="item " >
+                  <img class="itemImg1" src="${sushi1}">
+                </div>   
+              </div>
+
+              <div class="col">   
+                <div class="item " >
+                  <img class="itemImg2" src="${sushi2}">
+                </div>   
+              </div>
+
+              <div class="col">
+                <div class="item " >
+                  <img class="itemImg3" src="${sushi3}">
+                </div>
+              </div>
+
+              <div class="col"> 
+                <div class="item " >
+                  <img class="itemImg4" src="${sushi4}">
+                </div>
+              </div>
+      </div>
 
     </div>
+    
     <div class="content">
-        <div class="item1">
+    
+                
+     
+
+        <div class="row">
+            <div class="col">
+             <div class="item1">
             <h1> MAKIS</h1>
            
             <button>VOIR PLUS</button>
-        </div>
-        <div class="item2">
+        </div>   
+            </div>
+
+            <div class="col">
+             <div class="item2">
             <h1> CALIFORNIA ROLLS</h1>
          
             <button>VOIR PLUS</button>
-        </div>
-        <div class="item3">
+        </div>   
+            </div>
+
+            <div class="col">
+              <div class="item3">
             <h1> SALMON ROLLS</h1>
            
             <button>VOIR PLUS</button>
-        </div>
-        <div class="item4">
+        </div>  
+            </div>
+
+            <div class="col">
+               <div class="item4">
             <h1> CRUSTYS</h1>
           
             <button>VOIR PLUS</button>
+        </div>  
+            </div>
+
+         </div>  
         </div>
+
+
+
+        
+        
+       
         
     </div>
 
@@ -92,8 +134,11 @@ const main = document.querySelector('main');
     <h2>VOTRE BOX</h2>
     </div>
 
+    <div class="justify-content-center">
+           
+    
     <div id="cardBox">
-      <div class="card mb-3" style="max-width: 1200px; ">
+      <div class="card mb-3" >
         <div class="row g-0">
           <div class="col-md-4">
             <img src="${box}" class="img-fluid rounded-start" alt="...">
@@ -107,6 +152,7 @@ const main = document.querySelector('main');
             <button id="buttonBox" href="#" data-uri="/creationBox" >Je crée ma box</button>
           </div>
        </div>
+    </div>
     </div>
   </div>
   `
