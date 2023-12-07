@@ -1,6 +1,6 @@
 import royalBox from '../../img/sushiRoyalBox.png'
 
-const Paiement = () => {
+const Payment = () => {
     // eslint-disable-next-line no-unused-vars
     const main = document.querySelector('main');
 
@@ -184,4 +184,4 @@ const Paiement = () => {
 
   };
   
-  export default Paiement;
+  export default Payment;
