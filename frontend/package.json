@@ -35,6 +35,7 @@
     "bootstrap": "^5.0.1",
     "clean-webpack-plugin": "^4.0.0",
     "gh-pages": "^4.0.0",
+    "node-fetch": "^3.3.2",
     "phaser": "^3.55.2",
     "terser-webpack-plugin": "^5.3.6",
     "three": "^0.159.0",

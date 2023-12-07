@@ -5,7 +5,7 @@ import Navbar from '../Navbar/Navbar';
 import Navigate from '../Router/Navigate';
 import { setAuthenticatedUser } from '../../utils/auth';
 
-
+   
 const validateForm = () => {
   const form = document.getElementById('inscriptionForm');
 

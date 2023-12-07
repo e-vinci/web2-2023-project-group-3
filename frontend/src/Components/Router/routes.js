@@ -6,7 +6,7 @@ import Profil from'../Pages/Profil';
 import Inscription from '../Pages/Inscription';
 import Connexion from '../Pages/Connexion';
 import Users from '../Pages/UsersPageAdmin';
-import Paiement from '../Pages/Paiement';
+import Payment from '../Pages/Payment';
 import Card from '../Pages/CardPage';
 import Logout from '../Logout/Logout';
 
@@ -19,7 +19,7 @@ const routes = {
   '/creationBox': CreationBox,
   '/profil': Profil,
   '/users' : Users,
-  '/paiement' : Paiement,
+  '/payment' : Payment,
   '/card': Card,
   '/logout': Logout,
 };

@@ -13,25 +13,10 @@ import about from '../../img/about.png';
 
 
 
-
-
-
-const HomePage = () => {
-  
-const main = document.querySelector('main');
-  const bloc1 = `
-  <div id="bloc1">
-    <img id="" src="${imgBloc1}" alt="" style="width:100%; height:auto"></a>
-  </div>
-  
-
-  <div class="canva">
-  
-  </div>
-   `
+function render3d(){
   const camera = new THREE.OrthographicCamera(window.innerWidth / - 2, window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / - 2,  -50000, 50000);
   camera.position.set(0, 0, 1000);
-  camera.quaternion.setFromEuler(new THREE.Euler(0, 0, 0));
+  
   
   // scene
   const scene = new THREE.Scene();
@@ -39,7 +24,7 @@ const main = document.querySelector('main');
   // spline scene
   const loader = new SplineLoader();
   loader.load(
-    'https://prod.spline.design/NKK52eT7OjU7W8b8/scene.splinecode',
+    'https://prod.spline.design/C319pzDj3vaYbLmx/scene.splinecode',
     (splineScene) => {
       scene.add(splineScene);
     }
@@ -49,7 +34,7 @@ const main = document.querySelector('main');
   const renderer = new THREE.WebGLRenderer({ antialias: true });
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setAnimationLoop(animate);
-  document.body.appendChild(renderer.domElement);
+  document.getElementById("canva").appendChild(renderer.domElement);
   
   // scene settings
   renderer.shadowMap.enabled = true;
@@ -63,20 +48,29 @@ const main = document.querySelector('main');
   controls.enableDamping = true;
   controls.dampingFactor = 0.125;
   
-  window.addEventListener('resize', onWindowResize);
-  function onWindowResize() {
-    camera.left = window.innerWidth / - 2;
-    camera.right = window.innerWidth / 2;
-    camera.top = window.innerHeight / 2;
-    camera.bottom = window.innerHeight / - 2;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-  }
+
   
   function animate() {
+    requestAnimationFrame(animate);
 
     renderer.render(scene, camera);
   }
+}
+
+
+
+const HomePage = () => {
+  
+const main = document.querySelector('main');
+  const bloc1 = `
+  <div id="bloc1">
+    <img id="" src="${imgBloc1}" alt="" style="width:100%; height:auto"></a>
+  </div>
+  
+
+ 
+   `
+
 
 
   const bloc2 = `
@@ -87,41 +81,83 @@ const main = document.querySelector('main');
         
     </div>
     <div class="images">
-        <div class="item " >
-            <img class="itemImg1" src="${sushi1}">
-        </div>
-        <div class="item " >
-        <img class="itemImg2" src="${sushi2}">
-    </div>
-    <div class="item " >
-    <img class="itemImg3" src="${sushi3}">
-    </div>
-    <div class="item " >
-    <img class="itemImg4" src="${sushi4}">
-    </div>
+    
+    <div class="container">
+      <div class="row">
+
+              <div class="col">
+                <div class="item " >
+                  <img class="itemImg1" src="${sushi1}">
+                </div>   
+              </div>
+
+              <div class="col">   
+                <div class="item " >
+                  <img class="itemImg2" src="${sushi2}">
+                </div>   
+              </div>
+
+              <div class="col">
+                <div class="item " >
+                  <img class="itemImg3" src="${sushi3}">
+                </div>
+              </div>
+
+              <div class="col"> 
+                <div class="item " >
+                  <img class="itemImg4" src="${sushi4}">
+                </div>
+              </div>
+      </div>
 
     </div>
+    
     <div class="content">
-        <div class="item1">
+    
+                
+     
+
+        <div class="row">
+            <div class="col">
+             <div class="item1">
             <h1> MAKIS</h1>
            
             <button>VOIR PLUS</button>
-        </div>
-        <div class="item2">
+        </div>   
+            </div>
+
+            <div class="col">
+             <div class="item2">
             <h1> CALIFORNIA ROLLS</h1>
          
             <button>VOIR PLUS</button>
-        </div>
-        <div class="item3">
+        </div>   
+            </div>
+
+            <div class="col">
+              <div class="item3">
             <h1> SALMON ROLLS</h1>
            
             <button>VOIR PLUS</button>
-        </div>
-        <div class="item4">
+        </div>  
+            </div>
+
+            <div class="col">
+               <div class="item4">
             <h1> CRUSTYS</h1>
           
             <button>VOIR PLUS</button>
+        </div>  
+            </div>
+
+         </div>  
         </div>
+
+
+
+        
+        
+       
         
     </div>
 
@@ -138,8 +174,11 @@ const main = document.querySelector('main');
     <h2>VOTRE BOX</h2>
     </div>
 
+    <div class="justify-content-center">
+           
+    
     <div id="cardBox">
-      <div class="card mb-3" style="max-width: 1200px; ">
+      <div class="card mb-3" >
         <div class="row g-0">
           <div class="col-md-4">
             <img src="${box}" class="img-fluid rounded-start" alt="...">
@@ -154,9 +193,15 @@ const main = document.querySelector('main');
           </div>
        </div>
     </div>
+    </div>
   </div>
   `
-  const bloc4 = `
+  const bloc4 = ` 
+  <div id="canva">
+  
+  </div>
+
+  
   <div id="bloc4">
   <div class="title4">
   <h2 class="hr-lines">À PROPOS DE NOUS</h2>
@@ -183,8 +228,12 @@ const main = document.querySelector('main');
   </div>
   ` 
 
-  main.innerHTML=bloc1 + bloc2 + bloc3 + bloc4;
+
+
+
   
+  main.innerHTML=bloc1 + bloc2 + bloc3 + bloc4;
+  render3d();
 };
 
 
