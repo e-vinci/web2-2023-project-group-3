@@ -492,3 +492,9 @@
   animation-delay: 7s;
   animation-fill-mode: forwards;
 }
+
+#canva{
+  
+  height: 60vh;
+  overflow: hidden;
+}

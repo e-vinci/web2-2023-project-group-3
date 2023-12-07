@@ -26,9 +26,7 @@ const main = document.querySelector('main');
   </div>
   
 
-  <div id="canva">
-  
-  </div>
+ 
    `
 
 
@@ -156,7 +154,12 @@ const main = document.querySelector('main');
     </div>
   </div>
   `
-  const bloc4 = `
+  const bloc4 = ` 
+  <div id="canva">
+  
+  </div>
+
+  
   <div id="bloc4">
   <div class="title4">
   <h2 class="hr-lines">À PROPOS DE NOUS</h2>
@@ -205,7 +208,7 @@ function render3d(){
   const renderer = new THREE.WebGLRenderer({ antialias: true });
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setAnimationLoop(animate);
-  main.appendChild(renderer.domElement);
+  document.getElementById("canva").appendChild(renderer.domElement);
   
   // scene settings
   renderer.shadowMap.enabled = true;
@@ -239,9 +242,9 @@ function render3d(){
 
 
 
-  render3d();
-  main.innerHTML=bloc1 + bloc2 + bloc3 + bloc4;
   
+  main.innerHTML=bloc1 + bloc2 + bloc3 + bloc4;
+  render3d();
 };
 
 
