@@ -17,7 +17,7 @@ import about from '../../img/about.png';
 function render3d(){
   const camera = new THREE.OrthographicCamera(window.innerWidth / - 2, window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / - 2,  -50000, 50000);
   camera.position.set(0, 0, 1000);
-  camera.quaternion.setFromEuler(new THREE.Euler(0, 0, 0));
+  
   
   // scene
   const scene = new THREE.Scene();
@@ -49,15 +49,7 @@ function render3d(){
   controls.enableDamping = true;
   controls.dampingFactor = 0.125;
   
-  window.addEventListener('resize', onWindowResize);
-  function onWindowResize() {
-    camera.left = window.innerWidth / - 2;
-    camera.right = window.innerWidth / 2;
-    camera.top = window.innerHeight / 2;
-    camera.bottom = window.innerHeight / - 2;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-  }
+
   
   function animate() {
     requestAnimationFrame(animate);
