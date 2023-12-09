@@ -13,7 +13,7 @@ import about from '../../img/about.png';
 
 
 
-function render3d(){
+/* function render3d(){
   const camera = new THREE.OrthographicCamera(window.innerWidth / - 2, window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / - 2,  -50000, 50000);
   camera.position.set(0, 0, 1000);
   
@@ -55,7 +55,7 @@ function render3d(){
 
     renderer.render(scene, camera);
   }
-}
+} */
 
 
 
@@ -233,7 +233,7 @@ const main = document.querySelector('main');
 
   
   main.innerHTML=bloc1 + bloc2 + bloc3 + bloc4;
-  render3d();
+  // render3d();
 };
 
 
