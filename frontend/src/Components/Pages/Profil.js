@@ -25,8 +25,11 @@ import { getAuthenticatedUser } from '../../utils/auth'
     
       const userEmailClient = user.email;
       const userFirstnameClient = user.prenom;
+      const userDateOfOrderClient = user.date_commande;
       document.getElementById('emailPlaceholder').textContent = userEmailClient;
       document.getElementById('firstnamePlaceholder').textContent = userFirstnameClient;
+      document.getElementById('userDateOfOrderClientPlaceHolder').textContent = userDateOfOrderClient;
+
     })
     .catch((error) => {
       console.log(error);
@@ -47,8 +50,8 @@ const Profil = () => {
                       </div>
 
                       <div class="infos">
-                          <p class="" id="userFirstnameClient"> <span id="firstnamePlaceholder"> ?</span> </p>
-                          <h6 class="text-muted f-w-400" id="userEmailClient"> Email: <span id="emailPlaceholder"> ?</span></h6>
+                          <p class="" id="userFirstnameClient"> <span id="firstnamePlaceholder"> </span> </p>
+                          <h6 class="text-muted f-w-400" id="userEmailClient"> Email: <span id="emailPlaceholder"> </span></h6>
 
                       </div>
                       <button id="logOut" href="#" data-uri="/connexion">Se connecter</button>
@@ -59,6 +62,9 @@ const Profil = () => {
             <div class="col-sm-4">
                 <div class="lastCommandes">
                     <h6 class="">ANCIENNES COMMANDES</h6>
+                    <p class="" id="userDateOfOrderClient">
+                    Commande du <span id="userDateOfOrderClientPlaceHolder"></span>
+                </p>
                 </div>
             </div>
         </div>
