@@ -63,7 +63,7 @@ const Profil = () => {
                 <div class="lastCommandes">
                     <h6 class="">ANCIENNES COMMANDES</h6>
                     <p class="" id="userDateOfOrderClient">
-                    Commande du <span id="userDateOfOderClientPlaceHolder"></span>
+                    Commande du <span id="userDateOfOrderClientPlaceHolder"></span>
                 </p>
                 </div>
             </div>
