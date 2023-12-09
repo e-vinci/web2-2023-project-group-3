@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable comma-spacing */
 /* eslint-disable no-trailing-spaces */
 const express = require('express');
@@ -16,7 +17,11 @@ router.post('/add', async (req, res) => {
   const adresse = req?.body?.adresse?.length !== 0 ? req.body.adresse : undefined;
   const email = req?.body?.email?.length !== 0 ? req.body.email : undefined;
   const mdp = req?.body?.mdp?.length !== 0 ? req.body.mdp : undefined;
-
+  console.log(nom);
+  console.log(prenom);
+  console.log(adresse);
+  console.log(email);
+  console.log(mdp);
   if (!nom || !prenom || !adresse || !email || !mdp) return res.sendStatus(400); // 400 bad request
 
   if (Client.emailExists(email)) return res.status(400).json({ message: 'Cette adresse mail est déjà utilisée.' });
@@ -28,6 +33,7 @@ router.post('/add', async (req, res) => {
     email,
     mdp,
   });
+  console.log(createdclient);
   return res.json(createdclient);
 });
 
@@ -38,12 +44,14 @@ router.get('/', (req, res) => {
 
 /* GET profil user */
 // eslint-disable-next-line consistent-return
-router.get('/profile/:id' , (req, res) => {
-  const idClient = req.params.id;
-  const profile = Client.seeProfile(idClient);
+router.get('/profile/:email' , (req, res) => {
+  const emailClient = req.params.email;
+  console.log(emailClient);
+
+  const profile = Client.seeProfile(emailClient);
 
   if (!profile) return res.status(400).json({ message: 'Ce client n existe pas' });
-
+  console.log(profile);
   res.json(profile);
 });
 

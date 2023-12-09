@@ -26,4 +26,4 @@ const clearAuthenticatedUser = () => {
 };
 
 // eslint-disable-next-line object-curly-newline
-export { getAuthenticatedUser, setAuthenticatedUser, isAuthenticated, clearAuthenticatedUser };
+export { getAuthenticatedUser, setAuthenticatedUser, isAuthenticated, clearAuthenticatedUser};

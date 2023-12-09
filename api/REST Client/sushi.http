@@ -1,7 +1,7 @@
 ######### NORMAL OPERATION  ###########
 
 ### Read all sushis
-GET http://localhost:3000/sushis
+GET https://sushi-royal-api.azurewebsites.net/sushis
 
 ### Read all sushis with File variable
 @baseUrl = http://localhost:3000
