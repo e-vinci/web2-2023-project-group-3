@@ -77,7 +77,7 @@ const main = document.querySelector('main');
   <div id="bloc2">
   <div class="slider">
     <div class="title">
-    <h2 >NOTRE MENU</h2>
+    <p>NOTRE MENU</p>
         
     </div>
     <div class="images">
@@ -171,7 +171,7 @@ const main = document.querySelector('main');
   const bloc3 = `
   <div id="bloc3">
     <div class="title3">
-    <h2>VOTRE BOX</h2>
+    <p>VOTRE BOX</p>
     </div>
 
     <div class="justify-content-center">
@@ -204,7 +204,7 @@ const main = document.querySelector('main');
   
   <div id="bloc4">
   <div class="title4">
-  <h2 class="hr-lines">À PROPOS DE NOUS</h2>
+  <p class="hr-lines">À PROPOS DE NOUS</p>
   </div>
   
 <div class="bg-grey py-5">
