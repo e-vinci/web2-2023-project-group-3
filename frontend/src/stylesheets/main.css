@@ -362,16 +362,16 @@
   #cardBox2{
     position: relative;
     padding-top: 5%;
-    padding-left: 9%;
-    padding-right: 9%;
+    padding-left: 7%;
+    padding-right: 7%;
     background-color: #151313;
 
   }
 
   #buttonBox2{
     position: relative;
-    margin-top: 10%;
-    margin-bottom: 10%;
+    margin-top: 8%;
+
     float: right;
     padding: 10px 15px;
     border-radius: 10px;
@@ -382,10 +382,11 @@
 
   #buttonBox3{
     
-    position: relative;
-    padding: 10px 47px;
+    float: inline-end;
+    margin-top: 2%;
+    padding: 10px 50px;
     border-radius: 10px;
-    background-color: #343A40;
+    background-color: #151313;
     color: #fff;
     border: none;
   }
@@ -516,7 +517,7 @@
   background-color: #151313;
   padding-top: 2%;
   padding-left: 5%;
-  margin-right: -5%;
+  padding-right: -10%;
   padding-bottom: 5%;
 }
 
@@ -530,6 +531,7 @@
   margin-left: 1%;
   text-align: center;
   margin-right: 3%;
+  margin-top: 2%;
 }
 
 

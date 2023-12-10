@@ -13,7 +13,7 @@ import about from '../../img/about.png';
 
 
 
-/* function render3d(){
+function render3d(){
   const camera = new THREE.OrthographicCamera(window.innerWidth / - 2, window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / - 2,  -50000, 50000);
   camera.position.set(0, 0, 1000);
   
@@ -24,7 +24,7 @@ import about from '../../img/about.png';
   // spline scene
   const loader = new SplineLoader();
   loader.load(
-    'https://prod.spline.design/C319pzDj3vaYbLmx/scene.splinecode',
+    'https://prod.spline.design/fOzOfh5UiELTB5mX/scene.splinecode',
     (splineScene) => {
       scene.add(splineScene);
     }
@@ -55,7 +55,7 @@ import about from '../../img/about.png';
 
     renderer.render(scene, camera);
   }
-} */
+}
 
 
 
@@ -121,8 +121,10 @@ const main = document.querySelector('main');
             <div class="col">
              <div class="item1">
             <h1> MAKIS</h1>
-           
-            <button>VOIR PLUS</button>
+
+            <form action="http://localhost:8080/menu?maki" method="get">
+              <button type="submit">VOIR PLUS</button>
+            </form>   
         </div>   
             </div>
 
@@ -130,7 +132,9 @@ const main = document.querySelector('main');
              <div class="item2">
             <h1> CALIFORNIA ROLLS</h1>
          
-            <button>VOIR PLUS</button>
+            <form action="http://localhost:8080/menu?california" method="get">
+              <button type="submit">VOIR PLUS</button>
+            </form>   
         </div>   
             </div>
 
@@ -138,7 +142,9 @@ const main = document.querySelector('main');
               <div class="item3">
             <h1> SALMON ROLLS</h1>
            
-            <button>VOIR PLUS</button>
+            <form action="http://localhost:8080/menu?salmon" method="get">
+              <button type="submit">VOIR PLUS</button>
+            </form>   
         </div>  
             </div>
 
@@ -146,7 +152,9 @@ const main = document.querySelector('main');
                <div class="item4">
             <h1> CRUSTYS</h1>
           
-            <button>VOIR PLUS</button>
+            <form action="http://localhost:8080/menu?crusty" method="get">
+              <button type="submit">VOIR PLUS</button>
+            </form>   
         </div>  
             </div>
 
@@ -189,13 +197,18 @@ const main = document.querySelector('main');
               C’est possible chez nous. Composez votre délicieux repas </p>
               
             </div>
-            <button id="buttonBox" href="#" data-uri="/creationBox" >Je crée ma box</button>
+
+            <form action="http://localhost:8080/creationBox" method="get">
+               <button id="buttonBox" href="#" data-uri="/creationBox" >Je crée ma box</button>
+           </form>   
+            
           </div>
        </div>
     </div>
     </div>
   </div>
   `
+
   const bloc4 = ` 
   <div id="canva">
   
@@ -216,7 +229,13 @@ const main = document.querySelector('main');
       fait de nous une entreprise hors du commun. 
       Notre objectif est d'aider le client en lui offrant 
       des services de qualités tout en gardant notre touche d'originalité.</p>
-      <a href="#" class="btn btn-dark px-5 rounded-pill shadow-sm">Découvrez les boxs confectionnés par notre équipe</a>
+
+      <form action="http://localhost:8080/menu?box" method="get">
+       <button href="#" class="btn btn-dark px-5 rounded-pill shadow-sm">Découvrez les boxs confectionnés par notre équipe</button>
+      </form>   
+     
+    
+    
     </div>
     <div class="col-lg-6 px-5 mx-auto order-1 order-lg-2"><img src="${about}" alt="" class="img-fluid mb-lg-0" style=" border-radius: 40px 0px 40px 0px;"></div>
   </div>
@@ -233,7 +252,7 @@ const main = document.querySelector('main');
 
   
   main.innerHTML=bloc1 + bloc2 + bloc3 + bloc4;
-  // render3d();
+   // render3d();
 };
 
 

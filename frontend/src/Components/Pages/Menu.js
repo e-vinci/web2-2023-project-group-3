@@ -42,11 +42,9 @@ const Menu = () => {
                   </div>
 
 
-                  <div class="mt-3 d-flex justify-content-between align-items-center">
+                  <div class="mt-3 d-flex justify-content-center align-items-center">
                       <button class="btn text-uppercase btn-sm details" style="background-color: #C69751;" >Details</button>
-                      <div class="d-flex flex-row">
-                          <span class="cart"><i class="fa fa-shopping-cart">+</i></span>  
-                      </div>
+                      
                   </div>
               </div>                    
       </div>
@@ -66,11 +64,9 @@ const Menu = () => {
                   </div>
 
 
-                  <div class="mt-3 d-flex justify-content-between align-items-center">
+                  <div class="mt-3 d-flex justify-content-center align-items-center">
                       <button class="btn text-uppercase btn-sm details" style="background-color: #C69751;" >Details</button>
-                      <div class="d-flex flex-row">
-                          <span class="cart"><i class="fa fa-shopping-cart">+</i></span>  
-                      </div>
+                   
                   </div>
               </div>                    
       </div>
@@ -90,15 +86,13 @@ const Menu = () => {
                   </div>
 
 
-                  <div class="mt-3 d-flex justify-content-between align-items-center">
+                  <div class="mt-3 d-flex justify-content-center align-items-center">
                       <button class="btn text-uppercase btn-sm details" style="background-color: #C69751;" >Details</button>
-                      <div class="d-flex flex-row">
-                          <span class="cart"><i class="fa fa-shopping-cart">+</i></span>  
-                      </div>
+                      
                   </div>
               </div>                    
       </div>
-      
+
       <div class="cardMenu">
                           
           <div class="card-image">
@@ -114,11 +108,9 @@ const Menu = () => {
               </div>
 
 
-              <div class="mt-3 d-flex justify-content-between align-items-center">
+              <div class="mt-3 d-flex justify-content-center align-items-center">
                   <button class="btn text-uppercase btn-sm details" style="background-color: #C69751;" >Details</button>
-                  <div class="d-flex flex-row">
-                      <span class="cart"><i class="fa fa-shopping-cart">+</i></span>  
-                  </div>
+                  
               </div>
           </div>                    
       </div>
@@ -137,11 +129,9 @@ const Menu = () => {
                   </div>
 
 
-                  <div class="mt-3 d-flex justify-content-between align-items-center">
+                  <div class="mt-3 d-flex justify-content-center align-items-center">
                       <button class="btn text-uppercase btn-sm details" style="background-color: #C69751;" >Details</button>
-                      <div class="d-flex flex-row">
-                          <span class="cart"><i class="fa fa-shopping-cart">+</i></span>  
-                      </div>
+                   
                   </div>
               </div>                    
         </div>
@@ -160,14 +150,17 @@ const Menu = () => {
                 </div>
 
 
-                <div class="mt-3 d-flex justify-content-between align-items-center">
+                <div class="mt-3 d-flex justify-content-center align-items-center">
                     <button class="btn text-uppercase btn-sm details" style="background-color: #C69751;" >Details</button>
-                    <div class="d-flex flex-row">
-                        <span class="cart"><i class="fa fa-shopping-cart">+</i></span>  
-                    </div>
+                
                 </div>
             </div>                    
       </div>
+    </div>
+
+
+    <div class="text-center" style="padding-top: 2%; padding-bottom: 2%; background-color: #151313;">
+      <h1 style="font-weight:700; color: #C69751;" > OU TROUVEZ VOTRE BONHEUR PARMIS NOS BOXS:</h1>
     </div>
     `
 
