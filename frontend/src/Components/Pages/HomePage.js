@@ -185,7 +185,7 @@ const main = document.querySelector('main');
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <p id="cardBoxContent">Vous souhaitez personnaliser votre box en choisissant vos propres sushis ? 
+              <p id="cardBoxContent2">Vous souhaitez personnaliser votre box en choisissant vos propres sushis ? 
               C’est possible chez nous. Composez votre délicieux repas </p>
               
             </div>

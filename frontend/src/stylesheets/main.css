@@ -239,6 +239,14 @@
     
     margin-left: 30px;
   }
+  
+  #cardBoxContent2{
+    text-align: center;
+    font-size: 30px;
+    margin-top: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
 
   #bloc3{
     position: relative;
