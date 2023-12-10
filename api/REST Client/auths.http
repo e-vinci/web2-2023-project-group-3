@@ -1,5 +1,5 @@
-@baseUrl = http://localhost:3000
-
+@baseUrl = https://sushi-royal-api.azurewebsites.net
+# @baseUrl = http://localhost:3000
 ### Try to login an unknow user
 POST {{baseUrl}}/auths/login
 Content-Type: application/json
@@ -35,4 +35,19 @@ Content-Type: application/json
 {
     "username":"manager",
     "password":"manager"
+}
+
+### GET
+GET {{baseUrl}}/users
+
+### POST
+POST {{baseUrl}}/users/add
+Content-Type: application/json
+
+{
+    "nom": "Julien",
+    "prenom": "Remmery",
+    "adresse": "test",
+    "email": "test6@gmail.com",
+    "mdp": "test"
 }

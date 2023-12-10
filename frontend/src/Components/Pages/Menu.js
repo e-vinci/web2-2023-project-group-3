@@ -1,4 +1,4 @@
-import royalBox from '../../img/sushiRoyalBox.png'
+import sushi1 from "../../img/sushis/1.png"
 
 // Déclarez une variable globale pour stocker tous les sushis
 let allSushis = [];
@@ -105,6 +105,165 @@ const Menu = () => {
        <div class="sushi-section"></div>
     </div>
 
+    <div class="menu">
+      <div class="text-center">
+        <button class="btn btn-small" style="background-color: #C69751; width: 15%;" data-toggle="portfilter" data-target="all">
+          MAKI
+        </button>
+        <button class="btn btn-small" style="background-color: #C69751; width: 15%;" data-toggle="portfilter" data-target="art">
+          CALIFORNIA ROLLS
+        </button>
+        <button class="btn btn-small" style="background-color: #C69751; width: 15%;" data-toggle="portfilter" data-target="media">
+          SALMON ROLLS
+        </button>
+        <button class="btn btn-small" style="background-color: #C69751; width: 15%;" data-toggle="portfilter" data-target="brand">
+          CRUSTY
+        </button>
+      </div>
+    </div>
+
+    <div class="products">
+      <div class="cardMenu">
+                          
+              <div class="card-image">
+                      <img src="${sushi1}" width="150"> 
+              </div>  
+
+              <div class="card-inner">
+                  <span></span> 
+                  <h5 class="mb-0">Maki Saumon</h5> 
+
+                  <div class="price">
+                      <span>7.99€</span>
+                  </div>
+
+
+                  <div class="mt-3 d-flex justify-content-between align-items-center">
+                      <button class="btn text-uppercase btn-sm details" style="background-color: #C69751;" >Details</button>
+                      <div class="d-flex flex-row">
+                          <span class="cart"><i class="fa fa-shopping-cart">+</i></span>  
+                      </div>
+                  </div>
+              </div>                    
+      </div>
+
+      <div class="cardMenu">
+                          
+              <div class="card-image">
+                      <img src="${sushi1}" width="150"> 
+              </div>  
+
+              <div class="card-inner">
+                  <span></span> 
+                  <h5 class="mb-0">Maki Saumon</h5> 
+
+                  <div class="price">
+                      <span>7.99€</span>
+                  </div>
+
+
+                  <div class="mt-3 d-flex justify-content-between align-items-center">
+                      <button class="btn text-uppercase btn-sm details" style="background-color: #C69751;" >Details</button>
+                      <div class="d-flex flex-row">
+                          <span class="cart"><i class="fa fa-shopping-cart">+</i></span>  
+                      </div>
+                  </div>
+              </div>                    
+      </div>
+
+      <div class="cardMenu">
+                          
+              <div class="card-image">
+                      <img src="${sushi1}" width="150"> 
+              </div>  
+
+              <div class="card-inner">
+                  <span></span> 
+                  <h5 class="mb-0">Maki Saumon</h5> 
+
+                  <div class="price">
+                      <span>7.99€</span>
+                  </div>
+
+
+                  <div class="mt-3 d-flex justify-content-between align-items-center">
+                      <button class="btn text-uppercase btn-sm details" style="background-color: #C69751;" >Details</button>
+                      <div class="d-flex flex-row">
+                          <span class="cart"><i class="fa fa-shopping-cart">+</i></span>  
+                      </div>
+                  </div>
+              </div>                    
+      </div>
+      
+      <div class="cardMenu">
+                          
+          <div class="card-image">
+                  <img src="${sushi1}" width="150"> 
+          </div>  
+
+          <div class="card-inner">
+              <span></span> 
+              <h5 class="mb-0">Maki Saumon</h5> 
+
+              <div class="price">
+                  <span>7.99€</span>
+              </div>
+
+
+              <div class="mt-3 d-flex justify-content-between align-items-center">
+                  <button class="btn text-uppercase btn-sm details" style="background-color: #C69751;" >Details</button>
+                  <div class="d-flex flex-row">
+                      <span class="cart"><i class="fa fa-shopping-cart">+</i></span>  
+                  </div>
+              </div>
+          </div>                    
+      </div>
+        <div class="cardMenu">
+                                  
+              <div class="card-image">
+                      <img src="${sushi1}" width="150"> 
+              </div>  
+
+              <div class="card-inner">
+                  <span></span> 
+                  <h5 class="mb-0">Maki Saumon</h5> 
+
+                  <div class="price">
+                      <span>7.99€</span>
+                  </div>
+
+
+                  <div class="mt-3 d-flex justify-content-between align-items-center">
+                      <button class="btn text-uppercase btn-sm details" style="background-color: #C69751;" >Details</button>
+                      <div class="d-flex flex-row">
+                          <span class="cart"><i class="fa fa-shopping-cart">+</i></span>  
+                      </div>
+                  </div>
+              </div>                    
+        </div>
+      <div class="cardMenu">
+                                
+            <div class="card-image">
+                    <img src="${sushi1}" width="150"> 
+            </div>  
+
+            <div class="card-inner">
+                <span></span> 
+                <h5 class="mb-0">Maki Saumon</h5> 
+
+                <div class="price">
+                    <span>7.99€</span>
+                </div>
+
+
+                <div class="mt-3 d-flex justify-content-between align-items-center">
+                    <button class="btn text-uppercase btn-sm details" style="background-color: #C69751;" >Details</button>
+                    <div class="d-flex flex-row">
+                        <span class="cart"><i class="fa fa-shopping-cart">+</i></span>  
+                    </div>
+                </div>
+            </div>                    
+      </div>
     </div>
     `
 

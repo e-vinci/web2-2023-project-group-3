@@ -13,6 +13,7 @@ Content-Type: application/json
 }
 
 ### See profile users
-GET {{baseUrl}}/users/profile/3
+GET {{baseUrl}}/users/profile/b.nkolongo@yahoo.fr
+
 
 

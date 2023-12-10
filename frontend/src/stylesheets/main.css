@@ -46,22 +46,27 @@
 .title{
     position: absolute;
     top:4%;
-    right: 43%;
-    text-align: right;
+    left: 40%;
+    text-align: center;
     color: #343A40;
     font-size: 40px;
-    width: 40%;
+    width: 20%;
     font-family: 'Julius Sans One';
+
 }
 
 .title3{
-    margin-left: 43%;
+  background-image: url(../img/fondTitle.png);
+  background-repeat: no-repeat;
+  text-align: center;
+    margin-left: 42%;
     color: #343A40;
     font-size: 40px;
-    width: 40%;
+    width: 19%;
     font-family: 'Julius Sans One';
 }
 .title4{
+  
   margin-left: 40%;
   color: #343A40;
   font-size: 40px;
@@ -131,8 +136,8 @@
 }
 .content .item4{
   display: inline-block;
-  margin-top: 1%;
-  margin-left: 10%;
+  margin-top: 3%;
+  margin-left: 6%;
   text-align: center;
 }
 
@@ -217,22 +222,22 @@
 .hr-lines:after{
     content:" ";
     height: 4px;
-    width: 260px;
+    width: 300px;
     background: #C69751;
     display: block;
     position: relative;
-
-   margin-left: 20px;
+   margin-left: 30px;
+   
   }
   .hr-lines::before{
     content:" ";
     height: 4px;
-    width: 260px;
+    width: 300px;
     background: #C69751;
     display: block;
     position: relative;
     
-    margin-left: 20px;
+    margin-left: 30px;
   }
 
   #bloc3{
@@ -258,12 +263,8 @@
     margin-right: 3%;
   }
 
-  #cardBoxContent{
-    
-    margin-left: 7%;
-    font-size: 150%;
-    text-align: center;
-    margin-top: 6%;
+  .card-body{
+   padding-left: -5%;
   }
 
   #buttonBox{
@@ -324,6 +325,8 @@
     background-color: #151313;
     width: 100%;
     height: 100%;
+    padding-top: 2%;
+    
   }
 
   .filter{
@@ -349,16 +352,19 @@
   }
 
   #cardBox2{
-    position: absolute;
-    top: 180px;
-    left: 20%;
+    position: relative;
+    padding-top: 5%;
+    padding-left: 9%;
+    padding-right: 9%;
+    background-color: #151313;
 
   }
 
   #buttonBox2{
-    position: absolute;
-    top: 65px;
-    right: 60px;
+    position: relative;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    float: right;
     padding: 10px 15px;
     border-radius: 10px;
     background-color: #C69751;
@@ -367,9 +373,8 @@
   }
 
   #buttonBox3{
-    position: absolute;
-    top: 130px;
-    right: 60px;
+    
+    position: relative;
     padding: 10px 47px;
     border-radius: 10px;
     background-color: #343A40;
@@ -497,4 +502,93 @@
   
   height: 60vh;
   overflow: hidden;
+}
+
+.products{
+  background-color: #151313;
+  padding-top: 2%;
+  padding-left: 5%;
+  margin-right: -5%;
+  padding-bottom: 5%;
+}
+
+.cardSushiInBox{
+  background-color: #D9D9D9;
+  position: relative;
+  width: 150px;
+  height: fit-content;
+  border-radius: 5%;
+  display: inline-block;
+  margin-left: 1%;
+  text-align: center;
+  margin-right: 3%;
+}
+
+
+
+.cardMenu{
+
+  background-color: #D9D9D9;
+  position: relative;
+  width: 250px;
+  border-radius: 5%;
+  display: inline-block;
+  margin-left: 1%;
+  margin-top: 1%;
+}
+
+.card-image{
+
+padding: 30px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+
+.card-inner{
+
+  padding: 20px;
+
+}
+
+.price span{
+
+color: #C69751;
+font-weight: 600;
+font-size: 20px;
+
+}
+
+
+
+.details{
+
+border-radius: 20px;
+
+width: 110px;
+height: 40px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+
+
+
+.cart{
+
+  width: 40px;
+height: 40px;
+border-radius: 50%;
+color: #fff;
+background: green;
+display: flex;
+justify-content: center;
+align-items: center;
+cursor: pointer;
+transition: 0.5s all;
+margin-left: 5px;
+font-size: 15px;
+
 }

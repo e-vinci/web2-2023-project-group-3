@@ -73,6 +73,7 @@ const Navbar = () => {
         <div class="navbar-nav ">
         <a class="nav-item nav-link mx-3" aria-current="page" href="#" data-uri="/">Accueil</a>
         <a class="nav-item nav-link mx-3" href="#" data-uri="/menu">Menu</a>
+        <a class="nav-item nav-link mx-3" href="#" data-uri="/creationBox">Création Box</a>
         <a class="nav-item nav-link mx-3" href="#" data-uri="/profil" > Mon profil</a>
         <a class="nav-item nav-link mx-3" href="#"> </a>
       </div>

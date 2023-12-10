@@ -39,8 +39,8 @@ module.exports.getOneUser = (email) => {
   const user = stmtGetUser.get(email);
   return user;
 };
-module.exports.seeProfile = (id) => {
-  const profil = db.prepare('SELECT prenom, email FROM clients WHERE id_client = ? ');
-  const userProfil = profil.get(id);
+module.exports.seeProfile = (email) => {
+  const profil = db.prepare('SELECT c.prenom, c.email, co.date_commande FROM clients c, commandes co  WHERE c.id_client=co.client AND c.email = ? ');
+  const userProfil = profil.get(email);
   return userProfil;
 };
