@@ -24,7 +24,7 @@ function render3d(){
   // spline scene
   const loader = new SplineLoader();
   loader.load(
-    'https://prod.spline.design/fOzOfh5UiELTB5mX/scene.splinecode',
+    'https://prod.spline.design/C319pzDj3vaYbLmx/scene.splinecode',
     (splineScene) => {
       scene.add(splineScene);
     }
@@ -252,7 +252,7 @@ const main = document.querySelector('main');
 
   
   main.innerHTML=bloc1 + bloc2 + bloc3 + bloc4;
-   // render3d();
+   render3d();
 };
 
 

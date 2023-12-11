@@ -91,7 +91,11 @@ const Card = () => {
             
           <div class="card-body d-flex justify-content-end align-items-end">
             <p class="lead fw-normal">Total:25€ </p>
-            <button type="button" class="btn btn-dark btn-block btn-lg "> Procéder au paiement</button>
+
+            <form action="http://localhost:8080/payment" method="get">
+                <button type="submit" class="btn btn-dark btn-block btn-lg " > Procéder au paiement</button>
+            </form> 
+            
           </div>
         </div>
 

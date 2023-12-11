@@ -62,7 +62,7 @@ const Menu = () => {
     const bloc1= `
   
     <div class="text-center" style="padding-top: 2%; padding-bottom: 2%; background-color: #151313;">
-    <h1 style="font-weight:700; color: #C69751;" > FAITES VOTRE CHOIX!</h1>
+    <h1 style="font-weight:700; color: #C69751;" > AU MENU</h1>
     </div>
 
     <div class="sushi-section"></div>
