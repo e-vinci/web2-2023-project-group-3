@@ -59,7 +59,7 @@ const displaySushis = (sushis) => {
 
 
           <div class="mt-3 d-flex justify-content-center align-items-center">
-              <button class="btn text-uppercase btn-sm details" style="background-color: #C69751;" >Details</button>
+              <button class="btn text-uppercase btn-sm details" style="background-color: #C69751;" >Détails</button>
               
           </div>
           </div>                    

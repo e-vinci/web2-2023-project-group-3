@@ -31,9 +31,14 @@
   padding-bottom: 20%;
 }
 
-/* css slider 
-    background-image: linear-gradient(to right, #2B2F3A, #0D0E12);
-*/
+
+#panier{
+  margin-left: 17%;
+   padding: 8px 20px;
+   border-radius: 20px;
+   background-color: #343A40;
+   color: #ffffff;
+}
 
 .slider{
     position: relative;
@@ -545,6 +550,12 @@
   display: inline-block;
   margin-left: 1%;
   margin-top: 1%;
+
+}
+
+.products .cardMenu:hover{
+  background-color: #343A40;
+  color: #ffffff;
 }
 
 .card-image{

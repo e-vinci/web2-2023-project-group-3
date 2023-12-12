@@ -34,4 +34,9 @@ router.post('/creationBox', authorize, (req, res) => {
   return res.json(emptyBox);
 });
 
+router.post('/commande', authorize, (req, res) =>{
+  const panier = req?.body?.panier;
+  
+
+})
 module.exports = router;
