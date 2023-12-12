@@ -11,6 +11,12 @@ function allOrdersFromUser(id) {
   return allOrderFromUser;
 }
 
+function userId(id) {
+  const idUser = db.prepare('SELECT id_client FROM clients WHERE email = ?').get(id);
+  return idUser;
+}
+
 module.exports = {
   allOrdersFromUser,
+  userId,
 };

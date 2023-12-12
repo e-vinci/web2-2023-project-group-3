@@ -10,10 +10,15 @@ const stripe = require('stripe')(config.stripe_key);
 
 // Define your payment routes here...
 
+router.get('/', (req, res) => {
+  const emailClient = req.params.email;
+
+  res.json(emailClient);
+});
+
 router.post('/checkout', async (req, res) => {
   /// mettre query pour ajouter info dans db en fonction info client
-
-  const orderFromUser = Payment.allOrdersFromUser(1);
+  const orderFromUser = Payment.allOrdersFromUser(Payment.userId(req.body.userId));
   const price = orderFromUser.prix_total;
   const name = orderFromUser.nom;
   const firstname = orderFromUser.prenom;
@@ -45,7 +50,7 @@ router.post('/checkout', async (req, res) => {
       mode: 'payment',
 
       success_url: 'http://localhost:3000/payment/succes', // Replace with your success URL
-      cancel_url: 'http://localhost:3000/payment/error', // Replace with your cancel URL
+      cancel_url: 'http://localhost:8080/payment', // Replace with your cancel URL
     });
 
     // Redirect the user to the Stripe Checkout page

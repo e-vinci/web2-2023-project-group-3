@@ -28,9 +28,6 @@ module.exports.createEmptyBox = () => {
 
 module.exports.addSushiBox = (quantity, sushi, box) => {
   console.log('je passe par addSushiBox');
-  console.log('quantity:', quantity);
-  console.log('sushi:', sushi);
-  console.log('box:', box);
   const sushisInsert = db.prepare('INSERT INTO compositions_box (quantite ,sushi , box) VALUES (?,?,?);');
   return sushisInsert.run(quantity, sushi, box);
 };
@@ -49,12 +46,27 @@ module.exports.updatePriceBox = (idBox) => {
 
 module.exports.createEmptyCommande = (idClient) => {
   console.log('je passe par createEmptyCommande');
-  const result = db.prepare('INSERT INTO commandes VALUES (null,null,null,?,null,null)').run(idClient); // Utilisez .run() pour exécuter la requête
+  const result = db.prepare('INSERT INTO commandes(PRIX_TOTAL, MOYEN_PAIEMENT, CLIENT, CODE_PROMO)VALUES (null,null,?,null);').run(idClient); // Utilisez .run() pour exécuter la requête
   const lastInsertedId = result.lastInsertRowid;
 
   return lastInsertedId;
 };
 
-module.exports.addBoxToOrder = (idBox) => {
- 
+module.exports.addBoxToOrder = (idBox, idCommande) => {
+  console.log('je passe par ajouterBoxLigne');
+  const result = db.prepare('INSERT INTO lignes_commande(box,commande)VALUES (?,?);').run(idBox, idCommande); // Utilisez .run() pour exécuter la requête
+  return result;
+};
+
+module.exports.updatePriceCommande = (idCommande) => {
+  console.log('je passe par majCommande');
+  const totalPriceQuery = db.prepare('SELECT SUM(b.prix_total) as total_price FROM commandes c JOIN lignes_commande lc ON c.id_commande = lc.commande JOIN boxes b ON lc.box = b.id_box WHERE c.id_commande = ?;');
+  const totalPriceResult = totalPriceQuery.get(idCommande);
+
+  const totalPrice = Number(totalPriceResult.total_price);
+  // Utilisez run() pour exécuter la requête UPDATE
+  const updatePriceQuery = db.prepare('UPDATE commandes SET prix_total = ?  WHERE id_commande = ?;');
+  const updateResult = updatePriceQuery.run(totalPrice, idCommande);
+
+  return updateResult;
 };
