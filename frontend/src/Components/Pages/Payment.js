@@ -6,7 +6,7 @@ const Payment = () => {
 
     const bloc1 = `
    
-        <form action="http://localhost:3000/payement/checkout" method="post">
+        <form action="http://localhost:3000/payment/checkout" method="post">
               
               <!-- Submit button -->
               <button type="submit">
