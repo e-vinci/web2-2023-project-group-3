@@ -44,14 +44,12 @@ router.get('/', (req, res) => {
 
 /* GET profil user */
 // eslint-disable-next-line consistent-return
-router.get('/profile/:email' , (req, res) => {
+router.get('/profile/:email' , authorize, (req, res) => {
   const emailClient = req.params.email;
-  console.log(emailClient);
+
+  if (!emailClient) return res.status(400).json({ message: 'Ce client n existe pas' });
 
   const profile = Client.seeProfile(emailClient);
-
-  if (!profile) return res.status(400).json({ message: 'Ce client n existe pas' });
-  console.log(profile);
   res.json(profile);
 });
 

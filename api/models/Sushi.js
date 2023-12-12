@@ -47,19 +47,14 @@ module.exports.updatePriceBox = (idBox) => {
   return updateResult;
 };
 
-/* function readAllTypeSushi() {
-  const allSushis = db.prepare("SELECT * FROM sushis");
- return allSushis.all();
-}
-module.exports = {
-    readAllTypeSushi
-}; */
-/* module.exports.addSushiToBox = (id) => {
-  const idNumber = parseInt(id, 10);
-  // chargement de la liste de pizzas stp a partir de jsonDbpath
-  const indexOfSushiFound = this.readAllTypeSushi.findIndex((sushi) => sushi.id === idNumber);
-  const boxes = this.compositionBox();
-  if (indexOfSushiFound < 0) return undefined;
+module.exports.createEmptyCommande = (idClient) => {
+  console.log('je passe par createEmptyCommande');
+  const result = db.prepare('INSERT INTO commandes VALUES (null,null,null,?,null,null)').run(idClient); // Utilisez .run() pour exécuter la requête
+  const lastInsertedId = result.lastInsertRowid;
 
-  return boxes.push(indexOfSushiFound);
-}; */
+  return lastInsertedId;
+};
+
+module.exports.addBoxToOrder = (idBox) => {
+ 
+};
