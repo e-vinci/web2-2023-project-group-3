@@ -54,7 +54,7 @@ const Profil = () => {
                           <h6 class="text-muted f-w-400" id="userEmailClient"> Email: <span id="emailPlaceholder"> </span></h6>
 
                       </div>
-                      <button id="logOut" href="#" data-uri="/connexion">Se connecter</button>
+                      <button id="logOut" href="#" data-uri="/connexion">Se déconnecter</button>
                   </div> 
                 </div>
             </div>
