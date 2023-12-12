@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import sushi1 from "../../img/sushis/1.png";
 
 
@@ -59,20 +60,29 @@ const displaySushis = (sushis) => {
 
 
           <div class="mt-3 d-flex justify-content-center align-items-center">
-              <button class="btn text-uppercase btn-sm details" style="background-color: #C69751;" >Détails</button>
+              <button class="btn text-uppercase btn-sm details" style="background-color: #C69751;" id="popupButton">Détails</button>
               
           </div>
           </div>                    
     </div>
+    <div id="popup" class="modal">
+        <p>Ceci est un popup personnalisé!</p>
+        <button onclick="fermerPopup()">Fermer</button>
+    </div>
+
+    <!-- Fond obscurci -->
+    <div id="overlay" class="overlay"></div>
     `
+
+    });   
     
-    });
-    main.appendChild(products);
     products.innerHTML +=     `
     <div class="text-center" style="padding-top: 2%; padding-bottom: 2%; background-color: #151313;">
       <h1 style="font-weight:700; color: #C69751;" > OU TROUVEZ VOTRE BONHEUR PARMIS NOS BOXS:</h1>
     </div>
     `
+    main.appendChild(products);
+ 
 
   }
     const menu = async () => {
@@ -105,5 +115,6 @@ const displaySushis = (sushis) => {
     menu();
 
   };
+
   
   export default Menu;

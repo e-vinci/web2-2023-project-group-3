@@ -5,7 +5,7 @@ const Footer = () => {
     const footerWrapper = document.querySelector('#footerWrapper');
     const footer = `
     <div class="footer">
-          <footer class="text-center text-lg-start border border-white mt-xl-5 pt-4">
+          <footer class="text-center text-lg-start mt-xl-5 pt-4">
           <!-- Grid container -->
           <div class="container p-4">
             <!--Grid row-->
@@ -77,13 +77,6 @@ const Footer = () => {
             <!--Grid row-->
           </div>
           <!-- Grid container -->
-
-          <!-- Copyright -->
-          <div class="text-center p-3 border-top border-white">
-            © 2020 Copyright:
-            <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-          </div>
-          <!-- Copyright -->
         </footer>
         </div>
     `;
