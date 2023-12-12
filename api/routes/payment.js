@@ -37,7 +37,7 @@ router.post('/checkout', async (req, res) => {
 
               // Add any other relevant product details from your database
             },
-            unit_amount: 100, // Stripe expects the amount in cents
+            unit_amount: 100 * price, // Stripe expects the amount in cents
           },
           quantity: 1,
         },
