@@ -1,5 +1,34 @@
 import royalBox from '../../img/sushiRoyalBox.png'
 
+import { getAuthenticatedUser } from '../../utils/auth';
+
+const fetchOrders = async () => {
+ 
+  try {
+    const userId = getAuthenticatedUser();
+      const response = await fetch('http://localhost:3000/commande', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            
+            'User-Id': userId,
+        },
+      });
+
+      if (!response.ok) {
+          throw new Error('Erreur lors de la récupération des commandes depuis le serveur');
+      }
+
+      const orders = await response.json(); // This is where the retrieved data is stored
+      console.log('Orders from server:', orders);
+
+     
+  } catch (error) {
+      console.error('Erreur:', error.message);
+  }
+};
+
+
 const Card = () => {
     // eslint-disable-next-line no-unused-vars
     const main = document.querySelector('main');

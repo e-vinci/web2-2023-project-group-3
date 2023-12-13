@@ -10,12 +10,6 @@ const stripe = require('stripe')(config.stripe_key);
 
 // Define your payment routes here...
 
-router.get('/', (req, res) => {
-  const emailClient = req.params.email;
-
-  res.json(emailClient);
-});
-
 router.post('/checkout', async (req, res) => {
   /// mettre query pour ajouter info dans db en fonction info client
   const orderFromUser = Payment.allOrdersFromUser(Payment.userId(req.body.userId));
