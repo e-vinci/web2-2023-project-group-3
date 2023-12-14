@@ -33,6 +33,15 @@ Content-Type: application/json
     {"idSushi":9, "quantity":2}]
 }
 
+###Create box 
+POST {{baseUrl}}/sushis/commande
+Content-Type: application/json
+
+{
+    "panier":[ {"idSushi":2, "quantity":1}, 
+    {"idSushi":9, "quantity":2}]
+}
+
 ##### 2.1.1 Define a request variable nammed manager
 # @name manager
 POST {{baseUrl}}/auths/login

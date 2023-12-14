@@ -7,8 +7,7 @@ const router = express.Router();
 
 // eslint-disable-next-line import/extensions
 const Client = require('../models/Client.js');
-const e = require('express');
-const { authorize } = require('../utils/auths.js');
+const { authorize } = require('../utils/auths');
 
 // register
 router.post('/add', async (req, res) => {
@@ -44,7 +43,7 @@ router.get('/', (req, res) => {
 
 /* GET profil user */
 // eslint-disable-next-line consistent-return
-router.get('/profile/:email', (req, res) => {
+router.get('/profile/:email',authorize, (req, res) => {
   const emailClient = req.params.email;
 
   if (!emailClient) return res.status(400).json({ message: 'Ce client n existe pas' });

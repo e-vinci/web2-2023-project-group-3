@@ -1,12 +1,19 @@
-import royalBox from '../../img/sushiRoyalBox.png'
+import royalBox from '../../img/sushiRoyalBox.png';
+
+import { getAuthenticatedUser } from '../../utils/auth';
+
+
 
 const Payment = () => {
-    // eslint-disable-next-line no-unused-vars
-    const main = document.querySelector('main');
-
-    const bloc1 = `
+  // eslint-disable-next-line no-unused-vars
+  const main = document.querySelector('main');
+  const authenticatedUser = getAuthenticatedUser();
+  const userId = authenticatedUser;
+  const bloc1 = `
    
-        <form action="http://localhost:3000/payement/checkout" method="post">
+        <form action="http://localhost:3000/payment/checkout/" method="post">
+        <input type="hidden" name="userId" value="${userId}" />
+     
               
               <!-- Submit button -->
               <button type="submit">
@@ -179,9 +186,8 @@ const Payment = () => {
   </div>
 </section>
         
-    `
-    main.innerHTML = bloc1;
+    `;
+  main.innerHTML = bloc1;
+};
 
-  };
-  
-  export default Payment;
+export default Payment;

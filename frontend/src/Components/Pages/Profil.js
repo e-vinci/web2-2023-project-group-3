@@ -55,6 +55,23 @@ const Profil = async () => {
                         <p class="" id="userFirstnameClient"> <span id="firstnamePlaceholder"> </span> </p>
                         <h6 class="text-muted f-w-400" id="userEmailClient"> Email: <span id="emailPlaceholder"> </span></h6>
 
+                      </div>
+                      <button id="logOut" href="#" data-uri="/connexion">Se déconnecter</button>
+                  </div> 
+                </div>
+            </div>
+            
+            <div class="col-sm-4">
+                <div class="lastCommandes">
+                    <h6 class="">ANCIENNES COMMANDES</h6>
+                    <p class="" id="userDateOfOrderClient">
+                    Commande du <span id="userDateOfOrderClientPlaceHolder"></span>
+                </p>
+                </div>
+            </div>
+        </div>
+   
+    </div>
                     </div>
                     <button id="logOut" href="#" data-uri="/connexion">Se connecter</button>
                 </div> 

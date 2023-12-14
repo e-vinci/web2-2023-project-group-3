@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable no-unused-vars */
 import * as THREE from "three";
@@ -13,67 +14,79 @@ import about from '../../img/about.png';
 
 
 
-function render3d(){
-  const camera = new THREE.OrthographicCamera(window.innerWidth / - 2, window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / - 2,  -50000, 50000);
-  camera.position.set(0, 0, 1000);
+  function render3d(){
   
-  
-  // scene
-  const scene = new THREE.Scene();
-  
-  // spline scene
-  const loader = new SplineLoader();
-  loader.load(
-    'https://prod.spline.design/C319pzDj3vaYbLmx/scene.splinecode',
-    (splineScene) => {
-      scene.add(splineScene);
+    // camera
+    const camera = new THREE.OrthographicCamera(window.innerWidth / - 2, window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / - 2,  -50000, 50000);
+    camera.position.set(0, 0, 1000);
+    camera.quaternion.setFromEuler(new THREE.Euler(0, 0, 0));
+    
+    // scene
+    const scene = new THREE.Scene();
+    
+    // spline scene
+    const loader = new SplineLoader();
+    loader.load(
+      'https://prod.spline.design/C319pzDj3vaYbLmx/scene.splinecode',
+      (splineScene) => {
+        scene.add(splineScene);
+      }
+    );
+    
+    // renderer
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setAnimationLoop(animate);
+    document.body.appendChild(renderer.domElement);
+    
+    // scene settings
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFShadowMap;
+    
+    scene.background = new THREE.Color('#343a40');
+    renderer.setClearAlpha(1);
+    
+    // orbit controls
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.125;
+    
+    window.addEventListener('resize', onWindowResize);
+    function onWindowResize() {
+      camera.left = window.innerWidth / - 2;
+      camera.right = window.innerWidth / 2;
+      camera.top = window.innerHeight / 2;
+      camera.bottom = window.innerHeight / - 2;
+      camera.updateProjectionMatrix();
+   
     }
-  );
-  
-  // renderer
-  const renderer = new THREE.WebGLRenderer({ antialias: true });
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  renderer.setAnimationLoop(animate);
-  document.getElementById("canva").appendChild(renderer.domElement);
-  
-  // scene settings
-  renderer.shadowMap.enabled = true;
-  renderer.shadowMap.type = THREE.PCFShadowMap;
-  
-  scene.background = new THREE.Color('#878480');
-  renderer.setClearAlpha(1);
-  
-  // orbit controls
-  const controls = new OrbitControls(camera, renderer.domElement);
-  controls.enableDamping = true;
-  controls.dampingFactor = 0.125;
-  
-
-  
-  function animate() {
-    requestAnimationFrame(animate);
-
-    renderer.render(scene, camera);
-  }
+    
+    function animate(time) {
+      controls.update();
+      renderer.render(scene, camera);
+    }
+    
 }
 
 
 
 const HomePage = () => {
-  
+
 const main = document.querySelector('main');
   const bloc1 = `
+
+  
+
   <div id="bloc1">
     <img id="" src="${imgBloc1}" alt="" style="width:100%; height:auto"></a>
   </div>
-  
-
  
    `
 
 
 
   const bloc2 = `
+  <div class="transition transition-1"></div>
   <div id="bloc2">
   <div class="slider">
     <div class="title">
@@ -210,9 +223,7 @@ const main = document.querySelector('main');
   `
 
   const bloc4 = ` 
-  <div id="canva">
-  
-  </div>
+
 
   
   <div id="bloc4">
@@ -240,23 +251,18 @@ const main = document.querySelector('main');
     <div class="col-lg-6 px-5 mx-auto order-1 order-lg-2"><img src="${about}" alt="" class="img-fluid mb-lg-0" style=" border-radius: 40px 0px 40px 0px;"></div>
   </div>
 </div>
-</div>
-
-        
+</div>   
     </div>
   </div>
+
+
   ` 
-
-
-
+  main.innerHTML=bloc1 + bloc2 + bloc3 + bloc4;
 
   
-  main.innerHTML=bloc1 + bloc2 + bloc3 + bloc4;
    // render3d();
 };
-
-
-
+render3d();
 
 
 

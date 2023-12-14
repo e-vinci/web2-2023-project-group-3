@@ -31,9 +31,31 @@
   padding-bottom: 20%;
 }
 
-/* css slider 
-    background-image: linear-gradient(to right, #2B2F3A, #0D0E12);
-*/
+
+#panier{
+  margin-left: 17%;
+   padding: 8px 20px;
+   border-radius: 20px;
+   background-color: #343A40;
+   color: #ffffff;
+}
+
+.quantity{
+
+   background-color: red;
+   width: 25px;
+   height: 25px;
+   border-radius: 50%;
+   color: #fff;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   cursor: pointer;
+   transition: 0.5s all;
+   margin-left: -20px;
+   margin-top: -25px;
+   font-size: 15px;
+}
 
 .slider{
     position: relative;
@@ -545,6 +567,12 @@
   display: inline-block;
   margin-left: 1%;
   margin-top: 1%;
+
+}
+
+.products .cardMenu:hover{
+  background-color: #343A40;
+  color: #ffffff;
 }
 
 .card-image{
@@ -602,3 +630,29 @@ margin-left: 5px;
 font-size: 15px;
 
 }
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  z-index: 1000;
+}
+
+/* Styles pour le fond obscurci */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+
