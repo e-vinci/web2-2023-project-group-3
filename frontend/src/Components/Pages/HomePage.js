@@ -260,6 +260,7 @@ const main = document.querySelector('main');
   main.innerHTML=bloc1 + bloc2 + bloc3 + bloc4;
 
   
+   // render3d();
 };
 render3d();
 

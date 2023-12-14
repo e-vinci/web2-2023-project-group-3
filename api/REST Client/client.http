@@ -12,8 +12,11 @@ Content-Type: application/json
 "mdp":"je suis vegan"
 }
 
-### See profile users
+### See profile user
 GET {{baseUrl}}/users/profile/test@gmail.com
+
+### See profile user
+GET {{baseUrl}}/users/profile/j.d@gmail.com
 
 
 
