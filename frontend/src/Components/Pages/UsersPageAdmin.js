@@ -47,47 +47,118 @@ const Users = () => {
     main.innerHTML = bloc1;
 
     // Function to add a sushi
-    window.addSushi = () => {
-        const sushiName = document.getElementById('sushiName').value;
-        const sushiDescription = document.getElementById('sushiDescription').value;
-        const sushiPrice = document.getElementById('sushiPrice').value;
-        const sushiType = document.getElementById('sushiType').value;
+    window.addSushi = async () => {
+        try {
+          const sushiName = document.getElementById('sushiName').value;
+          const sushiDescription = document.getElementById('sushiDescription').value;
+          const sushiPrice = document.getElementById('sushiPrice').value;
+          const sushiType = document.getElementById('sushiType').value;
+      
+          const response = await fetch('http://localhost:3000/add', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              name: sushiName,
+              description: sushiDescription,
+              price: sushiPrice, 
+              type: sushiType,
+            }),
+          });
+      
+          console.log(response.status);
+      
+          if (response.ok) {
+            
+            const responseData = await response.json();
+            console.log('Sushi added successfully:', responseData);
+            
+          } else {
+            
+            throw new Error('Error' + response.status);
+          }
+        } catch (error) {
+          console.error('Error:', error.message);
+        
+        }
+      };
+      
 
-        // Make a fetch request to add sushi
-        // Example: fetch('http://localhost:3000/add', { method: 'POST', body: { name: sushiName, description: sushiDescription, ... } })
+      window.deleteSushi = async () => {
+        try {
+          const sushiIdToDelete = document.getElementById('sushiIdToDelete').value;
+      
+          const response = await fetch(`http://localhost:3000/delete/${sushiIdToDelete}`, {
+            method: 'DELETE',
+          });
+      
+          console.log(response.status);
+      
+          if (response.ok) {
+            console.log('Sushi deleted successfully');
+            
+          } else {
+            throw new Error('Error  ' + response.status);
+          }
+        } catch (error) {
+          console.error('Error:', error.message);
+     
+        }
+      };
+      
+      window.addBox = async () => {
+        try {
+          const boxTotalPrice = document.getElementById('boxTotalPrice').value;
+      
+          const response = await fetch('http://localhost:3000/addBox', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              prix_total: boxTotalPrice,
+          
+            }),
+          });
+      
+          console.log(response.status);
+      
+          if (response.ok) {
+            const responseData = await response.json();
+            console.log('Box added successfully:', responseData);
+        
+          } else {
+            throw new Error('Error ' + response.status);
+          }
+        } catch (error) {
+          console.error('Error:', error.message);
+          
+        }
+      };
+      
+      window.deleteBox = async () => {
+        try {
+          const boxIdToDelete = document.getElementById('boxIdToDelete').value;
+      
+          const response = await fetch(`http://localhost:3000/deletebox/${boxIdToDelete}`, {
+            method: 'DELETE',
+          });
+      
+          console.log(response.status);
+      
+          if (response.ok) {
+            console.log('Box deleted successfully');
 
-        // You can handle the response as needed
+          } else {
+            throw new Error('Error ' + response.status);
+          }
+        } catch (error) {
+          console.error('Error:', error.message);
+          
+        }
+      };
     };
-
-    // Function to delete a sushi
-    window.deleteSushi = () => {
-        const sushiIdToDelete = document.getElementById('sushiIdToDelete').value;
-
-        // Make a fetch request to delete sushi
-        // Example: fetch(`http://localhost:3000/delete/${sushiIdToDelete}`, { method: 'DELETE' })
-
-        // You can handle the response as needed
-    };
-
-    // Function to add a box
-    window.addBox = () => {
-        const boxTotalPrice = document.getElementById('boxTotalPrice').value;
-
-        // Make a fetch request to add a box
-        // Example: fetch('http://localhost:3000/addBox', { method: 'POST', body: { prix_total: boxTotalPrice, ... } })
-
-        // You can handle the response as needed
-    };
-
-    // Function to delete a box
-    window.deleteBox = () => {
-        const boxIdToDelete = document.getElementById('boxIdToDelete').value;
-
-        // Make a fetch request to delete a box
-        // Example: fetch(`http://localhost:3000/deletebox/${boxIdToDelete}`, { method: 'DELETE' })
-
-        // You can handle the response as needed
-    };
-};
-
-export default Users;
+      
+      export default Users;
+      
