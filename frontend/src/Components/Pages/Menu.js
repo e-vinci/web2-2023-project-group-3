@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import sushi1 from "../../img/sushis/1.png";
-
+import Navigate from '../Router/Navigate';
+import { clearPage } from '../../utils/render';
 
 // Déclarez une variable globale pour stocker tous les sushis
 let allSushis = [];
@@ -110,10 +111,9 @@ const displaySushis = (sushis) => {
       console.log(filteredSushis);
       displaySushis(filteredSushis);
       };
-
+    
     main.innerHTML = bloc1;
     menu();
-
   };
 
   

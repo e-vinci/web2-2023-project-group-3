@@ -1,10 +1,138 @@
+/* eslint-disable prefer-template */
 const Users = () => {
     const main = document.querySelector('main');
 
     const bloc1 = `
         <!-- Your existing HTML code -->
 
-        <h1 class="titleUsers">Liste des utilisateurs</h1>
+        <form id="addSushiForm">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-9">
+          <h3 class="text-black mb-4">Ajouter un sushi</h3>
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body">
+            <div class="row align-items-center pt-4 pb-3">
+              <div class="col-md-3 ps-5">
+              <label for="sushiName">Nom du Sushi:</label>
+              </div>
+              <div class="col-md-9 pe-5">
+              <input type="text" id="sushiName" name="sushiName" class="form-control form-control-lg" required>
+              </div>
+            </div>
+            <hr class="mx-n3">
+            <div class="row align-items-center py-3">
+              <div class="col-md-3 ps-5">
+              <label for="sushiDescription">Description:</label>
+              </div>
+              <div class="col-md-9 pe-5">
+              <input type="text" id="sushiDescription" name="sushiDescription" class="form-control form-control-lg"  required>
+              </div>
+            </div>
+            <hr class="mx-n3">
+            <div class="row align-items-center py-3">
+              <div class="col-md-3 ps-5">
+              <label for="sushiPrice">Prix unitaire:</label>
+              </div>
+              <div class="col-md-9 pe-5">
+              <input type="text" id="sushiPrice" name="sushiPrice"  class="form-control" required>
+              </div>
+            </div>
+            <hr class="mx-n3">
+            <div class="row align-items-center py-3">
+              <div class="col-md-3 ps-5">
+              <label for="sushiType">Type:</label>
+              </div>
+              <div class="col-md-9 pe-5">
+              <input type="text" id="sushiType" name="sushiType" class="form-control" required>
+              </div>
+            </div>
+            <hr class="mx-n3">
+            <div class="px-5 py-4">
+              <button type="button" onclick="addSushi()" class="btn btn-primary btn-lg" >Ajouter Sushi</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </form>
+
+    <form id="deleteSushiForm">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col-xl-9">
+    <h3 class="text-black mb-4">Supprimer un sushi</h3>
+      <div class="card" style="border-radius: 15px;">
+        <div class="card-body">
+        <div class="row align-items-center pt-4 pb-3">
+          <div class="col-md-3 ps-5">
+          <label for="sushiIdToDelete">ID du Sushi à supprimer:</label>
+  
+          </div>
+          <div class="col-md-9 pe-5">
+           <input type="text" id="sushiIdToDelete" name="sushiIdToDelete" class="form-control form-control-lg" required>
+          </div>
+        </div>
+       
+        <hr class="mx-n3">
+        <div class="px-5 py-4">
+          <button type="button" onclick="deleteSushi()" class="btn btn-primary btn-lg">Supprimer Sushi</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </form>
+
+  <form id="addBoxForm">
+  <div class="row d-flex justify-content-center align-items-center h-100">
+  <div class="col-xl-9">
+  <h3 class="text-black mb-4">Ajouter une box</h3>
+    <div class="card" style="border-radius: 15px;">
+      <div class="card-body">
+      <div class="row align-items-center pt-4 pb-3">
+        <div class="col-md-3 ps-5">
+        <label for="boxTotalPrice">Prix total de la Box:</label>
+
+        </div>
+        <div class="col-md-9 pe-5">
+        <input type="text" id="boxTotalPrice" name="boxTotalPrice" class="form-control form-control-lg" required>
+        </div>
+      </div>
+     
+      <hr class="mx-n3">
+      <div class="px-5 py-4">
+     <button type="button" onclick="addBox()" class="btn btn-primary btn-lg">Ajouter Box</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<form id="deleteBoxForm">
+<div class="row d-flex justify-content-center align-items-center h-100">
+<div class="col-xl-9">
+<h3 class="text-black mb-4">Supprimer une box</h3>
+  <div class="card" style="border-radius: 15px;">
+    <div class="card-body">
+    <div class="row align-items-center pt-4 pb-3">
+      <div class="col-md-3 ps-5">
+      <label for="boxIdToDelete">ID de la Box à supprimer:</label>
+
+      </div>
+      <div class="col-md-9 pe-5">
+      <input type="text" id="boxIdToDelete" name="boxIdToDelete" class="form-control form-control-lg" required>
+      </div>
+    </div>
+   
+    <hr class="mx-n3">
+    <div class="px-5 py-4">
+    <button type="button" onclick="deleteBox()" class="btn btn-primary btn-lg">Supprimer Box</button>
+    </div>
+  </div>
+</div>
+</div>
+</form>
+
+  </form>
+
+        <h1 class="titleUsers">Page Admin</h1>
 
         <!-- Add Sushi Form -->
         <form id="addSushiForm">
