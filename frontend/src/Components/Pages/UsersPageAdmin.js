@@ -204,7 +204,7 @@ const Users = () => {
             
           } else {
             
-            throw new Error('Error' + response.status);
+            throw new Error(response.status);
           }
         } catch (error) {
           console.error('Error:', error.message);
@@ -227,7 +227,7 @@ const Users = () => {
             console.log('Sushi deleted successfully');
             
           } else {
-            throw new Error('Error  ' + response.status);
+            throw new Error( response.status);
           }
         } catch (error) {
           console.error('Error:', error.message);
@@ -257,7 +257,7 @@ const Users = () => {
             console.log('Box added successfully:', responseData);
         
           } else {
-            throw new Error('Error ' + response.status);
+            throw new Error(response.status);
           }
         } catch (error) {
           console.error('Error:', error.message);
@@ -279,7 +279,7 @@ const Users = () => {
             console.log('Box deleted successfully');
 
           } else {
-            throw new Error('Error ' + response.status);
+            throw new Error(response.status);
           }
         } catch (error) {
           console.error('Error:', error.message);
