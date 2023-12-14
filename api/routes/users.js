@@ -7,8 +7,7 @@ const router = express.Router();
 
 // eslint-disable-next-line import/extensions
 const Client = require('../models/Client.js');
-const e = require('express');
-const { authorize } = require('../utils/auths.js');
+const { authorize } = require('../utils/auths');
 
 // register
 router.post('/add', async (req, res) => {
