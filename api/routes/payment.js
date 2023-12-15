@@ -12,8 +12,8 @@ const stripe = require('stripe')(config.stripe_key);
 
 router.post('/checkout', async (req, res) => {
   /// mettre query pour ajouter info dans db en fonction info client
-  console.log(req.body.userId);
-  const orderFromUser = Payment.allOrdersFromUser(req.body.userId);
+  console.log(Payment.userId(req.body.userId));
+  const orderFromUser = Payment.allOrdersFromUser(Payment.userId(req.body.userId));
   const price = orderFromUser.prix_total;
   const name = orderFromUser.nom;
   const firstname = orderFromUser.prenom;
