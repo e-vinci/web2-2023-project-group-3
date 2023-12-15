@@ -44,7 +44,7 @@ router.post('/checkout', async (req, res) => {
       ],
       mode: 'payment',
 
-      success_url: 'http://localhost:3000/payment/succes', // Replace with your success URL
+      success_url: 'http://localhost:8080/thanks', // Replace with your success URL
       cancel_url: 'http://localhost:8080/payment', // Replace with your cancel URL
     });
 

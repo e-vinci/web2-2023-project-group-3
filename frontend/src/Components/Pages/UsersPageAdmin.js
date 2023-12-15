@@ -238,6 +238,8 @@ const Users = () => {
       window.addBox = async () => {
         try {
           const boxTotalPrice = document.getElementById('boxTotalPrice').value;
+          const boxQuantity = document.getElementById('boxQuantity').value; 
+          const sushiId = document.getElementById('sushiId').value; 
       
           const response = await fetch('http://localhost:3000/addBox', {
             method: 'POST',
@@ -246,7 +248,8 @@ const Users = () => {
             },
             body: JSON.stringify({
               prix_total: boxTotalPrice,
-          
+              quantite: boxQuantity,
+              sushi: sushiId,
             }),
           });
       
@@ -255,15 +258,14 @@ const Users = () => {
           if (response.ok) {
             const responseData = await response.json();
             console.log('Box added successfully:', responseData);
-        
           } else {
             throw new Error(response.status);
           }
         } catch (error) {
           console.error('Error:', error.message);
-          
         }
       };
+      
       
       window.deleteBox = async () => {
         try {

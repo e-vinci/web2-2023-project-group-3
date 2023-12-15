@@ -25,6 +25,7 @@ const routes = {
   '/card': Card,
   '/logout': Logout,
   '/thanks': Thanks,
+ 
 };
 
 export default routes;
