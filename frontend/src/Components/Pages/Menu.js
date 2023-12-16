@@ -34,6 +34,9 @@ const Menu = () => {
         <button onclick="filterSushis('Crusty')" class="btn btn-small" style="background-color: #C69751; width: 15%;" data-toggle="portfilter" data-target="brand">
           CRUSTY
         </button>
+        <button href="/menu" class="btn btn-small" style="background-color: #C69751; width: 15%;" data-toggle="portfilter" data-target="brand">
+        TOUS
+      </button>
       </div>
     </div>
 `
