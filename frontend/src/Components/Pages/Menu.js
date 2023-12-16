@@ -70,20 +70,20 @@ const displaySushis = (sushis) => {
                 </div>                    
             </div>
             
-    <div class="modal" id="modal">
-      <div class="modal-back"></div>
-        <div class="modal-container">
-          <div class="card" style="width: 25rem;">
-            <img src="${sushi1}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">${sushi.nom}</h5>
-              <p class="card-text">${sushi.description}</p>
-                <a href="#" class="btn btn-dark" id="modal-close">fermer</a>
+            <div class="modal" id="modal">
+              <div class="modal-back"></div>
+                <div class="modal-container">
+                  <div class="card" style="width: 25rem;">
+                    <img src="${sushi1}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">${sushi.nom}</h5>
+                      <p class="card-text">${sushi.description}</p>
+                        <a href="#" class="btn btn-dark" id="modal-close">fermer</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
         `;
     });
 
