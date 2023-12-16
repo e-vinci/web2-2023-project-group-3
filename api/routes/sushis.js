@@ -22,7 +22,7 @@ router.get('/:type', (req, res) => {
   return res.json(sushiType);
 });
 
-const sushiBox = {};
+const sushiBox = [20];
 
 router.post('/ajouterSushi', authorize, (req, res) => {
   const sushiId = req.headers['sushi-Id'];
@@ -31,8 +31,13 @@ router.post('/ajouterSushi', authorize, (req, res) => {
 });
 
 router.post('/creationBox', authorize, (req, res) => {
-  const box = req?.body?.box;
-  console.log(req?.body?.box);
+  const box = [];
+  // eslint-disable-next-line no-plusplus
+  for (let i = 0; i < sushiBox.length; i++) {
+    console.log(`ID sushi: ${i}, nombres de sushis: ${sushiBox[i]}`);
+    box.push({ idSushi: i, quantity: sushiBox[i] });
+  }
+
   const emptyBox = Sushi.createEmptyBox();
   console.log(emptyBox);
   box.forEach((element) => {
