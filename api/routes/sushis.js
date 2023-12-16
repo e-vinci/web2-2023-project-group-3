@@ -22,6 +22,14 @@ router.get('/:type', (req, res) => {
   return res.json(sushiType);
 });
 
+const sushiBox = {};
+
+router.post('/ajouterSushi', authorize, (req, res) => {
+  const sushiId = req.headers['sushi-Id'];
+  sushiBox[sushiId] += 1;
+  return res.json(sushiBox);
+});
+
 router.post('/creationBox', authorize, (req, res) => {
   const box = req?.body?.box;
   console.log(req?.body?.box);
@@ -40,7 +48,4 @@ router.get('/get_price', authorize, (req, res) => {
   return res.json(orderFromUser);
 });
 
-router.post('/ajouterSushi', authorize, (req, res) => {
-  return null;
-});
 module.exports = router;

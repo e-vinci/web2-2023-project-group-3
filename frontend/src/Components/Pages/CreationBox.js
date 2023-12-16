@@ -171,22 +171,34 @@ const CreationBox = () => {
           };
 
 
-          window.ajouterSushi = async () => {
+          window.ajouterSushi = async (idSushi) => {
+            
             const options = {
-              method: 'POST',
-              headers: {
-                  'Content-Type': 'application/json',
-              },
-          };
-            const response = await fetch('http://localhost:3000/sushis/ajouterSushi', options);
-            console.log(response.status);
-      
-          if (response.ok) {
-              console.log('ok')
-          } else {
-              console.error('Erreur lors de l ajout à la box.');
-          }
-          };
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'sushi-Id': 1,
+
+                },
+                
+            };
+        
+            try {
+                const response = await fetch('http://localhost:3000/sushis/ajouterSushi', options);
+                console.log('Response status:', response.status);
+        
+                if (response.ok) {
+                    console.log('Sushi added successfully');
+                    const responseData = await response.json();
+                    console.log('Response data:', responseData);
+                } else {
+                    console.error('Error adding sushi to the box.');
+                }
+            } catch (error) {
+                console.error('Fetch error:', error.message);
+            }
+        };
+        
 };
 
       
