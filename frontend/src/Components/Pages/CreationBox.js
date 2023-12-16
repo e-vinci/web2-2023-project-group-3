@@ -71,7 +71,7 @@ const CreationBox = () => {
                 <div class="mt-3 d-flex justify-content-center align-items-center">
                 <button class="btn text-uppercase btn-sm details" style="background-color: #C69751;" onclick="afficher()">Détails</button>
                     <div class="d-flex flex-row">
-                          <span class="cart" onclick="ajouterSushi()"><i class="fa fa-shopping-cart">+</i></span>  
+                          <span class="cart" onclick="ajouterSushi(${sushi.id_sushi})"><i class="fa fa-shopping-cart">+</i></span>  
                       </div>
                 </div>
 
@@ -177,7 +177,7 @@ const CreationBox = () => {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'sushi-Id': 1,
+                    'sushi-Id': idSushi,
 
                 },
                 
