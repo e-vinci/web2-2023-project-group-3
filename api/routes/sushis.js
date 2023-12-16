@@ -35,7 +35,7 @@ router.post('/creationBox', authorize, (req, res) => {
   return res.json(emptyBox);
 });
 
-router.get('/get_price', authorize, (req, res) => {
+router.get('/commande', authorize, (req, res) => {
   const orderFromUser = Payment.allOrdersFromUser(Payment.userId(req.body.userId));
   return res.json(orderFromUser);
 });
