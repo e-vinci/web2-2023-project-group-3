@@ -137,7 +137,7 @@ const Card = () => {
 
     const fetchOrders = async () => {
       try {
-        const userId = getAuthenticatedUser();
+        const userId = getAuthenticatedUser().email;
         const options = {
           method: 'GET',
           headers: {

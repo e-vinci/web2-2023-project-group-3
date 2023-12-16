@@ -6,8 +6,36 @@ const Payment = () => {
   // eslint-disable-next-line no-unused-vars
   const main = document.querySelector('main');
   const authenticatedUser = getAuthenticatedUser().email; 
-
   const userId = authenticatedUser; 
+
+
+  const fetchOrders = async () => {
+    try {
+      const options = {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'User-Id': userId
+        },
+      };
+  
+      const response = await fetch('http://localhost:3000/sushis/commande', options);
+  
+      console.log(response.status);
+  
+      if (response.ok) {
+        const orders = await response.json();
+        console.log('Orders from server:', orders);
+        
+
+      } else {
+        throw new Error('Erreur lors de la récupération des commandes depuis le serveur');
+      }
+    } catch (error) {
+      console.error('Erreur:', error.message);
+    }
+  };
+
 
   const bloc1 = `
    
@@ -47,58 +75,7 @@ const Payment = () => {
                           <h5 class="fw-normal mb-0">1</h5>
                         </div>
                         <div style="width: 80px;">
-                          <h5 class="mb-0">25€</h5>
-                        </div>
-                        <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="card mb-3">
-                  <div class="card-body">
-                    <div class="d-flex justify-content-between">
-                      <div class="d-flex flex-row align-items-center">
-                        <div>
-                          <img
-                          src="${royalBox}"
-                            class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
-                        </div>
-                        <div class="ms-3">
-                          <h5>Box personnalisé</h5>
-                        </div>
-                      </div>
-                      <div class="d-flex flex-row align-items-center">
-                        <div style="width: 50px;">
-                          <h5 class="fw-normal mb-0">1</h5>
-                        </div>
-                        <div style="width: 80px;">
-                          <h5 class="mb-0">25€</h5>
-                        </div>
-                        <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card mb-3">
-                  <div class="card-body">
-                    <div class="d-flex justify-content-between">
-                      <div class="d-flex flex-row align-items-center">
-                        <div>
-                          <img
-                          src="${royalBox}"
-                            class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
-                        </div>
-                        <div class="ms-3">
-                          <h5>Box personnalisé</h5>
-                        </div>
-                      </div>
-                      <div class="d-flex flex-row align-items-center">
-                        <div style="width: 50px;">
-                          <h5 class="fw-normal mb-0">1</h5>
-                        </div>
-                        <div style="width: 80px;">
-                          <h5 class="mb-0">25€</h5>
+                          <h5 class="mb-0">${25}</h5>
                         </div>
                         <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
                       </div>
@@ -154,6 +131,7 @@ const Payment = () => {
         
     `;
   main.innerHTML = bloc1;
+  fetchOrders();
 };
 
 export default Payment;

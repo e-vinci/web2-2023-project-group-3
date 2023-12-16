@@ -16,12 +16,29 @@ router.get('/total_price', async (req, res) => {
   return res.json(price);
 });
 
-
 router.post('/checkout', async (req, res) => {
   /// mettre query pour ajouter info dans db en fonction info client
   console.log(Payment.userId(req.body.userId));
-  const orderFromUser = Payment.allOrdersFromUser(Payment.userId(req.body.userId));
-  const price = orderFromUser.prix_total;
+
+  let price = null;
+
+  try {
+    const orderFromUser = Payment.allOrdersFromUser(Payment.userId(req.body.userId));
+
+    if (!orderFromUser) {
+      console.log('Rien dans la commande, commande vide');
+    } else {
+      console.log(orderFromUser);
+      console.log(req.body.userId);
+
+      // Assuming prix_total is a property of orderFromUser
+      price = orderFromUser.prix_total;
+
+      return res.json(orderFromUser);
+    }
+  } catch (error) {
+    console.error('Rien dans la commande, commande vide');
+  }
 
   try {
     // Fetch product details from the database
@@ -58,8 +75,6 @@ router.post('/checkout', async (req, res) => {
     res.status(500).send('Error creating Stripe session');
   }
 });
-
-
 
 router.get('/error', async (req, res) => {
   console.log('error');
