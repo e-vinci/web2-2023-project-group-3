@@ -10,11 +10,8 @@ const Payment = () => {
   const userId = authenticatedUser; 
 
   const bloc1 = `
-   
 
-
-
-        <section class="h-100 h-custom" style="background-color: #eee;">
+  <section class="h-100 h-custom" style="background-color: #eee;">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col">
@@ -27,7 +24,6 @@ const Payment = () => {
                 <h5 class="mb-3"><a href="#!" class="text-body"><i
                       class="fas fa-long-arrow-alt-left me-2"></i>Recapitulatif de la commande</a></h5>
                 <hr>
-
 
                 <div class="card mb-3">
                   <div class="card-body">

@@ -1,4 +1,4 @@
-import royalBox from '../../img/sushiRoyalBox2.png'
+import boite from '../../img/boite.png'
 import sushi1 from '../../img/sushis/1.png'
 
 
@@ -10,11 +10,11 @@ const CreationBox = () => {
 
   const bloc1= `
   <div class="text-center" style="padding-top: 2%; padding-bottom: 2%; background-color: #151313;">
-  <h1 style="font-weight:700; color: #C69751;" >Créez votre propre box personnalisée!</h1>
-</div>
+    <h1 style="font-weight:700; color: #C69751;" >Créez votre propre box personnalisée!</h1>
+  </div>
 
 
-  <div class="menu">
+<div class="menu">
   <div class="text-center">
     <button class="btn btn-small" style="background-color: #C69751; width: 15%;" data-toggle="portfilter" data-target="all">
       MAKI
@@ -29,94 +29,21 @@ const CreationBox = () => {
       CRUSTY
     </button>
   </div>
+    <div class="boxnew">
+              <img src="${boite}" width="600">
+      </div>  
+            
+        
+            <form action="http://localhost:8080/creationBox" method="get">
+              <button id="ajouterPanier" href="#" data-uri="/creationBox" onclick="afficherAnimation()" >Ajouter au panier</button>
+              <button id="annulerBox" href="#" data-uri="/creationBox" >Annuler</button>
+            </form>      
 </div>
 
-    <div id="cardBox2">
-      <div class="card" style="width: 100%; ">
-        <div class="row ">
-            <div class="col-md-3">
-              <img src="${royalBox}" class="img-fluid rounded-start" alt="...">
-            </div>
-              <div class="col">
-                  <div class="card-body">
-                    <div id="cardBoxContent">
+          
 
-                                <div class="cardSushiInBox">
-                                      
-                                <div class="card-image">
-                                        <img src="${sushi1}" width="100"> 
-                                </div>  
-                  
-                                <div class="">
-                                    <span></span> 
-                                    <h5 class="mb-0">Maki Saumon</h5> 
-                  
-                                    <div class="price">
-                                        <span>7.99€</span>
-                                    </div>
-                
-                                </div>                    
-                                </div>
-                                <div class="cardSushiInBox">
-                                      
-                                <div class="card-image">
-                                        <img src="${sushi1}" width="100"> 
-                                </div>  
-                  
-                                <div class="">
-                                    <span></span> 
-                                    <h5 class="mb-0">Maki Saumon</h5> 
-                  
-                                    <div class="price">
-                                        <span>7.99€</span>
-                                    </div>
-                
-                                </div>                    
-                                </div>
-                                <div class="cardSushiInBox">
-                                      
-                                <div class="card-image">
-                                        <img src="${sushi1}" width="100"> 
-                                </div>  
-                  
-                                <div class="">
-                                    <span></span> 
-                                    <h5 class="mb-0">Maki Saumon</h5> 
-                  
-                                    <div class="price">
-                                        <span>7.99€</span>
-                                    </div>
-                
-                                </div>                    
-                                </div>
-                                <div class="cardSushiInBox">
-                                      
-                                <div class="card-image">
-                                        <img src="${sushi1}" width="100"> 
-                                </div>  
-                  
-                                <div class="">
-                                    <span></span> 
-                                    <h5 class="mb-0">Maki Saumon</h5> 
-                  
-                                    <div class="price">
-                                        <span>7.99€</span>
-                                    </div>
-                
-                                </div>                    
-                                </div> 
-                    
-                    
-              
-
-            <button id="buttonBox2" href="#" data-uri="/creationBox" onclick="" >Ajouter au panier</button>
-            <button id="buttonBox3" href="#" data-uri="/creationBox" >Annuler</button>
-            </div>    
-            </div> 
-            </div>
-        </div>
-      </div>
-    </div>
+           
+   
 
     `
     const displaySushis = (sushis) => {
@@ -129,7 +56,7 @@ const CreationBox = () => {
             <div class="cardMenu">
                                 
             <div class="card-image">
-                    <img src="${sushi1}" width="150"> 
+                    <img src="${sushi1}" width="150" class="sushisImg"> 
             </div>  
       
             <div class="card-inner">
@@ -142,20 +69,29 @@ const CreationBox = () => {
       
       
                 <div class="mt-3 d-flex justify-content-center align-items-center">
-                    <button class="btn text-uppercase btn-sm details" style="background-color: #C69751;" id="popupButton">Détails</button>
+                <button class="btn text-uppercase btn-sm details" style="background-color: #C69751;" onclick="afficher()">Détails</button>
                     <div class="d-flex flex-row">
-                          <span class="cart"><i class="fa fa-shopping-cart">+</i></span>  
+                          <span class="cart" onclick="afficherAnimation()"><i class="fa fa-shopping-cart">+</i></span>  
                       </div>
                 </div>
+
+                  <div class="modal" id="modal">
+                      <div class="modal-back"></div>
+                        <div class="modal-container">
+                          <div class="card" style="width: 25rem;">
+                            <img src="${sushi1}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-title">${sushi.nom}</h5>
+                              <p class="card-text">${sushi.description}</p>
+                                <a href="#" class="btn btn-dark" id="modal-close">fermer</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                 </div>                    
           </div>
-          <div id="popup" class="modal">
-              <p>Ceci est un popup personnalisé!</p>
-              <button onclick="fermerPopup()">Fermer</button>
-          </div>
-      
-          <!-- Fond obscurci -->
-          <div id="overlay" class="overlay"></div>
+    
           `
       
           });   
@@ -194,10 +130,28 @@ const CreationBox = () => {
             console.log(filteredSushis);
             displaySushis(filteredSushis);
             };
+
+            
       
           main.innerHTML = bloc1;
           menu();
       
+
+          window.afficher = async () => {
+            document.getElementById('modal').style.display = 'block'
+          };
+
+          window.afficherAnimation = async() => {
+            const boiteImage = document.querySelector('.boxnew img');
+          
+            // Ajoutez la classe 'shake' à l'image de la boîte pour l'animation
+            boiteImage.classList.add('shake');
+          
+            // Supprimez la classe 'shake' après 500 ms (0.5s)
+            setTimeout(() => {
+              boiteImage.classList.remove('shake');
+            }, 500);
+          };
         };
 
 

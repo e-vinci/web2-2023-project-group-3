@@ -5,10 +5,6 @@ import { getAuthenticatedUser } from '../../utils/auth';
 const articles = [];
 
 
-
-
-
-
 const Card = () => {
     // eslint-disable-next-line no-unused-vars
     const main = document.querySelector('main');
@@ -108,7 +104,7 @@ const Card = () => {
                   <i class="fas fa-minus"></i>
                 </button>
     
-                <input id="form1" min="0" name="quantity" value="2" type="number"
+                <input id="form1" min="0" name="quantity" value="1" type="number"
                   class="form-control form-control-sm" />
     
                 <button class="btn btn-link px-2"
@@ -120,9 +116,9 @@ const Card = () => {
                 <h5 class="mb-0">${article.prix_total}</h5>
               </div>
               <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                <a href="#" class="text-danger"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                <button onclick="deleteBox()" class="text-danger"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
                 <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"></path>
-              </svg></a>
+              </svg></button>
               </div>
             </div>
           </div>
@@ -164,9 +160,31 @@ const Card = () => {
     };
 
 
+
     main.innerHTML = bloc1;
     fetchOrders();
 
+    window.deleteBox = async () => {
+      try {
+        const boxIdToDelete = document.getElementById('boxIdToDelete').value;
+    
+        const response = await fetch(`http://localhost:3000/deletebox/${boxIdToDelete}`, {
+          method: 'DELETE',
+        });
+    
+        console.log(response.status);
+    
+        if (response.ok) {
+          console.log('Box deleted successfully');
+
+        } else {
+          throw new Error(response.status);
+        }
+      } catch (error) {
+        console.error('Error:', error.message);
+        
+      }
+    };
   };
   
   export default Card;
