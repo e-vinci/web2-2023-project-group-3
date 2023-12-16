@@ -142,11 +142,11 @@ const Card = () => {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
-            'User-Id': userId,
+            'user-id': userId,
           },
         };
     
-        const response = await fetch('http://localhost:3000/sushis/commande', options);
+        const response = await fetch('http://localhost:3000/sushis/get_price', options);
     
         console.log(response.status);
     

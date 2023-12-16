@@ -15,11 +15,12 @@ const Payment = () => {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'User-Id': userId
+          'User-Id': userId,
+          'Cache-Control': 'no-cache'
         },
       };
   
-      const response = await fetch('http://localhost:3000/sushis/commande', options);
+      const response = await fetch('http://localhost:3000/sushis/get_price', options);
   
       console.log(response.status);
   
@@ -36,7 +37,7 @@ const Payment = () => {
     }
   };
 
-
+  const orders = fetchOrders();
   const bloc1 = `
    
 
@@ -75,7 +76,7 @@ const Payment = () => {
                           <h5 class="fw-normal mb-0">1</h5>
                         </div>
                         <div style="width: 80px;">
-                          <h5 class="mb-0">${25}</h5>
+                          <h5 class="mb-0">${orders.prix_total}</h5>
                         </div>
                         <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
                       </div>
@@ -130,8 +131,9 @@ const Payment = () => {
 </section>
         
     `;
+    
   main.innerHTML = bloc1;
-  fetchOrders();
+ 
 };
 
 export default Payment;

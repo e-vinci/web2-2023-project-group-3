@@ -31,7 +31,6 @@ router.post('/checkout', async (req, res) => {
       console.log(orderFromUser);
       console.log(req.body.userId);
 
-      // Assuming prix_total is a property of orderFromUser
       price = orderFromUser.prix_total;
 
       return res.json(orderFromUser);
