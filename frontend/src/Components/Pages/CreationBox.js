@@ -35,7 +35,7 @@ const CreationBox = () => {
             
         
             <form action="http://localhost:8080/creationBox" method="get">
-              <button id="ajouterPanier" href="#" data-uri="/creationBox" onclick="afficherAnimation()" >Ajouter au panier</button>
+              <button id="ajouterPanier"  data-uri="/creationBox" onclick="afficherAnimation()" >Ajouter au panier</button>
               <button id="annulerBox" href="#" data-uri="/creationBox" >Annuler</button>
             </form>      
 </div>
@@ -71,10 +71,7 @@ const CreationBox = () => {
                 <div class="mt-3 d-flex justify-content-center align-items-center">
                 <button class="btn text-uppercase btn-sm details" style="background-color: #C69751;" onclick="afficher()">Détails</button>
                     <div class="d-flex flex-row">
-
-
-                    
-                          <span class="cart" onclick="afficherAnimation()"><i class="fa fa-shopping-cart">+</i></span>  
+                          <span class="cart" onclick="ajouterSushi()"><i class="fa fa-shopping-cart">+</i></span>  
                       </div>
                 </div>
 
@@ -144,7 +141,8 @@ const CreationBox = () => {
             document.getElementById('modal').style.display = 'block'
           };
 
-          window.afficherAnimation = async() => {
+          window.afficherAnimation = async() => {       
+            
             const boiteImage = document.querySelector('.boxnew img');
           
             // Ajoutez la classe 'shake' à l'image de la boîte pour l'animation
@@ -154,8 +152,44 @@ const CreationBox = () => {
             setTimeout(() => {
               boiteImage.classList.remove('shake');
             }, 500);
+            const options = {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+              },
           };
-        };
+            const response = await fetch('http://localhost:3000/sushis', options);
+            console.log(response.status);
+      
+          if (response.ok) {
+              console.log('ok')
+          } else {
+              console.error('Erreur lors de l ajout à la box.');
+          }
+
+     
+          };
+
+
+          window.ajouterSushi = async () => {
+            const options = {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+              },
+          };
+            const response = await fetch('http://localhost:3000/sushis', options);
+            console.log(response.status);
+      
+          if (response.ok) {
+              console.log('ok')
+          } else {
+              console.error('Erreur lors de l ajout à la box.');
+          }
+          };
+};
+
+      
 
 
 
