@@ -178,7 +178,7 @@ const CreationBox = () => {
                   'Content-Type': 'application/json',
               },
           };
-            const response = await fetch('http://localhost:3000/sushis/creationBox', options);
+            const response = await fetch('http://localhost:3000/sushis/ajouterSushi', options);
             console.log(response.status);
       
           if (response.ok) {

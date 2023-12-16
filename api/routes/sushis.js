@@ -39,4 +39,8 @@ router.get('/get_price', authorize, (req, res) => {
   const orderFromUser = Payment.allOrdersFromUser(Payment.userId(req.body.userId));
   return res.json(orderFromUser);
 });
+
+router.post('/ajouterSushi', authorize, (req, res) => {
+  return null;
+});
 module.exports = router;
