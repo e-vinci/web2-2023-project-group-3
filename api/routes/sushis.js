@@ -36,7 +36,7 @@ router.post('/ajouterSushi', (req, res) => {
   return res.json(sushiBox);
 });
 
-router.post('/creationBox', authorize, (req, res) => {
+router.get('/creationBox', (req, res) => {
   const box = [];
   // eslint-disable-next-line no-plusplus
   for (let i = 0; i < sushiBox.length; i++) {
@@ -51,6 +51,7 @@ router.post('/creationBox', authorize, (req, res) => {
   });
   console.log(Sushi.updatePriceBox(emptyBox));
   Sushi.updatePriceBox(emptyBox);
+  sushiBox.splice(0, sushiBox.length);
   return res.json(emptyBox);
 });
 

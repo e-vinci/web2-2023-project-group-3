@@ -35,7 +35,7 @@ const CreationBox = () => {
             
         
             <form action="http://localhost:8080/creationBox" method="get">
-              <button id="ajouterPanier"  data-uri="/creationBox" onclick="afficherAnimation()" >Ajouter au panier</button>
+              <button id="ajouterPanier"  data-uri="/creationBox" onclick="creationBox(); afficherAnimation;" >Ajouter au panier</button>
               <button id="annulerBox" href="#" data-uri="/creationBox" >Annuler</button>
             </form>      
 </div>
@@ -170,6 +170,25 @@ const CreationBox = () => {
 
      
           };
+
+          window.creationBox = async () => {
+            try {
+                const response = await fetch('http://localhost:3000/sushis/creationBox');
+        
+                console.log('Response status:', response.status);
+        
+                if (response.ok) {
+                    const responseData = await response.json();
+                    console.log('Response data:', responseData);
+                    // Handle the response data as needed
+                } else {
+                    console.error('Error during GET request.');
+                }
+            } catch (error) {
+                console.error('Fetch error:', error.message);
+            }
+        };
+        
 
 
           window.ajouterSushi = async (idSushi) => {
