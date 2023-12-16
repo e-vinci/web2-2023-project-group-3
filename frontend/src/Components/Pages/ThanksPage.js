@@ -8,13 +8,13 @@ const ThanksPage = () => {
 
 function renderGoBackHomeButton() {
   const main = document.querySelector('main');
-  const submit = document.createElement('input');
+  
   
   const bloc1 = `   
-   <body>
-  <div class="vh-100 d-flex justify-content-center align-items-center">
-      <div class="card col-md-4 bg-white shadow-md p-5">
-          <div class="mb-4 text-center">
+   <div class="thanks">
+  <div class=" d-flex justify-content-center align-items-center" style="margin-top: 5%;">
+      <div class="card col-md-4 bg-white p-5">
+          <div class="mb-4 text-center" id="succes">
               <svg xmlns="http://www.w3.org/2000/svg" class="text-success" width="75" height="75"
                   fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
                   <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
@@ -24,17 +24,18 @@ function renderGoBackHomeButton() {
           </div>
           <div class="text-center">
               <h1>Thank You !</h1>
-              <p>We've send the link to your inbox. Lorem ipsum dolor sit,lorem lorem </p>
-              <button class="btn btn-outline-success">Back Home</button>
+              <p>Merci pour votre commande, notre équipe s'occupe de votre délicieux repas :)</p>
+              <button class="btn btn-outline-success" id="submit">Retour au site</button>
           </div>
       </div>
-</body>`
-  
+</div>`
+ 
+
+  main.innerHTML= bloc1;
+   const submit = document.getElementById('submit')
   submit.addEventListener('click', () => {
     Navigate('/');
   });
-
-  main.innerHTML= bloc1;
 }
 
 export default ThanksPage;

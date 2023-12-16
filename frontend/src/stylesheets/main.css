@@ -659,3 +659,9 @@ font-size: 15px;
   margin-right: 30%;
 }
 
+#succes{
+  animation: bounceIn 1s 0.5s 2 alternate-reverse ;
+}
+
+
+

@@ -90,11 +90,26 @@ const Users = () => {
       <div class="row align-items-center pt-4 pb-3">
         <div class="col-md-3 ps-5">
         <label for="boxTotalPrice">Prix total de la Box:</label>
-
         </div>
         <div class="col-md-9 pe-5">
         <input type="text" id="boxTotalPrice" name="boxTotalPrice" class="form-control form-control-lg" required>
         </div>
+
+        <div class="col-md-3 ps-5">
+        <label for="boxQuantity">Quantité:</label>
+        </div>
+        <div class="col-md-9 pe-5">
+        <input type="text" id="boxQuantity" name="boxQuantity" class="form-control form-control-lg" required>
+        </div>
+
+        <div class="col-md-3 ps-5">
+        <label for="sushiId">sushi id:</label>
+        </div>
+        <div class="col-md-9 pe-5">
+        <input type="text" id="sushiId" name="sushiId" class="form-control form-control-lg" required>
+        </div>
+
+        
       </div>
      
       <hr class="mx-n3">
