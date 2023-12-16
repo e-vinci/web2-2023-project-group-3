@@ -38,7 +38,8 @@ router.post('/creationBox', authorize, (req, res) => {
 router.post('/commande', authorize, (req, res) => {
   const userId = req.headers['user-id'];
   const userOrder = Payment.allOrdersFromUser(Payment.userId(userId));
-
+  console.log(userOrder);
+  console.log(userId);
   return res.json(userOrder);
 });
 module.exports = router;

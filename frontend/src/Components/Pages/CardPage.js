@@ -2,7 +2,7 @@ import royalBox from '../../img/sushiRoyalBox.png'
 
 import { getAuthenticatedUser } from '../../utils/auth';
 
-const articles = [];
+
 
 
 
@@ -146,14 +146,14 @@ const Card = () => {
           },
         };
     
-        const response = await fetch('http://localhost:3000/commande', options);
+        const response = await fetch('http://localhost:3000/sushis/commande', options);
     
         console.log(response.status);
     
         if (response.ok) {
           const orders = await response.json();
           console.log('Orders from server:', orders);
-          displayArticles(articles);
+          displayArticles(orders);
 
         } else {
           throw new Error('Erreur lors de la récupération des commandes depuis le serveur');
