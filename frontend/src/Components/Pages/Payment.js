@@ -11,16 +11,6 @@ const Payment = () => {
 
   const bloc1 = `
    
-        <form action="http://localhost:3000/payment/checkout/" method="post">
-        <input type="hidden" name="userId" value="${userId}" />
-     
-              
-              <!-- Submit button -->
-              <button type="submit">
-                Checkout
-              </button>
-
-        </form>
 
 
 
@@ -125,37 +115,7 @@ const Payment = () => {
                       <h5 class="mb-0">Paiement par carte</h5>
                       </div>
 
-                    <form class="mt-4">
-                      <div class="form-outline form-white mb-4">
-                        <input type="text" id="typeName" class="form-control form-control-lg" siez="17"
-                          placeholder="Nom du propriétaire de la carte" />
-                        <label class="form-label" for="typeName"></label>
-                      </div>
-
-                      <div class="form-outline form-white mb-4">
-                        <input type="text" id="typeText" class="form-control form-control-lg" siez="17"
-                          placeholder="1234 5678 9012 3457" minlength="19" maxlength="19" />
-                        <label class="form-label" for="typeText">Numéro de carte</label>
-                      </div>
-
-                      <div class="row mb-4">
-                        <div class="col-md-6">
-                          <div class="form-outline form-white">
-                            <input type="text" id="typeExp" class="form-control form-control-lg"
-                              placeholder="MM/YYYY" size="7" id="exp" minlength="7" maxlength="7" />
-                            <label class="form-label" for="typeExp">Expiration</label>
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-outline form-white">
-                            <input type="password" id="typeText" class="form-control form-control-lg"
-                              placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3" />
-                            <label class="form-label" for="typeText">Cvv</label>
-                          </div>
-                        </div>
-                      </div>
-
-                    </form>
+                    
 
                     <hr class="my-4">
 
@@ -165,12 +125,18 @@ const Payment = () => {
                       <p class="mb-2">75€</p>
                     </div>
 
-                    <button type="button" class="btn btn-light btn-block btn-lg">
-                      <div class="d-flex justify-content-between">
-                        
-                        <span>Checkout <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
-                      </div>
-                    </button>
+                
+
+                    <form action="http://localhost:3000/payment/checkout/" method="post">
+                    <input type="hidden" name="userId" value="${userId}" />
+                 
+                          
+                          <!-- Submit button -->
+                          <button type="submit" class="btn btn-light btn-block btn-lg">
+                          <span>Aller vers le paiement en ligne <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
+                          </button>
+            
+                    </form>
 
                   </div>
                 </div>
