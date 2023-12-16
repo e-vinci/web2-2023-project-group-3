@@ -118,6 +118,7 @@ const CreationBox = () => {
             if (response.ok) {
               allSushis = await response.json();
               displaySushis(allSushis);
+              console.log(allSushis);
             } else {
               console.error('Erreur lors de la récupération du menu.');
             }
@@ -172,13 +173,12 @@ const CreationBox = () => {
 
 
           window.ajouterSushi = async (idSushi) => {
-            
+           
             const options = {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'sushi-Id': idSushi,
-
+                    'sushi-id': idSushi,
                 },
                 
             };
@@ -189,6 +189,7 @@ const CreationBox = () => {
         
                 if (response.ok) {
                     console.log('Sushi added successfully');
+                    console.log(idSushi);
                     const responseData = await response.json();
                     console.log('Response data:', responseData);
                 } else {

@@ -24,9 +24,15 @@ router.get('/:type', (req, res) => {
 
 const sushiBox = [20];
 
-router.post('/ajouterSushi', authorize, (req, res) => {
-  const sushiId = req.headers['sushi-Id'];
+router.post('/ajouterSushi', (req, res) => {
+  const sushiId = req.headers['sushi-id'];
+  console.log(sushiId);
+
+  if (!sushiBox[sushiId]) {
+    sushiBox[sushiId] = 0;
+  }
   sushiBox[sushiId] += 1;
+  console.log(sushiBox);
   return res.json(sushiBox);
 });
 
