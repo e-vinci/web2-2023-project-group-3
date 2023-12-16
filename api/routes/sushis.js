@@ -35,10 +35,8 @@ router.post('/creationBox', authorize, (req, res) => {
   return res.json(emptyBox);
 });
 
-router.post('/commande', authorize, (req, res) => {
-  const userId = req.headers['user-id'];
-  const userOrder = Payment.allOrdersFromUser(Payment.userId(userId));
-
-  return res.json(userOrder);
+router.get('/get_price', authorize, (req, res) => {
+  const orderFromUser = Payment.allOrdersFromUser(Payment.userId(req.body.userId));
+  return res.json(orderFromUser);
 });
 module.exports = router;

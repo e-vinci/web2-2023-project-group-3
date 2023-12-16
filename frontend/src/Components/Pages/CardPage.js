@@ -2,7 +2,8 @@ import royalBox from '../../img/sushiRoyalBox.png'
 
 import { getAuthenticatedUser } from '../../utils/auth';
 
-const articles = [];
+
+
 
 
 const Card = () => {
@@ -133,23 +134,23 @@ const Card = () => {
 
     const fetchOrders = async () => {
       try {
-        const userId = getAuthenticatedUser();
+        const userId = getAuthenticatedUser().email;
         const options = {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
-            'User-Id': userId,
+            'user-id': userId,
           },
         };
     
-        const response = await fetch('http://localhost:3000/commande', options);
+        const response = await fetch('http://localhost:3000/sushis/get_price', options);
     
         console.log(response.status);
     
         if (response.ok) {
           const orders = await response.json();
           console.log('Orders from server:', orders);
-          displayArticles(articles);
+          displayArticles(orders);
 
         } else {
           throw new Error('Erreur lors de la récupération des commandes depuis le serveur');
@@ -158,11 +159,10 @@ const Card = () => {
         console.error('Erreur:', error.message);
       }
     };
-
-
-
-    main.innerHTML = bloc1;
     fetchOrders();
+    
+    main.innerHTML = bloc1;
+   
 
     window.deleteBox = async () => {
       try {
