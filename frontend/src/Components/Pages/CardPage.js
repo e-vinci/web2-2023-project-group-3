@@ -163,8 +163,8 @@ const Card = () => {
         console.error('Erreur:', error.message);
       }
     };
-     const orders = fetchOrders();
-     displayArticles(orders)
+    fetchOrders();
+    
     main.innerHTML = bloc1;
    
 
