@@ -6,7 +6,8 @@ const Payment = () => {
   // eslint-disable-next-line no-unused-vars
   const main = document.querySelector('main');
   const authenticatedUser = getAuthenticatedUser().email; 
-  const userId = authenticatedUser; 
+  let userId = authenticatedUser; 
+  userId = 4
 
 
   const fetchOrders = async () => {

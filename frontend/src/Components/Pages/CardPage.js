@@ -9,6 +9,7 @@ import { getAuthenticatedUser } from '../../utils/auth';
 
 
 
+
 const Card = () => {
     // eslint-disable-next-line no-unused-vars
     const main = document.querySelector('main');
@@ -162,10 +163,10 @@ const Card = () => {
         console.error('Erreur:', error.message);
       }
     };
-
-
+     const orders = fetchOrders();
+     displayArticles(orders)
     main.innerHTML = bloc1;
-    fetchOrders();
+   
 
   };
   
