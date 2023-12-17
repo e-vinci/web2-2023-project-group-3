@@ -10,7 +10,8 @@ const router = express.Router();
 // Define your payment routes here...
 router.get('/total_price', async (req, res) => {
   console.log('Total price');
-  const orderFromUser = Payment.allOrdersFromUser(Payment.userId(req.body.userId));
+  const userId = req.headers['user-id'];
+  const orderFromUser = Payment.allOrdersFromUser(Payment.userId(userId));
   const price = orderFromUser.prix_total;
 
   return res.json(price);
@@ -18,12 +19,13 @@ router.get('/total_price', async (req, res) => {
 
 router.post('/checkout', async (req, res) => {
   /// mettre query pour ajouter info dans db en fonction info client
-  console.log(Payment.userId(req.body.userId));
+  const userId = req.headers['user-id'];
+  console.log(Payment.userId(userId));
 
   let price = null;
 
   try {
-    const orderFromUser = Payment.allOrdersFromUser(Payment.userId(req.body.userId));
+    const orderFromUser = Payment.allOrdersFromUser(Payment.userId(userId));
 
     if (!orderFromUser) {
       console.log('Rien dans la commande, commande vide');

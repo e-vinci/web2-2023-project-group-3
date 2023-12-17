@@ -47,7 +47,7 @@ const CreationBox = () => {
             
         
             <form action="http://localhost:8080/creationBox" method="get">
-              <button id="ajouterPanier"  data-uri="/creationBox" onclick="afficherAnimation()" >Ajouter au panier</button>
+              <button id="ajouterPanier"  data-uri="/creationBox" onclick="creationBox(); afficherAnimation;" >Ajouter au panier</button>
               <button id="annulerBox" href="#" data-uri="/creationBox" >Annuler</button>
             </form>      
 </div>
@@ -83,7 +83,7 @@ const CreationBox = () => {
                 <div class="mt-3 d-flex justify-content-center align-items-center">
                 <button class="btn text-uppercase btn-sm details" style="background-color: #C69751;" onclick="afficher()">Détails</button>
                     <div class="d-flex flex-row">
-                          <span class="cart" onclick="ajouterSushi()"><i class="fa fa-shopping-cart">+</i></span>  
+                          <span class="cart" onclick="ajouterSushi(${sushi.id_sushi})"><i class="fa fa-shopping-cart">+</i></span>  
                       </div>
                 </div>
 
@@ -130,6 +130,7 @@ const CreationBox = () => {
             if (response.ok) {
               allSushis = await response.json();
               displaySushis(allSushis);
+              console.log(allSushis);
             } else {
               console.error('Erreur lors de la récupération du menu.');
             }
@@ -182,23 +183,54 @@ const CreationBox = () => {
      
           };
 
+          window.creationBox = async () => {
+            try {
+                const response = await fetch('http://localhost:3000/sushis/creationBox');
+        
+                console.log('Response status:', response.status);
+        
+                if (response.ok) {
+                    const responseData = await response.json();
+                    console.log('Response data:', responseData);
+                    // Handle the response data as needed
+                } else {
+                    console.error('Error during GET request.');
+                }
+            } catch (error) {
+                console.error('Fetch error:', error.message);
+            }
+        };
+        
 
-          window.ajouterSushi = async () => {
+
+          window.ajouterSushi = async (idSushi) => {
+           
             const options = {
-              method: 'POST',
-              headers: {
-                  'Content-Type': 'application/json',
-              },
-          };
-            const response = await fetch('http://localhost:3000/sushis', options);
-            console.log(response.status);
-      
-          if (response.ok) {
-              console.log('ok')
-          } else {
-              console.error('Erreur lors de l ajout à la box.');
-          }
-          };
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'sushi-id': idSushi,
+                },
+                
+            };
+        
+            try {
+                const response = await fetch('http://localhost:3000/sushis/ajouterSushi', options);
+                console.log('Response status:', response.status);
+        
+                if (response.ok) {
+                    console.log('Sushi added successfully');
+                    console.log(idSushi);
+                    const responseData = await response.json();
+                    console.log('Response data:', responseData);
+                } else {
+                    console.error('Error adding sushi to the box.');
+                }
+            } catch (error) {
+                console.error('Fetch error:', error.message);
+            }
+        };
+        
 };
 
       
