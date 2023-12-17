@@ -29,8 +29,10 @@ POST {{baseUrl}}/sushis/creationBox
 Content-Type: application/json
 
 {
-    "box":[ {"idSushi":2, "quantity":1}, 
-    {"idSushi":9, "quantity":2}]
+    "box":[ 
+    {"idSushi":2, "quantity":1}, 
+    {"idSushi":9, "quantity":2}
+    ]
 }
 
 ###Create box 
@@ -38,7 +40,8 @@ POST {{baseUrl}}/sushis/commande
 Content-Type: application/json
 
 {
-    "panier":[ {"idSushi":2, "quantity":1}, 
+    "panier":[ 
+        {"idSushi":2, "quantity":1}, 
     {"idSushi":9, "quantity":2}]
 }
 

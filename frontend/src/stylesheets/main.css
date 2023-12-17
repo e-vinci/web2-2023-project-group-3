@@ -390,27 +390,23 @@
 
   }
 
-  #buttonBox2{
-    position: relative;
-    margin-top: 8%;
-
-    float: right;
+  #ajouterPanier{
+    margin-left: 40%;
     padding: 10px 15px;
     border-radius: 10px;
     background-color: #C69751;
     color: #fff;
     border: none;
+    display: inline-block;
   }
 
-  #buttonBox3{
-    
-    float: inline-end;
-    margin-top: -7%;
+  #annulerBox{
     padding: 10px 50px;
     border-radius: 10px;
-    background-color: #151313;
-    color: #fff;
+    background-color: #D9D9D9;
+    color: #151313;
     border: none;
+    display: inline-block;
   }
 
   .profil{
@@ -538,7 +534,7 @@
 .products{
   background-color: #151313;
   padding-top: 2%;
-  padding-left: 5%;
+  padding-left: 8%;
   padding-right: -10%;
   padding-bottom: 5%;
 }
@@ -603,7 +599,7 @@ font-size: 20px;
 .details{
 
 border-radius: 20px;
-
+margin-right: 20%;
 width: 110px;
 height: 40px;
 display: flex;
@@ -655,4 +651,71 @@ font-size: 15px;
   z-index: 999;
 }
 
+
+#succes{
+  animation: bounceIn 1s 0.5s 2 alternate-reverse ;
+}
+
+.modal {
+  display: none;
+}
+.modal-back {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #C69751
+
+}
+.modal-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  padding: 25px;
+  transform: translate(-50%, -50%);
+
+}
+
+
+.roll { 
+	animation-name: rolling; 			
+	animation-duration: 5s;        			
+	animation-iteration-count:infinite;  
+	position:absolute;	
+  left: 0%;
+  top: 25%
+	} 
+
+@keyframes rolling { 
+	0% {opacity: 0; left:0%;} 
+	25% {opacity: 1}
+	50% {transform:rotate(1turn); left:80%;} 
+	75% {opacity: 1;}	
+	100% {opacity: 0; left: 0%; transform:rotate(0); }
+	}  
+
+  .boxnew{
+    margin-left: 30%;
+  }
+
+  
+
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25%, 75% {
+    transform: translateX(-10px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+.shake {
+  animation: shake 0.5s 2 ease-in-out;
+ 
+}
 

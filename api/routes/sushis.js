@@ -22,9 +22,31 @@ router.get('/:type', (req, res) => {
   return res.json(sushiType);
 });
 
-router.post('/creationBox', authorize, (req, res) => {
-  const box = req?.body?.box;
-  console.log(req?.body?.box);
+const sushiBox = [20];
+
+router.post('/ajouterSushi', (req, res) => {
+
+  // Crée un Array avec pour chaque sushi sa quantité, l'index représente l'id du sushi
+  const sushiId = req.headers['sushi-id'];
+  console.log(sushiId);
+
+  if (!sushiBox[sushiId]) {
+    sushiBox[sushiId] = 0;
+  }
+  sushiBox[sushiId] += 1;
+  console.log(sushiBox);
+  return res.json(sushiBox);
+});
+
+router.get('/creationBox', (req, res) => {
+  console.log('Creation Box Back');
+  const box = [];
+  // eslint-disable-next-line no-plusplus
+  for (let i = 0; i < sushiBox.length; i++) {
+    console.log(`ID sushi: ${i}, nombres de sushis: ${sushiBox[i]}`);
+    box.push({ idSushi: i, quantity: sushiBox[i] });
+  }
+
   const emptyBox = Sushi.createEmptyBox();
   console.log(emptyBox);
   box.forEach((element) => {
@@ -32,13 +54,13 @@ router.post('/creationBox', authorize, (req, res) => {
   });
   console.log(Sushi.updatePriceBox(emptyBox));
   Sushi.updatePriceBox(emptyBox);
-  return res.json(emptyBox);
+  sushiBox.splice(0, sushiBox.length);
+  return res.json(box);
 });
 
-router.post('/commande', authorize, (req, res) => {
-  const userId = req.headers['user-id'];
-  const userOrder = Payment.allOrdersFromUser(Payment.userId(userId));
-
-  return res.json(userOrder);
+router.get('/get_price', authorize, (req, res) => {
+  const orderFromUser = Payment.allOrdersFromUser(Payment.userId(req.body.userId));
+  return res.json(orderFromUser);
 });
+
 module.exports = router;

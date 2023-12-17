@@ -11,9 +11,15 @@ function allOrdersFromUser(id) {
   return allOrderFromUser;
 }
 
-function userId(id) {
-  const idUser = db.prepare('SELECT id_client FROM clients WHERE email = ?').get(id);
-  return idUser;
+function userId(email) {
+  const stmtGetUser = db.prepare('SELECT id_client FROM clients WHERE email = ?');
+  const user = stmtGetUser.get(email);
+
+  if (!user) {
+    return null; // or any other suitable indicator for "user not found"
+  }
+
+  return user;
 }
 
 module.exports = {
