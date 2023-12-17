@@ -25,7 +25,6 @@ router.get('/:type', (req, res) => {
 const sushiBox = [20];
 
 router.post('/ajouterSushi', (req, res) => {
-
   // Crée un Array avec pour chaque sushi sa quantité, l'index représente l'id du sushi
   const sushiId = req.headers['sushi-id'];
   console.log(sushiId);
@@ -61,6 +60,13 @@ router.get('/creationBox', (req, res) => {
 router.get('/get_price', authorize, (req, res) => {
   const orderFromUser = Payment.allOrdersFromUser(Payment.userId(req.body.userId));
   return res.json(orderFromUser);
+});
+
+router.get('/get_boxes', authorize, (req, res) => {
+  console.log('get boxes');
+  const getBoxes = Sushi.getBoxes();
+  console.log(getBoxes);
+  return res.json(getBoxes);
 });
 
 module.exports = router;
