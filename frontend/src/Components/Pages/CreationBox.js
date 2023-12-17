@@ -47,7 +47,6 @@ const CreationBox = () => {
         
             <form method="GET" action="http://localhost:8080/creationBox">
               <button id="ajouterPanier"  data-uri="/creationBox"  onclick="creationBox();">Ajouter au panier</button>
-              <input type="submit">
               <button id="annulerBox" href="#" data-uri="/creationBox" >Annuler</button>
             </form>      
 
