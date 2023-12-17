@@ -16,7 +16,6 @@ router.get('/', (req, res) => {
 // Read the sushi identified by an type in the menu
 router.get('/:type', (req, res) => {
   const sushiType = Sushi.read_by_type(req.params.type);
-
   if (!sushiType) return res.sendStatus(404);
 
   return res.json(sushiType);
@@ -62,9 +61,9 @@ router.get('/get_price', authorize, (req, res) => {
   return res.json(orderFromUser);
 });
 
-router.get('/get_boxes', authorize, (req, res) => {
+router.get('/get_boxes', async (req, res) => {
   console.log('get boxes');
-  const getBoxes = Sushi.getBoxes();
+  const getBoxes = await Sushi.getBoxes();
   console.log(getBoxes);
   return res.json(getBoxes);
 });

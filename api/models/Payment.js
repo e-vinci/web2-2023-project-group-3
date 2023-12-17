@@ -16,7 +16,7 @@ function userId(email) {
   const user = stmtGetUser.get(email);
 
   if (!user) {
-    return null; // or any other suitable indicator for "user not found"
+    return 0; // or any other suitable indicator for "user not found"
   }
 
   return user;
