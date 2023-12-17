@@ -1,3 +1,5 @@
+/* eslint-disable prefer-template */
+
 const Users = () => {
     const main = document.querySelector('main');
 
