@@ -167,6 +167,21 @@ const Users = () => {
           
           if (!sushiName || !sushiDescription || !sushiPrice || !sushiType) {
             console.error('All fields are required');
+            alert("All fields are required");
+            return;
+          }
+
+          if (sushiPrice <= 0) {
+            console.error('Price must be more than 0');
+            alert('Price must be more than 0');
+            return;
+          }
+          const validSushiTypes = ['Maki', 'CaliforniaRoll', 'SaumonRoll', 'Crusty', 'Nigiri'];
+
+   
+          if (!validSushiTypes.includes(sushiType)) {
+            console.error('Invalid sushi type');
+            alert('Invalid sushi type. Must be one of Maki, CaliforniaRoll, SaumonRoll, Crusty, Nigiri.');
             return;
           }
 
@@ -205,6 +220,14 @@ const Users = () => {
         try {
           const sushiIdToDelete = document.getElementById('sushiIdToDelete').value;
       
+          if (!sushiIdToDelete) {
+            console.error('All fields are required');
+            alert("All fields are required");
+            return;
+          }
+
+
+
           const response = await fetch(`http://localhost:3000/admin/delete/${sushiIdToDelete}`, {
             method: 'DELETE',
           });
@@ -229,6 +252,18 @@ const Users = () => {
           const boxQuantity = document.getElementById('boxQuantity').value; 
           const sushiId = document.getElementById('sushiId').value; 
       
+          if (!boxTotalPrice || !boxQuantity || !sushiId) {
+            console.error('All fields are required');
+            alert("All fields are required");
+            return;
+          }
+
+          if (boxTotalPrice <= 0 || boxQuantity <= 0 || sushiId <= 0) {
+            console.error('Mauvaise données');
+            alert("Mauvaise données");
+            return;
+          }
+
           const response = await fetch('http://localhost:3000/admin/addBox', {
             method: 'POST',
             headers: {
@@ -258,6 +293,11 @@ const Users = () => {
       window.deleteBox = async () => {
         try {
           const boxIdToDelete = document.getElementById('boxIdToDelete').value;
+
+          if (!boxIdToDelete) {
+            console.error('All fields are required');
+            return;
+          }
       
           const response = await fetch(`http://localhost:3000/admin/deletebox/${boxIdToDelete}`, {
             method: 'DELETE',

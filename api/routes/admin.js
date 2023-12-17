@@ -45,7 +45,7 @@ router.delete('/delete/:id', (req, res) => {
 
 router.delete('/deletebox/:id', (req, res) => {
   console.log('Delete box');
-  const boxId = req.params.id;
+  const boxId = req.params.id
 
   if (!boxId) {
     return res.status(400).json({ error: 'Invalid ID provided' });
@@ -58,8 +58,14 @@ router.delete('/deletebox/:id', (req, res) => {
 router.post('/addBox', (req, res) => {
   const box = addBox(req?.body?.prix_total);
 
+
   const quantite = req?.body?.quantite;
   const sushi = req?.body?.sushi;
+
+  if (!box || !quantite || !sushi) {
+    return res.status(400).json({ error: 'Invalid ID provided' });
+  }
+
   const addComp = addComposition(quantite, sushi, box);
 
   return res.json(addComp);
