@@ -164,7 +164,12 @@ const Users = () => {
           const sushiDescription = document.getElementById('sushiDescription').value;
           const sushiPrice = document.getElementById('sushiPrice').value;
           const sushiType = document.getElementById('sushiType').value;
-      
+          
+          if (!sushiName || !sushiDescription || !sushiPrice || !sushiType) {
+            console.error('All fields are required');
+            return;
+          }
+
           const response = await fetch('http://localhost:3000/admin/add', {
             method: 'POST',
             headers: {
