@@ -4,7 +4,7 @@ const router = express.Router();
 
 // eslint-disable-next-line import/extensions
 const Sushi = require('../models/Sushi.js');
-const { authorize } = require('../utils/auths.js');
+const { authorize } = require('../utils/auths');
 const Payment = require('../models/Payment');
 
 /* Read all the sushis from the menu */
