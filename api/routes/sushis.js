@@ -25,6 +25,8 @@ router.get('/:type', (req, res) => {
 const sushiBox = [20];
 
 router.post('/ajouterSushi', (req, res) => {
+
+  // Crée un Array avec pour chaque sushi sa quantité, l'index représente l'id du sushi
   const sushiId = req.headers['sushi-id'];
   console.log(sushiId);
 
@@ -37,6 +39,7 @@ router.post('/ajouterSushi', (req, res) => {
 });
 
 router.get('/creationBox', (req, res) => {
+  console.log('Creation Box Back');
   const box = [];
   // eslint-disable-next-line no-plusplus
   for (let i = 0; i < sushiBox.length; i++) {
@@ -52,7 +55,7 @@ router.get('/creationBox', (req, res) => {
   console.log(Sushi.updatePriceBox(emptyBox));
   Sushi.updatePriceBox(emptyBox);
   sushiBox.splice(0, sushiBox.length);
-  return res.json(emptyBox);
+  return res.json(box);
 });
 
 router.get('/get_price', authorize, (req, res) => {
