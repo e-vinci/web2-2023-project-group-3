@@ -134,7 +134,7 @@ const CreationBox = () => {
 
     // function to get already created boxes
 
-    const getBoxes = async () => {
+   /* const getBoxes = async () => {
    
       const response = await fetch('http://localhost:3000/sushis/get_boxes');
       console.log(response.status);
@@ -148,7 +148,7 @@ const CreationBox = () => {
         console.error('Erreur lors de la récupération des boîtes.');
       }
     };
-
+*/
   
   // Fonction pour filtrer les sushis par type
   window.filterSushis = (type) => {
@@ -160,14 +160,14 @@ const CreationBox = () => {
   
   main.innerHTML = bloc1;
   menu();
-  getBoxes();
+ // getBoxes();
 
 
   window.afficher = async () => {
     document.getElementById('modal').style.display = 'block';
   };
 
-  window.afficherAnimation = async () => {
+  window.creationBox = async () => {
     const boiteImage = document.querySelector('.boxnew img');
 
     // Ajoutez la classe 'shake' à l'image de la boîte pour l'animation
@@ -177,13 +177,14 @@ const CreationBox = () => {
     setTimeout(() => {
       boiteImage.classList.remove('shake');
     }, 500);
+
     const options = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
     };
-    const response = await fetch('http://localhost:3000/sushis', options);
+    const response = await fetch('http://localhost:3000/sushis/creationBox', options);
     console.log(response.status);
 
     if (response.ok) {
@@ -193,7 +194,7 @@ const CreationBox = () => {
     }
   };
 
-  window.creationBox = async () => {
+ /* window.creationBox = async () => {
     console.log(' ! CREATION BOX ! ');
 
     try {
@@ -210,7 +211,8 @@ const CreationBox = () => {
       console.error('Fetch error:', error.message);
     }
   };
-
+  */
+/*
   window.ajouterSushi = async (idSushi) => {
     console.log(' ! AJOUT SUSHI ! ');
     const options = {
@@ -237,7 +239,7 @@ const CreationBox = () => {
       console.error('Fetch error:', error.message);
     }
   };
-
+*/
 
 
 
