@@ -72,24 +72,6 @@ const Profil = async () => {
         </div>
    
     </div>
-                    </div>
-                    <button id="logOut" href="#" data-uri="/connexion">Se connecter</button>
-                </div> 
-              </div>
-          </div>
-          
-          <div class="col-sm-4">
-              <div class="lastCommandes">
-                  <h6 class="">ANCIENNES COMMANDES</h6>
-                  <p class="" id="userDateOfOrderClient">
-                  Commande du <span id="userDateOfOrderClientPlaceHolder"></span>
-              </p>
-              </div>
-          </div>
-      </div>
- 
-  </div>
-
   `
 
   main.innerHTML = bloc1;
