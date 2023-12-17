@@ -1,4 +1,7 @@
 const express = require('express');
+
+const session = require('express-session');
+
 const { register, login } = require('../models/users');
 
 const router = express.Router();
@@ -14,6 +17,9 @@ router.post('/register', async (req, res) => {
 
   if (!authenticatedUser) return res.sendStatus(409); // 409 Conflict
 
+   if (authenticatedUser) {req.session.email = email;
+  console.log(req.session.email) };
+
   return res.json(authenticatedUser);
 });
 
@@ -27,6 +33,9 @@ router.post('/login', async (req, res) => {
   const authenticatedUser = await login(email, mdp);
 
   if (!authenticatedUser) return res.status(401).json({ message: 'Email ou mot de passe incorrect' }); // 401 Unauthorized
+
+  if (authenticatedUser) {req.session.email = email;
+  console.log(req.session.email) };
 
   return res.json(authenticatedUser);
 });

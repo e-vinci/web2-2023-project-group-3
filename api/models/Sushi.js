@@ -50,11 +50,7 @@ module.exports.updatePriceBox = (idBox) => {
 
 module.exports.createEmptyCommande = (idClient) => {
   console.log('je passe par createEmptyCommande');
-  const result = db
-    .prepare(
-      'INSERT INTO commandes(PRIX_TOTAL, MOYEN_PAIEMENT, CLIENT, CODE_PROMO)VALUES (null,null,?,null);',
-    )
-    .run(idClient); // Utilisez .run() pour exécuter la requête
+  const result = db.prepare('INSERT INTO commandes(PRIX_TOTAL, MOYEN_PAIEMENT, CLIENT, CODE_PROMO)VALUES (null,null,?,null);').run(idClient);
   const lastInsertedId = result.lastInsertRowid;
 
   return lastInsertedId;

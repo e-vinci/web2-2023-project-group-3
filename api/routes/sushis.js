@@ -1,12 +1,14 @@
 const express = require('express');
 
+const session = require('express-session');
+
 const router = express.Router();
 
 // eslint-disable-next-line import/extensions
 const Sushi = require('../models/Sushi.js');
 const { authorize } = require('../utils/auths');
 const Payment = require('../models/Payment');
-
+const Client = require('../models/Client.js');
 /* Read all the sushis from the menu */
 router.get('/', (req, res) => {
   const allSushis = Sushi.read_all(req?.query?.type);
@@ -47,6 +49,19 @@ router.post('/creationBox', (req, res) => {
   console.log(Sushi.updatePriceBox(emptyBox));
   Sushi.updatePriceBox(emptyBox);
   return res.json(emptyBox);
+});
+
+router.post('/commande', (req, res) => {
+  const panier = req?.body?.panier;
+  console.log(req.session.email);
+  const clientID = Client.getOneUser(req.session.email);
+  console.log(clientID);
+  const commande = Sushi.createEmptyCommande(clientID);
+  panier.forEach((box) => {
+    Sushi.addBoxToOrder(box);
+  });
+  Sushi.updatePriceCommande(commande);
+  return res.json(commande);
 });
 
 router.get('/get_price', authorize, (req, res) => {

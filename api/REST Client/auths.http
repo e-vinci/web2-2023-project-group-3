@@ -51,3 +51,12 @@ Content-Type: application/json
     "email": "test6@gmail.com",
     "mdp": "test"
 }
+
+### Login the manager user
+POST {{baseUrl}}/auths/login
+Content-Type: application/json
+
+{
+    "email":"test6@gmail.com",
+    "password":"test"
+}
