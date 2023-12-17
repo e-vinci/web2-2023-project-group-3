@@ -1,9 +1,21 @@
+
+/* eslint-disable prefer-template */
 /* eslint-disable no-unused-vars */
-import sushi1 from "../../img/sushis/1.png";
+import s1 from "../../img/sushis/1bis.png";
+import s2 from "../../img/sushis/2bis.png";
+import s3 from "../../img/sushis/3bis.png";
+import s4 from "../../img/sushis/4bis.png";
+import s5 from "../../img/sushis/5.png";
+import s6 from "../../img/sushis/6.png";
+import s7 from "../../img/sushis/7.png";
+import s8 from "../../img/sushis/8.png";
+import s9 from "../../img/sushis/9.png";
+import s10 from "../../img/sushis/10.png";
 import Navigate from '../Router/Navigate';
 import { clearPage } from '../../utils/render';
-import roll from '../../img/sushis/roll.png'
+import roll from '../../img/sushis/roll.png';
 
+const allPics =[s1,s2,s3,s4,s5,s6,s7,s8,s9,s10];
 // Déclarez une variable globale pour stocker tous les sushis
 let allSushis = [];
 
@@ -56,7 +68,7 @@ const displaySushis = (sushis) => {
         products.innerHTML +=
             `<div class="cardMenu">
                 <div class="card-image">
-                    <img src="${sushi1}" width="150"> 
+                    <img src="${allPics[index]}" width="150"> 
                 </div>  
                 <div class="card-inner">
                     <span></span> 
@@ -74,7 +86,7 @@ const displaySushis = (sushis) => {
               <div class="modal-back"></div>
                 <div class="modal-container">
                   <div class="card" style="width: 25rem;">
-                    <img src="${sushi1}" class="card-img-top" alt="...">
+                    <img src="${allPics[index]}" class="card-img-top" alt="...">
                     <div class="card-body">
                       <h5 class="card-title">${sushi.nom}</h5>
                       <p class="card-text">${sushi.description}</p>

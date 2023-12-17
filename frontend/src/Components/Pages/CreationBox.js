@@ -1,6 +1,18 @@
 import boite from '../../img/boite.png'
 import sushi1 from '../../img/sushis/1.png'
+import s1 from "../../img/sushis/1bis.png";
+import s2 from "../../img/sushis/2bis.png";
+import s3 from "../../img/sushis/3bis.png";
+import s4 from "../../img/sushis/4bis.png";
+import s5 from "../../img/sushis/5.png";
+import s6 from "../../img/sushis/6.png";
+import s7 from "../../img/sushis/7.png";
+import s8 from "../../img/sushis/8.png";
+import s9 from "../../img/sushis/9.png";
+import s10 from "../../img/sushis/10.png";
 
+
+const allPics =[s1,s2,s3,s4,s5,s6,s7,s8,s9,s10];
 
 // Déclarez une variable globale pour stocker tous les sushis
 let allSushis = [];
@@ -50,13 +62,13 @@ const CreationBox = () => {
 
         const products = document.createElement('div');
         products.classList.add('products');
-          sushis.forEach(sushi => {
+          sushis.forEach((sushi, index) => {
             products.innerHTML+=
             `
             <div class="cardMenu">
                                 
             <div class="card-image">
-                    <img src="${sushi1}" width="150" class="sushisImg"> 
+                    <img src="${allPics[index]}" width="150" class="sushisImg"> 
             </div>  
       
             <div class="card-inner">
