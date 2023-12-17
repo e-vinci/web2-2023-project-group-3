@@ -48,7 +48,7 @@ const Users = () => {
             </div>
             <hr class="mx-n3">
             <div class="px-5 py-4">
-              <button type="button" onclick="addSushi()" class="btn btn-primary btn-lg" >Ajouter Sushi</button>
+              <button type="button" onclick="event.preventDefault(); addSushi()" class="btn btn-primary btn-lg" >Ajouter Sushi</button>
             </div>
           </div>
         </div>
@@ -145,59 +145,27 @@ const Users = () => {
 </div>
 </form>
 
+  <form method="GET"  action="http://localhost:3000/admin/allOrders">
+    <input type="submit" value="Afficher toutes le commandes">
   </form>
 
-        <h1 class="titleUsers">Page Admin</h1>
+  </form>
 
-        <!-- Add Sushi Form -->
-        <form id="addSushiForm">
-            <label for="sushiName">Nom du Sushi:</label>
-            <input type="text" id="sushiName" name="sushiName" required>
-            <label for="sushiDescription">Description:</label>
-            <input type="text" id="sushiDescription" name="sushiDescription" required>
-            <label for="sushiPrice">Prix unitaire:</label>
-            <input type="text" id="sushiPrice" name="sushiPrice" required>
-            <label for="sushiType">Type:</label>
-            <input type="text" id="sushiType" name="sushiType" required>
-            <button type="button" onclick="addSushi()">Ajouter Sushi</button>
-        </form>
-
-        <!-- Delete Sushi Form -->
-        <form id="deleteSushiForm">
-            <label for="sushiIdToDelete">ID du Sushi à supprimer:</label>
-            <input type="text" id="sushiIdToDelete" name="sushiIdToDelete" required>
-            <button type="button" onclick="deleteSushi()">Supprimer Sushi</button>
-        </form>
-
-        <!-- Add Box Form -->
-        <form id="addBoxForm">
-            <label for="boxTotalPrice">Prix total de la Box:</label>
-            <input type="text" id="boxTotalPrice" name="boxTotalPrice" required>
-            <!-- Add other fields as needed -->
-            <button type="button" onclick="addBox()">Ajouter Box</button>
-        </form>
-
-        <!-- Delete Box Form -->
-        <form id="deleteBoxForm">
-            <label for="boxIdToDelete">ID de la Box à supprimer:</label>
-            <input type="text" id="boxIdToDelete" name="boxIdToDelete" required>
-            <button type="button" onclick="deleteBox()">Supprimer Box</button>
-        </form>
-
-        <!-- Your existing HTML code -->
+     
     `;
 
     main.innerHTML = bloc1;
 
     // Function to add a sushi
     window.addSushi = async () => {
+      console.log('! ADD SUSHI !')
         try {
           const sushiName = document.getElementById('sushiName').value;
           const sushiDescription = document.getElementById('sushiDescription').value;
           const sushiPrice = document.getElementById('sushiPrice').value;
           const sushiType = document.getElementById('sushiType').value;
       
-          const response = await fetch('http://localhost:3000/add', {
+          const response = await fetch('http://localhost:3000/admin/add', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -232,7 +200,7 @@ const Users = () => {
         try {
           const sushiIdToDelete = document.getElementById('sushiIdToDelete').value;
       
-          const response = await fetch(`http://localhost:3000/delete/${sushiIdToDelete}`, {
+          const response = await fetch(`http://localhost:3000/admin/delete/${sushiIdToDelete}`, {
             method: 'DELETE',
           });
       
@@ -256,7 +224,7 @@ const Users = () => {
           const boxQuantity = document.getElementById('boxQuantity').value; 
           const sushiId = document.getElementById('sushiId').value; 
       
-          const response = await fetch('http://localhost:3000/addBox', {
+          const response = await fetch('http://localhost:3000/admin/addBox', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -286,7 +254,7 @@ const Users = () => {
         try {
           const boxIdToDelete = document.getElementById('boxIdToDelete').value;
       
-          const response = await fetch(`http://localhost:3000/deletebox/${boxIdToDelete}`, {
+          const response = await fetch(`http://localhost:3000/admin/deletebox/${boxIdToDelete}`, {
             method: 'DELETE',
           });
       
@@ -303,6 +271,10 @@ const Users = () => {
           
         }
       };
+
+      
+      
+      
     };
       
       export default Users;
