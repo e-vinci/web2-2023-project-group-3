@@ -1,0 +1,23 @@
+@baseUrl = http://localhost:3000
+
+### Try to login an unknow user
+POST {{baseUrl}}/users/add
+Content-Type: application/json
+
+{   
+"nom": "baroni",
+"prenom":"raph",
+"adresse":"lol248",
+"email":"raph.baroro@gmail.com",
+"mdp":"je suis vegan"
+}
+
+### See profile user
+GET {{baseUrl}}/users/profile/test@gmail.com
+
+### See profile user
+GET {{baseUrl}}/users/profile/j.d@gmail.com
+
+
+
+

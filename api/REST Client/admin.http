@@ -1,0 +1,46 @@
+######### NORMAL OPERATION  ###########
+
+@baseUrl = http://localhost:3000
+
+
+
+### Show all orders
+GET {{baseUrl}}/admin/allOrders
+
+
+
+
+### Add sushi
+POST {{baseUrl}}/admin/add
+Content-Type: application/json
+
+{
+    "name":"French Touch",
+    "description":"Sushi avec foies gras",
+    "prix_unitaire": 1,
+    "type": "Maki"
+}
+
+
+### Delete sushi by ID
+DELETE {{baseUrl}}/admin/delete/11
+
+
+
+### Delete box by ID
+DELETE {{baseUrl}}/admin/deletebox/10
+
+### Add box
+POST {{baseUrl}}/admin/addbox
+Content-Type: application/json
+
+{
+    "prix_total":30,
+    "quantite":5,
+    "sushi": 1
+}
+
+
+
+
+

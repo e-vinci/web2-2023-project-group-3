@@ -1,0 +1,63 @@
+######### NORMAL OPERATION  ###########
+
+### Read all sushis
+GET https://sushi-royal-api.azurewebsites.net/sushis
+
+### Read all sushis with File variable
+@baseUrl = http://localhost:3000
+GET {{baseUrl}}/sushis
+
+### Login to the application
+# @name admin
+POST {{baseUrl}}/auths/login
+Content-Type: application/json
+
+{
+    "email":"didia@fjid",
+    "mdp":"didia"
+}
+
+### Get sushi when login
+GET {{baseUrl}}/sushis
+Authorization: {{admin.response.body.token}}
+
+### Read pizza identified by 2
+GET {{baseUrl}}/sushis/Maki
+
+###Create box 
+POST {{baseUrl}}/sushis/creationBox
+Content-Type: application/json
+
+{
+    "box":[ 
+    {"idSushi":2, "quantity":1}, 
+    {"idSushi":9, "quantity":2}
+    ]
+}
+
+###Create box 
+POST {{baseUrl}}/sushis/commande
+Content-Type: application/json
+
+{
+    "panier":[ 
+        {"idBox":2}, 
+    {"idBox":9}]
+}
+
+##### 2.1.1 Define a request variable nammed manager
+# @name manager
+POST {{baseUrl}}/auths/login
+Content-Type: application/json
+
+{
+    "username":"manager",
+    "password":"manager"
+}
+
+##### 2.1.2 Define a file variable to simplify the access to the token of manager
+@managerToken = {{manager.response.body.token}}
+
+
+
+

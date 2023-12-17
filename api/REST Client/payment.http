@@ -1,0 +1,11 @@
+######### NORMAL OPERATION  ###########
+
+@baseUrl = http://localhost:3000/payment
+
+
+
+### Create payment 
+POST {{baseUrl}}/checkout/
+
+### Create test
+GET {{baseUrl}}/test
